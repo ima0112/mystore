@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mystore/utils/theme/custom_themes/appbar_theme.dart';
 import 'package:mystore/utils/theme/custom_themes/bottom_sheet_theme.dart';
 import 'package:mystore/utils/theme/custom_themes/checkbox_theme.dart';
+import 'package:mystore/utils/theme/custom_themes/chip_theme.dart';
 import 'package:mystore/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:mystore/utils/theme/custom_themes/text_theme.dart';
 
@@ -17,6 +18,7 @@ class MyAppTheme {
     appBarTheme: MyAppBarTheme.lightAppBarTheme,
     bottomSheetTheme: MyBottomSheetTheme.lightBottomSheetTheme,
     checkboxTheme: MyCheckboxTheme.lightCheckboxTheme,
+    chipTheme: MyChipTheme.lightChipTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -30,5 +32,6 @@ class MyAppTheme {
     appBarTheme: MyAppBarTheme.darkAppBarTheme,
     bottomSheetTheme: MyBottomSheetTheme.darkBottomSheetTheme,
     checkboxTheme: MyCheckboxTheme.darkCheckboxTheme,
+    chipTheme: MyChipTheme.darkChipTheme,
   );
 }
