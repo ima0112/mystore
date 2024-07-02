@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mystore/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:mystore/utils/theme/custom_themes/text_theme.dart';
 
 class MyAppTheme {
@@ -9,6 +10,7 @@ class MyAppTheme {
     primaryColor: Colors.deepPurple,
     scaffoldBackgroundColor: Colors.white,
     textTheme: MyTextTheme.lightTextTheme,
+    elevatedButtonTheme: MyELevatedButtonTheme.lightElevatedButtonTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -18,5 +20,6 @@ class MyAppTheme {
     primaryColor: Colors.deepPurple,
     scaffoldBackgroundColor: Colors.black,
     textTheme: MyTextTheme.darkTextTheme,
+    elevatedButtonTheme: MyELevatedButtonTheme.darkElevatedButtonTheme,
   );
 }
