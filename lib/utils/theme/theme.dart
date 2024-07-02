@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mystore/utils/theme/custom_themes/appbar_theme.dart';
 import 'package:mystore/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:mystore/utils/theme/custom_themes/text_theme.dart';
 
@@ -11,6 +12,7 @@ class MyAppTheme {
     scaffoldBackgroundColor: Colors.white,
     textTheme: MyTextTheme.lightTextTheme,
     elevatedButtonTheme: MyELevatedButtonTheme.lightElevatedButtonTheme,
+    appBarTheme: MyAppBarTheme.lightAppBarTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -21,5 +23,6 @@ class MyAppTheme {
     scaffoldBackgroundColor: Colors.black,
     textTheme: MyTextTheme.darkTextTheme,
     elevatedButtonTheme: MyELevatedButtonTheme.darkElevatedButtonTheme,
+    appBarTheme: MyAppBarTheme.darkAppBarTheme,
   );
 }
