@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mystore/utils/dio/logger_interceptor.dart';
+import 'package:mystore/utils/http_client/logger_interceptor.dart';
 
 @module
 abstract class RegisterModule {
@@ -9,7 +9,7 @@ abstract class RegisterModule {
   String get baseUrl => '';
 
   @lazySingleton
-  Dio dioProvider(@Named('BaseUrl') String url) {
+  Dio client(@Named('BaseUrl') String url) {
     final dio = Dio(
       BaseOptions(
         baseUrl: url,
