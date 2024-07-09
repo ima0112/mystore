@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mystore/features/authentication/bloc/onboarding_controller/onboarding_controller_cubit.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/device/device_utility.dart';
 
@@ -9,11 +11,13 @@ class OnBoardingSkip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final onboardingCubit = context.read<OnboardingControllerCubit>();
+
     return Positioned(
       top: MyDeviceUtils.getAppBarHeight(),
       right: MySizes.defaultSpace,
       child: TextButton(
-        onPressed: () {},
+        onPressed: () => onboardingCubit.skipPage(),
         child: const Text('Skip'),
       ),
     );
