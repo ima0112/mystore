@@ -15,6 +15,10 @@ class MyTexts {
   static const String onBoardingSubTitle3 =
       'From Our Doorstep to Yours - Swift, Secure and Contactless Delivery!';
 
+  // Login Text
+  static const String loginTitle = 'Welcome back, ';
+  static const String loginSubtitle = 'Discover Limitless Choices and Unmatched Convenience';
+
   // Home
   static const String homeAppbarTitle = '';
 }
