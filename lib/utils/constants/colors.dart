@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyColors {
   // App Basic Colors
-  static const Color primary = Color(0xFF4b68ff);
+  static const Color primary = Color.fromARGB(255, 126, 75, 255);
   static const Color secondary = Color(0xFFFFE24B);
   static const Color accent = Color(0xFFb0c7ff);
 
@@ -32,7 +32,7 @@ class MyColors {
   static Color darkContainer = Colors.white.withOpacity(0.1);
 
   // Button Colors
-  static const Color buttonPrimary = Color(0xFF4b68ff);
+  static const Color buttonPrimary = Color.fromARGB(255, 126, 75, 255);
   static const Color buttonSecondary = Color(0xFF6C757D);
   static const Color buttonDisable = Color(0xFFC4C4C4);
 
