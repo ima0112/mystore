@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:mystore/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
-import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/device/device_utility.dart';
-import 'package:mystore/utils/helpers/helper_functions.dart';
-
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
+import 'package:mystore/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:mystore/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:mystore/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
@@ -48,6 +43,7 @@ class OnboardingScreen extends StatelessWidget {
           const OnBoardingDotNavigation(),
 
           // Circular Button
+          const OnBoardingNextButton(),
         ],
       ),
     );
