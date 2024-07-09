@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mystore/features/authentication/screens/onboarding.dart';
+import 'package:mystore/features/authentication/screens/onboarding/onboarding.dart';
 
 enum MyRoutes {
   onboarding,
