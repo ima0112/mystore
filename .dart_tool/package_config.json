@@ -254,6 +254,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "go_router",
+      "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-14.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "graphs",
       "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/graphs-2.3.1",
       "packageUri": "lib/",
@@ -524,6 +530,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "smooth_page_indicator",
+      "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/smooth_page_indicator-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_gen",
       "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/source_gen-1.5.0",
       "packageUri": "lib/",
@@ -716,7 +728,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-07-09T07:33:10.951112Z",
+  "generated": "2024-07-09T08:12:23.207275Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///D:/flutter_windows_3.13.7-stable/flutter",
