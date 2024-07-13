@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                   Image(
                     height: 150,
                     image: AssetImage(
-                      dark ? MyImages.loginImageDark : MyImages.loginImageLight,
+                      dark ? MyImages.darkAppLogo : MyImages.lightAppLogo,
                     ),
                   ),
                   Text(
@@ -141,6 +141,41 @@ class LoginScreen extends StatelessWidget {
                       indent: 5,
                       endIndent: 60,
                       thickness: 0.5,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: MySizes.spaceBtwSections),
+
+              // Footer
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: MyColors.grey),
+                        borderRadius: BorderRadius.circular(100)),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Image(
+                        image: AssetImage(MyImages.google),
+                        width: MySizes.iconMd,
+                        height: MySizes.iconMd,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: MySizes.spaceBtwItems),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: MyColors.grey),
+                        borderRadius: BorderRadius.circular(100)),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Image(
+                        image: AssetImage(MyImages.facebook),
+                        width: MySizes.iconMd,
+                        height: MySizes.iconMd,
+                      ),
                     ),
                   ),
                 ],
