@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 part 'onboarding_controller_state.dart';
 
@@ -17,7 +19,7 @@ class OnboardingControllerCubit extends Cubit<OnboardingControllerState> {
 
   void nextPage() {
     if (state.currentPageIndex == 2) {
-      //TODO: Navigate to the login screen
+      AppRoute.routes.goNamed(MyRoutes.login.name);
     } else {
       int page = state.currentPageIndex + 1;
       pageController.jumpToPage(page);
