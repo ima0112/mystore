@@ -1,19 +1,26 @@
+// ignore_for_file: unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
+import 'package:mystore/utils/helpers/helper_functions.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dark = MyHelperFunctions.isDarkMode(context);
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(MySizes.defaultSpace),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /// Title
               Text(
@@ -88,6 +95,65 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: MySizes.spaceBtwSections),
+
+                    /// Terms & Conditions Checkbox
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: Checkbox(
+                            value: true,
+                            onChanged: (value) {},
+                          ),
+                        ),
+                        const SizedBox(width: MySizes.spaceBtwItems),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '${MyTexts.iAgreeTo} ',
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                              TextSpan(
+                                text: '${MyTexts.privacyPolicy}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .apply(
+                                      color: dark
+                                          ? MyColors.white
+                                          : MyColors.primary,
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: dark
+                                          ? MyColors.white
+                                          : MyColors.primary,
+                                    ),
+                              ),
+                              TextSpan(
+                                text: ' ${MyTexts.and} ',
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                              TextSpan(
+                                text: MyTexts.termOfUse,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .apply(
+                                      color: dark
+                                          ? MyColors.white
+                                          : MyColors.primary,
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: dark
+                                          ? MyColors.white
+                                          : MyColors.primary,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
