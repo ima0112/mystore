@@ -20,4 +20,6 @@ class MyImages {
   // Animations
   static const String deliveredEmailIllustration =
       'assets/images/animations/sammy-line-man-receives-a-mail.png';
+  static const String staticSuccessIllustration =
+      'assets/images/animations/sammy-line-success.png';
 }
