@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:iconsax/iconsax.dart';
 
 import 'package:mystore/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({
@@ -87,7 +89,9 @@ class SignupForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.goNamed(MyRoutes.verifyEmail.name);
+              },
               child: const Text(MyTexts.createAccount),
             ),
           ),
