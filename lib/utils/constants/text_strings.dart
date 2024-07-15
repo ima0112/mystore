@@ -48,7 +48,7 @@ class MyTexts {
   static const String changeYourPasswordTitle = 'Password Reset Email Sent';
   static const String changeYourPasswordSubtitle =
       "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Your Password and Keep Your Account Protected";
-  static const String confirmEmailTitle = 'Verify your email address';
+  static const String confirmEmailTitle = 'Verify your email address!';
   static const String confirmEmailSubtitle =
       'Congratulation! Your Account Awaits: Verify  Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers';
   static const String emailNotRecieveMessage =

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/utils/constants/text_strings.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
@@ -32,7 +33,27 @@ class VerifyEmailScreen extends StatelessWidget {
                 image: const AssetImage(MyImages.deliveredEmailIllustration),
                 width: MyHelperFunctions.screenWidth(context) * 0.6,
               ),
-              const SizedBox(height: MySizes.spaceBtwSections)
+              const SizedBox(height: MySizes.spaceBtwSections),
+
+              // Title & SubTitle
+              Text(
+                MyTexts.confirmEmailTitle,
+                style: Theme.of(context).textTheme.headlineMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: MySizes.spaceBtwItems),
+              Text(
+                'imandracardenas0@gmail.com',
+                style: Theme.of(context).textTheme.labelLarge,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: MySizes.spaceBtwItems),
+              Text(
+                MyTexts.confirmEmailSubtitle,
+                style: Theme.of(context).textTheme.labelMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: MySizes.spaceBtwItems),
             ],
           ),
         ),
