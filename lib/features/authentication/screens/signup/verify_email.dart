@@ -53,7 +53,24 @@ class VerifyEmailScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: MySizes.spaceBtwSections),
+
+              // Buttons
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text(MyTexts.myContinue),
+                ),
+              ),
               const SizedBox(height: MySizes.spaceBtwItems),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(MyTexts.resendEmail),
+                ),
+              ),
             ],
           ),
         ),
