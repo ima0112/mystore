@@ -16,4 +16,8 @@ class MyImages {
       'assets/images/on_boarding_images/sammy_line_shopping.gif';
   static const String onBoardingImage3 =
       'assets/images/on_boarding_images/sammy_line_delivering.gif';
+
+  // Animations
+  static const String deliveredEmailIllustration =
+      'assets/images/animations/sammy-line-man-receives-a-mail.png';
 }
