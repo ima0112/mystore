@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mystore/common/widgets/success_screen/success_screen.dart';
 import 'package:mystore/features/authentication/screens/login/login.dart';
 import 'package:mystore/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:mystore/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:mystore/features/authentication/screens/signup/signup.dart';
 import 'package:mystore/features/authentication/screens/signup/verify_email.dart';
 
@@ -12,6 +13,7 @@ enum MyRoutes {
   signup,
   verifyEmail,
   success,
+  forgetPassword,
 }
 
 class AppRoute {
@@ -30,6 +32,7 @@ class AppRoute {
   static const String _signup = 'signup';
   static const String _verifyEmail = 'verify_email';
   static const String _success = 'success';
+  static const String _forgetPassword = 'forget_password';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -45,6 +48,7 @@ class AppRoute {
         name: MyRoutes.login.name,
         builder: (context, state) => const LoginScreen(),
         routes: [
+          // Signup
           GoRoute(
             path: _signup,
             name: MyRoutes.signup.name,
@@ -56,6 +60,13 @@ class AppRoute {
                 builder: (context, state) => const VerifyEmailScreen(),
               ),
             ],
+          ),
+
+          // Forget Password
+          GoRoute(
+            path: _forgetPassword,
+            name: MyRoutes.forgetPassword.name,
+            builder: (context, state) => const ForgetPasswordScreen(),
           ),
         ],
       ),
