@@ -48,6 +48,23 @@ class ResetPasswordScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: MySizes.spaceBtwSections),
+
+              /// Buttons
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text(MyTexts.done),
+                ),
+              ),
+              const SizedBox(height: MySizes.spaceBtwItems),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(MyTexts.resendEmail),
+                ),
+              ),
             ],
           ),
         ),
