@@ -8,6 +8,7 @@ import 'package:mystore/features/authentication/screens/password_configuration/f
 import 'package:mystore/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:mystore/features/authentication/screens/signup/signup.dart';
 import 'package:mystore/features/authentication/screens/signup/verify_email.dart';
+import 'package:mystore/features/shop/screens/home/home.dart';
 import 'package:mystore/navigation_menu.dart';
 
 enum MyRoutes {
@@ -18,6 +19,7 @@ enum MyRoutes {
   success,
   forgetPassword,
   resetPassword,
+  home,
 }
 
 class AppRoute {
@@ -38,6 +40,7 @@ class AppRoute {
   static const String _success = 'success';
   static const String _forgetPassword = 'forget_password';
   static const String _resetPassword = 'reset_password';
+  static const String _home = '/home';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -89,15 +92,9 @@ class AppRoute {
         },
         routes: [
           GoRoute(
-            path: '/home',
-            name: 'home',
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                NoTransitionPage<void>(
-              key: state.pageKey,
-              child: const Center(
-                child: Text('Home'),
-              ),
-            ),
+            path: _home,
+            name: MyRoutes.home.name,
+            builder: (context, state) => const HomeScreen(),
           ),
           GoRoute(
             path: '/store',
