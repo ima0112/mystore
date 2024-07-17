@@ -62,5 +62,6 @@ class MyTexts {
   static const String done = 'Done';
 
   // Home
-  static const String homeAppbarTitle = '';
+  static const String homeAppbarTitle = 'Good day for shopping';
+  static const String homeAppbarSubTitle = 'Imandra Cardenas';
 }
