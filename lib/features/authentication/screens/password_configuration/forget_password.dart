@@ -34,6 +34,16 @@ class ForgetPasswordScreen extends StatelessWidget {
                 prefixIcon: Icon(Iconsax.direct_right),
               ),
             ),
+            const SizedBox(height: MySizes.spaceBtwSections),
+
+            /// Submit Button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text(MyTexts.submit),
+              ),
+            ),
           ],
         ),
       ),
