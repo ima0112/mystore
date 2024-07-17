@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mystore/common/styles/spacing_styles.dart';
+import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
+import 'package:mystore/utils/extensions/extensions.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -115,6 +117,33 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+
+              /// Divider
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: Divider(
+                      color: dark ? MyColors.darkGrey : MyColors.grey,
+                      indent: 60,
+                      endIndent: 5,
+                      thickness: 0.5,
+                    ),
+                  ),
+                  Text(
+                    MyTexts.orSignInWith.capitalize,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  Flexible(
+                    child: Divider(
+                      color: dark ? MyColors.darkGrey : MyColors.grey,
+                      indent: 5,
+                      endIndent: 60,
+                      thickness: 0.5,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
