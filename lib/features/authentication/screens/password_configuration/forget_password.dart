@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
 
@@ -25,6 +26,14 @@ class ForgetPasswordScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: MySizes.spaceBtwSections * 2),
+
+            /// Text field
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: MyTexts.email,
+                prefixIcon: Icon(Iconsax.direct_right),
+              ),
+            ),
           ],
         ),
       ),
