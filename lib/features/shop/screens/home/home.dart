@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:mystore/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:mystore/common/widgets/product/product_cards/product_card_vertical.dart';
 import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_categories.dart';
@@ -14,14 +15,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             /// Header
             MyPrimaryHeaderContainer(
               child: Column(
-                children: const [
+                children: [
                   /// AppBar
                   HomeAppBar(),
                   SizedBox(height: MySizes.spaceBtwSections),
@@ -54,12 +55,20 @@ class HomeScreen extends StatelessWidget {
 
             /// Body
             Padding(
-              padding: const EdgeInsets.all(MySizes.defaultSpace),
-              child: HomePromoSlider(
-                banners: [
-                  MyImages.promoBanner1,
-                  MyImages.promoBanner2,
-                  MyImages.promoBanner3,
+              padding: EdgeInsets.all(MySizes.defaultSpace),
+              child: Column(
+                children: [
+                  HomePromoSlider(
+                    banners: [
+                      MyImages.promoBanner1,
+                      MyImages.promoBanner2,
+                      MyImages.promoBanner3,
+                    ],
+                  ),
+                  SizedBox(height: MySizes.spaceBtwSections),
+
+                  /// Popular Products
+                  MyProductCardVertical(),
                 ],
               ),
             ),
