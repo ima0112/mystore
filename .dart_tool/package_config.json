@@ -734,7 +734,11 @@
       "languageVersion": "3.4"
     }
   ],
+<<<<<<< HEAD
   "generated": "2024-07-18T16:42:42.141856Z",
+=======
+  "generated": "2024-07-18T16:41:21.945770Z",
+>>>>>>> a76522d (Home categories)
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///D:/flutter_windows_3.13.7-stable/flutter",
