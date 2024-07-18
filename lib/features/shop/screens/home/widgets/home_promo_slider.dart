@@ -5,7 +5,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:mystore/common/widgets/images/rounded_image.dart';
 import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 
 class HomePromoSlider extends StatelessWidget {
