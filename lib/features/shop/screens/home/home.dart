@@ -4,6 +4,7 @@ import 'package:mystore/common/widgets/custom_shapes/containers/primary_header_c
 import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:mystore/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,8 +37,12 @@ class HomeScreen extends StatelessWidget {
                         MySectionHeading(
                           title: 'Popular Categories',
                           showActionButton: false,
+                          textColor: Colors.white,
                         ),
                         SizedBox(height: MySizes.spaceBtwItems),
+
+                        /// Categories
+                        HomeCategories(),
                       ],
                     ),
                   ),
