@@ -5,6 +5,8 @@ import 'package:mystore/common/widgets/custom_shapes/containers/search_container
 import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:mystore/features/shop/screens/home/widgets/home_promo_slider.dart';
+import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             /// Header
             MyPrimaryHeaderContainer(
               child: Column(
-                children: [
+                children: const [
                   /// AppBar
                   HomeAppBar(),
                   SizedBox(height: MySizes.spaceBtwSections),
@@ -46,6 +48,18 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                ],
+              ),
+            ),
+
+            /// Body
+            Padding(
+              padding: const EdgeInsets.all(MySizes.defaultSpace),
+              child: HomePromoSlider(
+                banners: [
+                  MyImages.promoBanner1,
+                  MyImages.promoBanner2,
+                  MyImages.promoBanner3,
                 ],
               ),
             ),
