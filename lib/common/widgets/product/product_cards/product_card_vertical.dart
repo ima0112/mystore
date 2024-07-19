@@ -5,6 +5,7 @@ import 'package:mystore/common/styles/shadows.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:mystore/common/widgets/icons/circular_icon.dart';
 import 'package:mystore/common/widgets/images/rounded_image.dart';
+import 'package:mystore/common/widgets/texts/product_price_text.dart';
 import 'package:mystore/common/widgets/texts/product_title_text.dart';
 import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
@@ -32,14 +33,14 @@ class MyProductCardVertical extends StatelessWidget {
           children: [
             /// Thumbnail, Wishlist Button, Discount Tag
             MyRoundedContainer(
-              height: 180,
+              height: 170,
               backgroundColor: dark ? MyColors.black : MyColors.light,
               child: Stack(
                 children: [
                   /// Thumbnail Image
-                  /// MyRoundedImage(
                   const MyRoundedImage(
                     imageUrl: MyImages.productImage2,
+                    fit: BoxFit.cover,
                     applyImageRadius: true,
                   ),
 
@@ -110,41 +111,42 @@ class MyProductCardVertical extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      /// Price
-                      Text(
-                        '\$35.5',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: MyColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(MySizes.cardRadiusMd),
-                            bottomRight:
-                                Radius.circular(MySizes.productImageRadius),
-                          ),
-                        ),
-                        child: const SizedBox(
-                          width: MySizes.iconLg * 1.2,
-                          height: MySizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(
-                              Iconsax.add,
-                              color: MyColors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
+            ),
+
+            const Spacer(),
+
+            /// Price Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                /// Price
+                const Padding(
+                  padding: EdgeInsets.only(left: MySizes.sm),
+                  child: MyProductPriceText(price: '35.5'),
+                ),
+
+                Container(
+                  decoration: const BoxDecoration(
+                    color: MyColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(MySizes.cardRadiusMd),
+                      bottomRight: Radius.circular(MySizes.productImageRadius),
+                    ),
+                  ),
+                  child: const SizedBox(
+                    width: MySizes.iconLg * 1.2,
+                    height: MySizes.iconLg * 1.2,
+                    child: Center(
+                      child: Icon(
+                        Iconsax.add,
+                        color: MyColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

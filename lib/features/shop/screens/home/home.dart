@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:mystore/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:mystore/common/widgets/layouts/grid_layout.dart';
 import 'package:mystore/common/widgets/product/product_cards/product_card_vertical.dart';
 import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_appbar.dart';
@@ -15,12 +16,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             /// Header
-            MyPrimaryHeaderContainer(
+            const MyPrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// AppBar
@@ -55,20 +56,33 @@ class HomeScreen extends StatelessWidget {
 
             /// Body
             Padding(
-              padding: EdgeInsets.all(MySizes.defaultSpace),
+              padding: const EdgeInsets.all(MySizes.defaultSpace),
               child: Column(
                 children: [
-                  HomePromoSlider(
+                  const HomePromoSlider(
                     banners: [
                       MyImages.promoBanner1,
                       MyImages.promoBanner2,
                       MyImages.promoBanner3,
                     ],
                   ),
-                  SizedBox(height: MySizes.spaceBtwSections),
+                  const SizedBox(height: MySizes.spaceBtwSections),
+
+                  /// Heading
+                  MySectionHeading(
+                    title: 'Popular Product',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: MySizes.spaceBtwItems),
 
                   /// Popular Products
-                  MyProductCardVertical(),
+                  MyGridLayout(
+                    itemCount: 4,
+                    mainAxisExtent: 260,
+                    itemBuilder: (_, index) {
+                      return const MyProductCardVertical();
+                    },
+                  ),
                 ],
               ),
             ),
