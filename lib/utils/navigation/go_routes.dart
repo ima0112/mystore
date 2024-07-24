@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mystore/common/widgets/success_screen/success_screen.dart';
 import 'package:mystore/features/authentication/screens/login/login.dart';
 import 'package:mystore/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:mystore/features/authentication/screens/signup/signup.dart';
@@ -10,6 +11,7 @@ enum MyRoutes {
   login,
   signup,
   verifyEmail,
+  success,
 }
 
 class AppRoute {
@@ -27,6 +29,7 @@ class AppRoute {
   static const String _login = '/login';
   static const String _signup = 'signup';
   static const String _verifyEmail = 'verify_email';
+  static const String _success = 'success';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,

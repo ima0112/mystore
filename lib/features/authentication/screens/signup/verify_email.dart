@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mystore/common/widgets/success_screen/success_screen.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
   const VerifyEmailScreen({super.key});
@@ -59,7 +61,21 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SuccessScreen(
+                          image: MyImages.staticSuccessIllustration,
+                          title: MyTexts.confirmEmailTitle,
+                          subTitle: MyTexts.confirmEmailSubtitle,
+                          onPressed: () {
+                            context.goNamed(MyRoutes.login.name);
+                          },
+                        ),
+                      ),
+                    );
+                  },
                   child: const Text(MyTexts.myContinue),
                 ),
               ),
