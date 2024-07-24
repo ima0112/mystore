@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/appbar/tabbar.dart';
+import 'package:mystore/common/widgets/brands/brand_card.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:mystore/common/widgets/images/circular_image.dart';
 import 'package:mystore/common/widgets/layouts/grid_layout.dart';
 import 'package:mystore/common/widgets/product/cart/cart_menu_icon.dart';
-import 'package:mystore/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/enums.dart';
-import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
 
@@ -71,54 +69,7 @@ class StoreScreen extends StatelessWidget {
                         itemCount: 4,
                         mainAxisExtent: 80,
                         itemBuilder: (_, index) {
-                          return GestureDetector(
-                            onTap: () {},
-                            child: MyRoundedContainer(
-                              padding: const EdgeInsets.all(MySizes.sm),
-                              showBorder: true,
-                              backgroundColor: Colors.transparent,
-                              child: Row(
-                                children: [
-                                  /// Icon
-                                  Flexible(
-                                    child: MyCircularImage(
-                                      isNetworkImage: false,
-                                      image: MyImages.clothIcon,
-                                      backgroundColor: Colors.transparent,
-                                      overlayColor:
-                                          MyHelperFunctions.isDarkMode(context)
-                                              ? MyColors.white
-                                              : MyColors.black,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                      height: MySizes.spaceBtwItems / 2),
-
-                                  /// Text
-                                  Expanded(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const MyBrandTitleWithVerifiedIcon(
-                                          title: 'Close up',
-                                          brandTextSize: TextSizes.large,
-                                        ),
-                                        Text(
-                                          '256 products',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelMedium,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
+                          return const MyBrandCard(showBorder: true);
                         },
                       ),
                     ],
@@ -138,7 +89,30 @@ class StoreScreen extends StatelessWidget {
               ),
             ];
           },
-          body: Container(),
+
+          /// Body
+          body: TabBarView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(MySizes.defaultSpace),
+                child: Column(
+                  children: [
+                    /// Brands
+                    MyRoundedContainer(
+                      showBorder: true,
+                      borderColor: MyColors.darkGrey,
+                      backgroundColor: Colors.transparent,
+                      margin:
+                          const EdgeInsets.only(bottom: MySizes.spaceBtwItems),
+                      child: Column(
+                        children: [MyBrandCard(showBorder: false)],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
