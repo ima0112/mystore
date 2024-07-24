@@ -63,5 +63,5 @@ class MyTexts {
 
   // Home
   static const String homeAppbarTitle = 'Good day for shopping';
-  static const String homeAppbarSubTitle = 'Imandra Cardenas';
+  static const String homeAppbarSubTitle = 'Jane Smith';
 }

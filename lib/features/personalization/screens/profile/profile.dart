@@ -50,16 +50,53 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: MySizes.spaceBtwItems),
 
               ProfileMenu(
-                  title: 'Name', value: 'Imandra Cardenas', onPressed: () {}),
+                title: 'Name',
+                value: 'Jane Smith',
+                onPressed: () {},
+              ),
               ProfileMenu(
                 title: 'Username',
-                value: 'imandra_cardenas',
+                value: 'jane_smith',
                 onPressed: () {},
               ),
 
               const SizedBox(height: MySizes.spaceBtwItems),
               const Divider(),
               const SizedBox(height: MySizes.spaceBtwItems),
+
+              /// Heading Personal Info
+              const MySectionHeading(
+                title: 'Personal Information',
+                showActionButton: false,
+              ),
+              const SizedBox(height: MySizes.spaceBtwItems),
+
+              ProfileMenu(
+                title: 'User ID',
+                value: '45689',
+                icon: Iconsax.copy,
+                onPressed: () {},
+              ),
+              ProfileMenu(
+                title: 'E-mail',
+                value: 'janesmith@mail.com',
+                onPressed: () {},
+              ),
+              ProfileMenu(
+                title: 'Phone Number',
+                value: '+1-234-567-8990',
+                onPressed: () {},
+              ),
+              ProfileMenu(
+                title: 'Gender',
+                value: 'Female',
+                onPressed: () {},
+              ),
+              ProfileMenu(
+                title: 'Date of Birth',
+                value: '24 July, 1994',
+                onPressed: () {},
+              ),
             ],
           ),
         ),
