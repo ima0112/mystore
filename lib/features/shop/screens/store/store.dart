@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/appbar/tabbar.dart';
 import 'package:mystore/common/widgets/brands/brand_card.dart';
-import 'package:mystore/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:mystore/common/widgets/brands/brand_show_case.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:mystore/common/widgets/layouts/grid_layout.dart';
 import 'package:mystore/common/widgets/product/cart/cart_menu_icon.dart';
 import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/utils/constants/colors.dart';
+import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
 
@@ -18,7 +19,7 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 1,
       child: Scaffold(
         appBar: MyAppBar(
           title: Text(
@@ -80,10 +81,10 @@ class StoreScreen extends StatelessWidget {
                 bottom: const MyTabBar(
                   tabs: [
                     Tab(child: Text('Sports')),
-                    Tab(child: Text('Furnitures')),
-                    Tab(child: Text('Electronics')),
-                    Tab(child: Text('Clothes')),
-                    Tab(child: Text('Cosmetics')),
+                    // Tab(child: Text('Furnitures')),
+                    // Tab(child: Text('Electronics')),
+                    // Tab(child: Text('Clothes')),
+                    // Tab(child: Text('Cosmetics')),
                   ],
                 ),
               ),
@@ -91,26 +92,11 @@ class StoreScreen extends StatelessWidget {
           },
 
           /// Body
-          body: TabBarView(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(MySizes.defaultSpace),
-                child: Column(
-                  children: [
-                    /// Brands
-                    MyRoundedContainer(
-                      showBorder: true,
-                      borderColor: MyColors.darkGrey,
-                      backgroundColor: Colors.transparent,
-                      margin:
-                          const EdgeInsets.only(bottom: MySizes.spaceBtwItems),
-                      child: Column(
-                        children: [MyBrandCard(showBorder: false)],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+          body: MyBrandShowCase(
+            images: [
+              MyImages.productImage1,
+              MyImages.productImage5,
+              MyImages.productImage10,
             ],
           ),
         ),
