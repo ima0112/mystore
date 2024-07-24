@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mystore/features/authentication/screens/login/login.dart';
 import 'package:mystore/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:mystore/features/authentication/screens/signup/signup.dart';
 
 enum MyRoutes {
   onboarding,
   login,
+  signup,
 }
 
 class AppRoute {
@@ -21,6 +23,7 @@ class AppRoute {
 
   static const String _onboarding = '/onboarding';
   static const String _login = '/login';
+  static const String _signup = 'signup';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -35,6 +38,13 @@ class AppRoute {
         path: _login,
         name: MyRoutes.login.name,
         builder: (context, state) => const LoginScreen(),
+        routes: [
+          GoRoute(
+            path: _signup,
+            name: MyRoutes.signup.name,
+            builder: (context, state) => const SignupScreen(),
+          ),
+        ],
       ),
     ],
   );

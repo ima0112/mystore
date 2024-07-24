@@ -1,8 +1,11 @@
-
 import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
+
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -74,7 +77,9 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.goNamed(MyRoutes.signup.name);
+                },
                 child: const Text(MyTexts.createAccount),
               ),
             ),
