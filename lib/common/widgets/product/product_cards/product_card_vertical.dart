@@ -9,7 +9,6 @@ import 'package:mystore/common/widgets/texts/brand_title_text_with_verified_icon
 import 'package:mystore/common/widgets/texts/product_price_text.dart';
 import 'package:mystore/common/widgets/texts/product_title_text.dart';
 import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/enums.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';

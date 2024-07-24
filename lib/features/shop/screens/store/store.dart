@@ -91,7 +91,7 @@ class StoreScreen extends StatelessWidget {
           },
 
           /// Body
-          body: TabBarView(
+          body: const TabBarView(
             children: [
               CategoryTabs(),
               CategoryTabs(),
