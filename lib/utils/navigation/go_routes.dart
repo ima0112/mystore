@@ -10,6 +10,7 @@ import 'package:mystore/features/authentication/screens/signup/signup.dart';
 import 'package:mystore/features/authentication/screens/signup/verify_email.dart';
 import 'package:mystore/features/shop/screens/home/home.dart';
 import 'package:mystore/features/shop/screens/store/store.dart';
+import 'package:mystore/features/shop/screens/wishlist/wishlist.dart';
 import 'package:mystore/navigation_menu.dart';
 
 enum MyRoutes {
@@ -22,6 +23,7 @@ enum MyRoutes {
   resetPassword,
   home,
   store,
+  wishlist,
 }
 
 class AppRoute {
@@ -44,6 +46,7 @@ class AppRoute {
   static const String _resetPassword = 'reset_password';
   static const String _home = '/home';
   static const String _store = '/store';
+  static const String _wishlist = '/wishlist';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -105,15 +108,9 @@ class AppRoute {
             builder: (context, state) => const StoreScreen(),
           ),
           GoRoute(
-            path: '/wishlist',
-            name: 'wishlist',
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                NoTransitionPage<void>(
-              key: state.pageKey,
-              child: const Center(
-                child: Text('Wishlist'),
-              ),
-            ),
+            path: _wishlist,
+            name: MyRoutes.wishlist.name,
+            builder: (context, state) => const WishlistScreen(),
           ),
           GoRoute(
             path: '/profile',
