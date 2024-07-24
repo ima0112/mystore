@@ -37,9 +37,57 @@ class SignupScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        TextFormField(),
+                        const SizedBox(width: MySizes.spaceBtwInputFields),
+                        Expanded(
+                          child: TextFormField(
+                            expands: false,
+                            decoration: const InputDecoration(
+                              labelText: MyTexts.lastName,
+                              prefixIcon: Icon(Iconsax.user),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
+                    const SizedBox(height: MySizes.spaceBtwInputFields),
+
+                    /// Username
+                    TextFormField(
+                      expands: false,
+                      decoration: const InputDecoration(
+                        labelText: MyTexts.username,
+                        prefixIcon: Icon(Iconsax.user_edit),
+                      ),
+                    ),
+                    const SizedBox(height: MySizes.spaceBtwInputFields),
+
+                    /// Email
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: MyTexts.email,
+                        prefixIcon: Icon(Iconsax.direct),
+                      ),
+                    ),
+                    const SizedBox(height: MySizes.spaceBtwInputFields),
+
+                    /// Phone Number
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: MyTexts.phoneNo,
+                        prefixIcon: Icon(Iconsax.call),
+                      ),
+                    ),
+                    const SizedBox(height: MySizes.spaceBtwInputFields),
+
+                    /// Password
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: MyTexts.password,
+                        suffixIcon: Icon(Iconsax.eye_slash),
+                        prefixIcon: Icon(Iconsax.password_check),
+                      ),
+                    ),
+                    const SizedBox(height: MySizes.spaceBtwSections),
                   ],
                 ),
               ),
