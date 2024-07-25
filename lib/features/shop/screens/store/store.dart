@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:mystore/common/widgets/product/cart/cart_menu_icon.dart';
+import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
@@ -37,16 +38,25 @@ class StoreScreen extends StatelessWidget {
                 child: ListView(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  children: const [
+                  children: [
                     /// Search Bar
-                    SizedBox(height: MySizes.spaceBtwItems),
-                    MySearchContainer(
+                    const SizedBox(height: MySizes.spaceBtwItems),
+                    const MySearchContainer(
                       text: 'Search in Store',
                       showBorder: true,
                       showBackground: false,
                       padding: EdgeInsets.zero,
                     ),
-                    SizedBox(height: MySizes.spaceBtwSections),
+                    const SizedBox(height: MySizes.spaceBtwSections),
+
+                    /// Featured Brands
+                    MySectionHeading(
+                      title: 'Featured Brand',
+                      showActionButton: true,
+                      onPressed: () {},
+                    ),
+                    const SizedBox(height: MySizes.spaceBtwItems / 1.5),
+                    
                   ],
                 ),
               ),
