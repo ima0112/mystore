@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
-import 'package:mystore/common/widgets/success_screen/success_screen.dart';
+
 import 'package:mystore/features/authentication/screens/login/login.dart';
 import 'package:mystore/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:mystore/features/authentication/screens/password_configuration/forget_password.dart';
+import 'package:mystore/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:mystore/features/authentication/screens/signup/signup.dart';
 import 'package:mystore/features/authentication/screens/signup/verify_email.dart';
+import 'package:mystore/features/shop/screens/home/home.dart';
+import 'package:mystore/navigation_menu.dart';
 
 enum MyRoutes {
   onboarding,
@@ -14,6 +18,8 @@ enum MyRoutes {
   verifyEmail,
   success,
   forgetPassword,
+  resetPassword,
+  home,
 }
 
 class AppRoute {
@@ -33,16 +39,21 @@ class AppRoute {
   static const String _verifyEmail = 'verify_email';
   static const String _success = 'success';
   static const String _forgetPassword = 'forget_password';
+  static const String _resetPassword = 'reset_password';
+  static const String _home = '/home';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: _onboarding,
     routes: [
+      // Onboarding
       GoRoute(
         path: _onboarding,
         name: MyRoutes.onboarding.name,
         builder: (context, state) => const OnboardingScreen(),
       ),
+
+      // Login
       GoRoute(
         path: _login,
         name: MyRoutes.login.name,
@@ -53,13 +64,11 @@ class AppRoute {
             path: _signup,
             name: MyRoutes.signup.name,
             builder: (context, state) => const SignupScreen(),
-            routes: [
-              GoRoute(
-                path: _verifyEmail,
-                name: MyRoutes.verifyEmail.name,
-                builder: (context, state) => const VerifyEmailScreen(),
-              ),
-            ],
+          ),
+          GoRoute(
+            path: _verifyEmail,
+            name: MyRoutes.verifyEmail.name,
+            builder: (context, state) => const VerifyEmailScreen(),
           ),
 
           // Forget Password
@@ -67,6 +76,58 @@ class AppRoute {
             path: _forgetPassword,
             name: MyRoutes.forgetPassword.name,
             builder: (context, state) => const ForgetPasswordScreen(),
+          ),
+          GoRoute(
+            path: _resetPassword,
+            name: MyRoutes.resetPassword.name,
+            builder: (context, state) => const ResetPasswordScreen(),
+          ),
+        ],
+      ),
+
+      ShellRoute(
+        navigatorKey: _shellNavigatorKey,
+        builder: (context, state, child) {
+          return NavigationMenu(child: child);
+        },
+        routes: [
+          GoRoute(
+            path: _home,
+            name: MyRoutes.home.name,
+            builder: (context, state) => const HomeScreen(),
+          ),
+          GoRoute(
+            path: '/store',
+            name: 'store',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                NoTransitionPage<void>(
+              key: state.pageKey,
+              child: const Center(
+                child: Text('Store'),
+              ),
+            ),
+          ),
+          GoRoute(
+            path: '/wishlist',
+            name: 'wishlist',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                NoTransitionPage<void>(
+              key: state.pageKey,
+              child: const Center(
+                child: Text('Wishlist'),
+              ),
+            ),
+          ),
+          GoRoute(
+            path: '/profile',
+            name: 'profile',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                NoTransitionPage<void>(
+              key: state.pageKey,
+              child: const Center(
+                child: Text('Profile'),
+              ),
+            ),
           ),
         ],
       ),
