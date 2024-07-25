@@ -42,6 +42,7 @@ class MyBrandShowCase extends StatelessWidget {
         children: [
           /// Brand with Product Count
           const MyBrandCard(showBorder: false),
+          const SizedBox(height: MySizes.spaceBtwItems),
 
           /// Brand Top 3 Product Images
           Row(
