@@ -14,7 +14,7 @@ class NavigationMenu extends StatelessWidget {
     '/home',
     '/store',
     '/wishlist',
-    '/profile',
+    '/settings',
   ];
 
   @override

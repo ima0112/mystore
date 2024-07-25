@@ -8,6 +8,7 @@ import 'package:mystore/features/authentication/screens/password_configuration/f
 import 'package:mystore/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:mystore/features/authentication/screens/signup/signup.dart';
 import 'package:mystore/features/authentication/screens/signup/verify_email.dart';
+import 'package:mystore/features/personalization/screens/settings/settings.dart';
 import 'package:mystore/features/shop/screens/home/home.dart';
 import 'package:mystore/features/shop/screens/store/store.dart';
 import 'package:mystore/features/shop/screens/wishlist/wishlist.dart';
@@ -24,6 +25,7 @@ enum MyRoutes {
   home,
   store,
   wishlist,
+  settings,
 }
 
 class AppRoute {
@@ -47,6 +49,7 @@ class AppRoute {
   static const String _home = '/home';
   static const String _store = '/store';
   static const String _wishlist = '/wishlist';
+  static const String _settings = '/settings';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -113,15 +116,9 @@ class AppRoute {
             builder: (context, state) => const WishlistScreen(),
           ),
           GoRoute(
-            path: '/profile',
-            name: 'profile',
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                NoTransitionPage<void>(
-              key: state.pageKey,
-              child: const Center(
-                child: Text('Profile'),
-              ),
-            ),
+            path: _settings,
+            name: MyRoutes.settings.name,
+            builder: (context, state) => const SettingsScreen(),
           ),
         ],
       ),
