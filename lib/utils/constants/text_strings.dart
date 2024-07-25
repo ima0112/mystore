@@ -58,6 +58,7 @@ class MyTexts {
   static const String yourAccountCreatedSubitle =
       "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping";
   static const String myContinue = 'Continue';
+  static const String submit = 'Submit';
 
   // Home
   static const String homeAppbarTitle = '';
