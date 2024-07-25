@@ -4,6 +4,7 @@ import 'package:mystore/common/widgets/success_screen/success_screen.dart';
 import 'package:mystore/features/authentication/screens/login/login.dart';
 import 'package:mystore/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:mystore/features/authentication/screens/password_configuration/forget_password.dart';
+import 'package:mystore/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:mystore/features/authentication/screens/signup/signup.dart';
 import 'package:mystore/features/authentication/screens/signup/verify_email.dart';
 
@@ -14,6 +15,7 @@ enum MyRoutes {
   verifyEmail,
   success,
   forgetPassword,
+  resetPassword,
 }
 
 class AppRoute {
@@ -33,6 +35,7 @@ class AppRoute {
   static const String _verifyEmail = 'verify_email';
   static const String _success = 'success';
   static const String _forgetPassword = 'forget_password';
+  static const String _resetPassword = 'reset_password';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -53,13 +56,11 @@ class AppRoute {
             path: _signup,
             name: MyRoutes.signup.name,
             builder: (context, state) => const SignupScreen(),
-            routes: [
-              GoRoute(
-                path: _verifyEmail,
-                name: MyRoutes.verifyEmail.name,
-                builder: (context, state) => const VerifyEmailScreen(),
-              ),
-            ],
+          ),
+          GoRoute(
+            path: _verifyEmail,
+            name: MyRoutes.verifyEmail.name,
+            builder: (context, state) => const VerifyEmailScreen(),
           ),
 
           // Forget Password
@@ -67,6 +68,11 @@ class AppRoute {
             path: _forgetPassword,
             name: MyRoutes.forgetPassword.name,
             builder: (context, state) => const ForgetPasswordScreen(),
+          ),
+          GoRoute(
+            path: _resetPassword,
+            name: MyRoutes.resetPassword.name,
+            builder: (context, state) => const ResetPasswordScreen(),
           ),
         ],
       ),

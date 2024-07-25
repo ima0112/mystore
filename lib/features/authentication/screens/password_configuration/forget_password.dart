@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   const ForgetPasswordScreen({super.key});
@@ -40,7 +42,9 @@ class ForgetPasswordScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.goNamed(MyRoutes.resetPassword.name);
+                },
                 child: const Text(MyTexts.submit),
               ),
             ),
