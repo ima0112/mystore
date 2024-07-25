@@ -5,6 +5,9 @@ import 'package:iconsax/iconsax.dart';
 
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/icons/circular_icon.dart';
+import 'package:mystore/common/widgets/layouts/grid_layout.dart';
+import 'package:mystore/common/widgets/product/product_cards/product_card_vertical.dart';
+import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/navigation/go_routes.dart';
 
 class WishlistScreen extends StatelessWidget {
@@ -24,6 +27,21 @@ class WishlistScreen extends StatelessWidget {
             },
           )
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(MySizes.defaultSpace),
+          child: Column(
+            children: [
+              MyGridLayout(
+                itemCount: 8,
+                itemBuilder: (_, index) {
+                  return const MyProductCardVertical();
+                },
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
