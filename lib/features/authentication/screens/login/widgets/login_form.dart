@@ -52,9 +52,11 @@ class LoginForm extends StatelessWidget {
                   ],
                 ),
 
-                ///Forget Password
+                /// Forget Password
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.goNamed(MyRoutes.forgetPassword.name);
+                  },
                   child: const Text(
                     MyTexts.forgetPassword,
                   ),
