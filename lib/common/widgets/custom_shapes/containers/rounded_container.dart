@@ -38,7 +38,10 @@ class MyRoundedContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         border: showBorder ? Border.all(color: borderColor) : null,
       ),
-      child: child,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(radius),
+        child: child,
+      ),
     );
   }
 }
