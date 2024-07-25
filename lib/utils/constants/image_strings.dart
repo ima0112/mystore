@@ -44,10 +44,35 @@ class MyImages {
       'assets/icons/categories/icons8-sparkling-diamond-64.png';
 
   // Banners
-    static const String promoBanner1 =
-      'assets/images/banners/promo-banner-1.png';
-    static const String promoBanner2 =
-      'assets/images/banners/promo-banner-2.png';
-    static const String promoBanner3 =
-      'assets/images/banners/promo-banner-3.png';
+  static const String promoBanner1 = 'assets/images/banners/promo-banner-1.png';
+  static const String promoBanner2 = 'assets/images/banners/promo-banner-2.png';
+  static const String promoBanner3 = 'assets/images/banners/promo-banner-3.png';
+
+  // Products
+  static const String productImage1 =
+      'assets/images/products/close-up-futuristic-sneakers (1).png';
+  static const String productImage2 =
+      'assets/images/products/close-up-futuristic-sneakers (2).jpg';
+  static const String productImage3 =
+      'assets/images/products/close-up-futuristic-sneakers (3).jpg';
+  static const String productImage4 =
+      'assets/images/products/close-up-futuristic-sneakers (4).jpg';
+  static const String productImage5 =
+      'assets/images/products/close-up-futuristic-sneakers (5).jpg';
+  static const String productImage6 =
+      'assets/images/products/close-up-futuristic-sneakers.jpg';
+  static const String productImage7 =
+      'assets/images/products/close-up-person-wearing-futuristic-sneakers.jpg';
+  static const String productImage8 =
+      'assets/images/products/duotone-grace-church-t-shirt-design.png';
+  static const String productImage9 =
+      'assets/images/products/flat-minimalist-support-small-business-t-shirt.png';
+  static const String productImage10 =
+      'assets/images/products/simple-monocolor-home-run-hero-baseball-t-shirt (1).png';
+  static const String productImage11 =
+      'assets/images/products/simple-monocolor-home-run-hero-baseball-t-shirt.png';
+  static const String productImage12 =
+      'assets/images/products/t-shirt-1976334_640.png';
+  static const String productImage13 =
+      'assets/images/products/view-soccer-shoes.jpg';
 }
