@@ -69,7 +69,9 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.goNamed('home');
+                },
                 child: const Text(MyTexts.signIn),
               ),
             ),
