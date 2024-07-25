@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/utils/constants/text_strings.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
@@ -31,6 +32,20 @@ class ResetPasswordScreen extends StatelessWidget {
               Image(
                 image: const AssetImage(MyImages.deliveredEmailIllustration),
                 width: MyHelperFunctions.screenWidth(context) * 0.6,
+              ),
+              const SizedBox(height: MySizes.spaceBtwSections),
+
+              /// Title & SubTitle
+              Text(
+                MyTexts.changeYourPasswordTitle,
+                style: Theme.of(context).textTheme.headlineMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: MySizes.spaceBtwItems),
+              Text(
+                MyTexts.changeYourPasswordSubtitle,
+                style: Theme.of(context).textTheme.labelMedium,
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: MySizes.spaceBtwSections),
             ],
