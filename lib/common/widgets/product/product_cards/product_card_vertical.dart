@@ -5,9 +5,11 @@ import 'package:mystore/common/styles/shadows.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:mystore/common/widgets/icons/circular_icon.dart';
 import 'package:mystore/common/widgets/images/rounded_image.dart';
+import 'package:mystore/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:mystore/common/widgets/texts/product_price_text.dart';
 import 'package:mystore/common/widgets/texts/product_title_text.dart';
 import 'package:mystore/utils/constants/colors.dart';
+import 'package:mystore/utils/constants/enums.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
@@ -30,6 +32,7 @@ class MyProductCardVertical extends StatelessWidget {
           color: dark ? MyColors.darkerGrey : MyColors.white,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// Thumbnail, Wishlist Button, Discount Tag
             MyRoundedContainer(
@@ -83,34 +86,17 @@ class MyProductCardVertical extends StatelessWidget {
             ),
 
             /// Details
-            Padding(
-              padding: const EdgeInsets.only(left: MySizes.sm),
+            const Padding(
+              padding: EdgeInsets.only(left: MySizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const MyProductTitleText(
+                  MyProductTitleText(
                     title: 'Futuristic Sneakers',
                     smallSize: true,
                   ),
-                  const SizedBox(
-                    height: MySizes.spaceBtwItems / 2,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'Close up',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(width: MySizes.xs),
-                      const Icon(
-                        Iconsax.verify5,
-                        color: MyColors.primary,
-                        size: MySizes.iconXs,
-                      ),
-                    ],
-                  ),
+                  SizedBox(height: MySizes.spaceBtwItems / 2),
+                  MyBrandTitleWithVerifiedIcon(title: 'Close up'),
                 ],
               ),
             ),
