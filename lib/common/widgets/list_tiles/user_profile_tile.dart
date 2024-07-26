@@ -26,7 +26,7 @@ class MyUserProfileTile extends StatelessWidget {
         icon: const Icon(Iconsax.edit, color: MyColors.white),
       ),
       title: Text(
-        'Imandra Cardenas',
+        'Jane Smith',
         style: Theme.of(context)
             .textTheme
             .headlineSmall!
