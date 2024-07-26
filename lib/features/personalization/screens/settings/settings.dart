@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:mystore/common/widgets/images/circular_image.dart';
 import 'package:mystore/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:mystore/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -131,6 +129,17 @@ class SettingsScreen extends StatelessWidget {
                       onChanged: (value) {},
                     ),
                   ),
+
+                  /// Logout Button
+                  const SizedBox(height: MySizes.spaceBtwSections),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      child: const Text('Logout'),
+                    ),
+                  ),
+                  const SizedBox(height: MySizes.spaceBtwSections * 2.5),
                 ],
               ),
             ),
