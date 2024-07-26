@@ -7,7 +7,10 @@ import 'package:mystore/utils/constants/image_strings.dart';
 class MyUserProfileTile extends StatelessWidget {
   const MyUserProfileTile({
     super.key,
+    this.onPressed,
   });
+
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class MyUserProfileTile extends StatelessWidget {
         padding: 0,
       ),
       trailing: IconButton(
-        onPressed: () {},
+        onPressed: onPressed,
         icon: const Icon(Iconsax.edit, color: MyColors.white),
       ),
       title: Text(
