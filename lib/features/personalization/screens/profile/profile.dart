@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/images/circular_image.dart';
+import 'package:mystore/common/widgets/texts/section_heading.dart';
+import 'package:mystore/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 
@@ -10,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         showBackArrow: true,
         title: Text('Profile'),
       ),
@@ -33,6 +36,30 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
+
+              /// Details
+              const SizedBox(height: MySizes.spaceBtwItems / 2),
+              const Divider(),
+              const SizedBox(height: MySizes.spaceBtwItems),
+
+              /// Heading Profile Info
+              const MySectionHeading(
+                title: 'Profile Information',
+                showActionButton: false,
+              ),
+              const SizedBox(height: MySizes.spaceBtwItems),
+
+              ProfileMenu(
+                  title: 'Name', value: 'Imandra Cardenas', onPressed: () {}),
+              ProfileMenu(
+                title: 'Username',
+                value: 'imandra_cardenas',
+                onPressed: () {},
+              ),
+
+              const SizedBox(height: MySizes.spaceBtwItems),
+              const Divider(),
+              const SizedBox(height: MySizes.spaceBtwItems),
             ],
           ),
         ),
