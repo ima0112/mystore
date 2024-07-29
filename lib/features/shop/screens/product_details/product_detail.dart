@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mystore/features/shop/screens/product_details/widgets/product_attribute.dart';
 
+import 'package:readmore/readmore.dart';
+
+import 'package:mystore/common/widgets/texts/section_heading.dart';
+import 'package:mystore/features/shop/screens/product_details/widgets/product_attribute.dart';
 import 'package:mystore/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:mystore/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:mystore/features/shop/screens/product_details/widgets/rating_share_widget.dart';
@@ -43,6 +46,25 @@ class ProductDetailScreen extends StatelessWidget {
                       onPressed: () {},
                       child: const Text('Checkout'),
                     ),
+                  ),
+                  const SizedBox(height: MySizes.spaceBtwSections),
+
+                  /// Description
+                  const MySectionHeading(
+                    title: 'Description',
+                    showActionButton: false,
+                  ),
+                  const SizedBox(height: MySizes.spaceBtwItems),
+                  const ReadMoreText(
+                    'This is a Product description for Futuristic Sneakers. There are more things that can be added but this is just an example.',
+                    trimLines: 2,
+                    trimMode: TrimMode.Line,
+                    trimCollapsedText: ' Show more',
+                    trimExpandedText: ' Less',
+                    moreStyle:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
                 ],
               ),
