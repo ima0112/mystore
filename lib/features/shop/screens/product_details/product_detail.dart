@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import 'package:readmore/readmore.dart';
 
@@ -66,6 +67,25 @@ class ProductDetailScreen extends StatelessWidget {
                     lessStyle:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
+
+                  /// Reviews
+                  const SizedBox(height: MySizes.spaceBtwItems),
+                  const Divider(),
+                  const SizedBox(height: MySizes.spaceBtwItems),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const MySectionHeading(
+                        title: 'Reviews(199)',
+                        showActionButton: false,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Iconsax.arrow_right_3, size: 18),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: MySizes.spaceBtwSections),
                 ],
               ),
             ),
