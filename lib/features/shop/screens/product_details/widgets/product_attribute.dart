@@ -98,7 +98,7 @@ class ProductAttribute extends StatelessWidget {
                 ),
                 MyChoiceChip(
                   text: 'Blue',
-                  selected: false,
+                  selected: true,
                   onSelected: (value) {},
                 ),
                 MyChoiceChip(
@@ -110,6 +110,7 @@ class ProductAttribute extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(height: MySizes.spaceBtwItems),
 
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,7 +122,7 @@ class ProductAttribute extends StatelessWidget {
               children: [
                 MyChoiceChip(
                   text: 'EU 34',
-                  selected: false,
+                  selected: true,
                   onSelected: (value) {},
                 ),
                 MyChoiceChip(
