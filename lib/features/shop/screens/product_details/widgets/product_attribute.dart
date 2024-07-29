@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mystore/common/widgets/chips/choice_chip.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:mystore/common/widgets/texts/product_price_text.dart';
 import 'package:mystore/common/widgets/texts/product_title_text.dart';
@@ -70,7 +71,7 @@ class ProductAttribute extends StatelessWidget {
               ),
 
               /// Variation Description
-              MyProductTitleText(
+              const MyProductTitleText(
                 title:
                     'This is the Description of the Product and it can go upto max 4 lines',
                 smallSize: true,
@@ -78,6 +79,36 @@ class ProductAttribute extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        const SizedBox(height: MySizes.spaceBtwItems),
+
+        /// Attributes
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const MySectionHeading(title: 'Colors', showActionButton: false),
+            const SizedBox(height: MySizes.spaceBtwItems / 2),
+            Wrap(
+              spacing: 8,
+              children: [
+                MyChoiceChip(
+                  text: 'Green',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+                MyChoiceChip(
+                  text: 'Blue',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+                MyChoiceChip(
+                  text: 'Yellow',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+              ],
+            ),
+          ],
         ),
       ],
     );
