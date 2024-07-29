@@ -27,13 +27,23 @@ class ProductDetailScreen extends StatelessWidget {
               child: Column(
                 children: [
                   /// Rating & Share Button
-                  RatingAndShare(),
+                  const RatingAndShare(),
 
                   /// Price, Title, Stock & Brand
-                  ProductMetaData(),
+                  const ProductMetaData(),
 
                   /// Attributes
-                  ProductAttribute(),
+                  const ProductAttribute(),
+                  const SizedBox(height: MySizes.spaceBtwSections),
+
+                  /// Checkout Button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('Checkout'),
+                    ),
+                  ),
                 ],
               ),
             ),
