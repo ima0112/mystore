@@ -50,8 +50,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-#------------------ LOCAL ASSETS ------------------#
-  assets: 
+  #------------------ LOCAL ASSETS ------------------#
+  assets:
     - assets/icons/
     - assets/icons/categories/
     - assets/fonts/
@@ -61,9 +61,10 @@ flutter:
     - assets/images/banners/
     - assets/images/products/
     - assets/images/user/
+    - assets/images/reviews/
     - assets/logos/
 
-#------------------ LOCAL FONTS ------------------#
+  #------------------ LOCAL FONTS ------------------#
   fonts:
     - family: Poppins
       fonts:
