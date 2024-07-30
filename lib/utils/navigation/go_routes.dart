@@ -9,6 +9,7 @@ import 'package:mystore/features/authentication/screens/password_configuration/r
 import 'package:mystore/features/authentication/screens/signup/signup.dart';
 import 'package:mystore/features/authentication/screens/signup/verify_email.dart';
 import 'package:mystore/features/personalization/screens/address/address.dart';
+import 'package:mystore/features/personalization/screens/address/widgets/add_new_address.dart';
 import 'package:mystore/features/personalization/screens/profile/profile.dart';
 import 'package:mystore/features/personalization/screens/settings/settings.dart';
 import 'package:mystore/features/shop/screens/home/home.dart';
@@ -34,6 +35,7 @@ enum MyRoutes {
   productDetail,
   productReviews,
   address,
+  newAddress
 }
 
 class AppRoute {
@@ -62,6 +64,7 @@ class AppRoute {
   static const String _productDetail = 'product_detail';
   static const String _productReviews = 'product_reviews';
   static const String _address = 'address';
+  static const String _newAddress = 'new_address';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -158,6 +161,14 @@ class AppRoute {
                 name: MyRoutes.address.name,
                 parentNavigatorKey: _rootNavigatorKey,
                 builder: (context, state) => const UserAddressScreen(),
+                routes: [
+                  GoRoute(
+                    path: _newAddress,
+                    name: MyRoutes.newAddress.name,
+                    parentNavigatorKey: _rootNavigatorKey,
+                    builder: (context, state) => const AddNewAddressScreen(),
+                  ),
+                ],
               ),
             ],
           ),
