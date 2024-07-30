@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import 'package:mystore/common/widgets/appbar/appbar.dart';
+import 'package:mystore/common/widgets/icons/circular_icon.dart';
 import 'package:mystore/common/widgets/images/rounded_image.dart';
+import 'package:mystore/common/widgets/product/cart/add_remove_button.dart';
 import 'package:mystore/common/widgets/product/cart/cart_item.dart';
 import 'package:mystore/common/widgets/texts/brand_title_text_with_verified_icon.dart';
 import 'package:mystore/common/widgets/texts/product_title_text.dart';
@@ -36,6 +39,13 @@ class CartScreen extends StatelessWidget {
               return Column(
                 children: [
                   MyCartItem(),
+                  SizedBox(height: MySizes.spaceBtwItems),
+                  Row(
+                    children: [
+                      const SizedBox(width: 70),
+                      MyProductQuatityWithAddRemoveButton(),
+                    ],
+                  ),
                 ],
               );
             },
