@@ -59,7 +59,9 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Addresses',
                     subtitle: 'Set shopping delivery address',
-                    onTap: () {},
+                    onTap: () {
+                      context.goNamed(MyRoutes.address.name);
+                    },
                   ),
                   MySettingMenuTile(
                     icon: Iconsax.shopping_cart,
