@@ -14,6 +14,7 @@ class MyRoundedContainer extends StatelessWidget {
     this.radius = MySizes.cardRadiusLg,
     this.backgroundColor = MyColors.white,
     this.borderColor = MyColors.borderPrimary,
+    this.roundedChild = true,
   });
 
   final double? width;
@@ -25,6 +26,7 @@ class MyRoundedContainer extends StatelessWidget {
   final Color backgroundColor;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final bool roundedChild;
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +40,12 @@ class MyRoundedContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         border: showBorder ? Border.all(color: borderColor) : null,
       ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(radius),
-        child: child,
-      ),
+      child: roundedChild
+          ? ClipRRect(
+              borderRadius: BorderRadius.circular(radius),
+              child: child,
+            )
+          : child,
     );
   }
 }
