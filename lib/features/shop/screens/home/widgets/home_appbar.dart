@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/product/cart/cart_menu_icon.dart';
 import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -34,7 +38,9 @@ class HomeAppBar extends StatelessWidget {
       actions: [
         MyCartCounterIcon(
           iconColor: MyColors.white,
-          onPressed: () {},
+          onPressed: () {
+            context.goNamed(MyRoutes.cart.name);
+          },
         ),
       ],
     );
