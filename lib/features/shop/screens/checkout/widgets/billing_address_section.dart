@@ -1,35 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:mystore/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:mystore/common/widgets/texts/section_heading.dart';
-import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/helpers/helper_functions.dart';
 
 class BillingAddressSection extends StatelessWidget {
   const BillingAddressSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final dark = MyHelperFunctions.isDarkMode(context);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MySectionHeading(
-          title: 'Payment Method',
+          title: 'Shipping Address',
           buttonTitle: 'Change',
           onPressed: () {},
+        ),
+        Text('Jane Smith', style: Theme.of(context).textTheme.bodyLarge),
+        const SizedBox(height: MySizes.spaceBtwItems / 2),
+        Row(
+          children: [
+            const Icon(Icons.phone, color: Colors.grey, size: 16),
+            const SizedBox(width: MySizes.spaceBtwItems),
+            Text(
+              '+1-234-567-8990',
+              style: Theme.of(context).textTheme.bodyMedium,
+            )
+          ],
         ),
         const SizedBox(height: MySizes.spaceBtwItems / 2),
         Row(
           children: [
-            MyRoundedContainer(
-              width: 60,
-              height: 35,
-              backgroundColor: dark ? MyColors.light : MyColors.white,
-              padding: const EdgeInsets.all(MySizes.sm),
-              child: const Image(
-                  image: AssetImage(MyImages.toyIcon), fit: BoxFit.contain),
+            const Icon(Icons.location_history, color: Colors.grey, size: 16),
+            const SizedBox(width: MySizes.spaceBtwItems),
+            Expanded(
+              child: Text(
+                'South Liana, Maine 87695, USA',
+                style: Theme.of(context).textTheme.bodyMedium,
+                softWrap: true,
+              ),
             ),
           ],
         ),

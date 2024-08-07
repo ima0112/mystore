@@ -4,6 +4,7 @@ import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:mystore/common/widgets/product/cart/coupon_widget.dart';
 import 'package:mystore/features/shop/screens/cart/widgets/cart_items.dart';
+import 'package:mystore/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:mystore/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/sizes.dart';
@@ -52,6 +53,9 @@ class CheckoutScreen extends StatelessWidget {
                     /// Divider
                     const Divider(),
                     const SizedBox(height: MySizes.spaceBtwItems),
+
+                    /// Address
+                    const BillingAddressSection(),
                   ],
                 ),
               ),

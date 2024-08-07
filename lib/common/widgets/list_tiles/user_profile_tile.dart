@@ -33,7 +33,7 @@ class MyUserProfileTile extends StatelessWidget {
             .apply(color: MyColors.white),
       ),
       subtitle: Text(
-        'imandracardenas0@gmail.com',
+        'janesmith@mail.com',
         style: Theme.of(context)
             .textTheme
             .bodyMedium!
