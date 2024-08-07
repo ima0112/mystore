@@ -13,6 +13,7 @@ import 'package:mystore/features/personalization/screens/address/widgets/add_new
 import 'package:mystore/features/personalization/screens/profile/profile.dart';
 import 'package:mystore/features/personalization/screens/settings/settings.dart';
 import 'package:mystore/features/shop/screens/cart/cart.dart';
+import 'package:mystore/features/shop/screens/checkout/checkout.dart';
 import 'package:mystore/features/shop/screens/home/home.dart';
 import 'package:mystore/features/shop/screens/product_details/product_detail.dart';
 import 'package:mystore/features/shop/screens/product_reviews/product_reviews.dart';
@@ -38,6 +39,7 @@ enum MyRoutes {
   address,
   newAddress,
   cart,
+  checkout,
 }
 
 class AppRoute {
@@ -68,6 +70,7 @@ class AppRoute {
   static const String _address = 'address';
   static const String _newAddress = 'new_address';
   static const String _cart = 'cart';
+  static const String _checkout = 'checkout';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -142,6 +145,14 @@ class AppRoute {
                 name: MyRoutes.cart.name,
                 parentNavigatorKey: _rootNavigatorKey,
                 builder: (context, state) => const CartScreen(),
+                routes: [
+                  GoRoute(
+                    path: _checkout,
+                    name: MyRoutes.checkout.name,
+                    parentNavigatorKey: _rootNavigatorKey,
+                    builder: (context, state) => const CheckoutScreen(),
+                  ),
+                ],
               ),
             ],
           ),
