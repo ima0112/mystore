@@ -63,6 +63,15 @@ class CheckoutScreen extends StatelessWidget {
           ),
         ),
       ),
+
+      /// Checkout Button
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(MySizes.defaultSpace),
+        child: ElevatedButton(
+          onPressed: () {},
+          child: const Text('Checkout \$256.0'),
+        ),
+      ),
     );
   }
 }
