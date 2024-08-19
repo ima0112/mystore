@@ -9,6 +9,7 @@ import 'package:mystore/features/shop/screens/checkout/widgets/billing_amount_se
 import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
+import 'package:mystore/utils/payments/stripe_payment.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({super.key});
@@ -68,7 +69,9 @@ class CheckoutScreen extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(MySizes.defaultSpace),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            await StripePaymnet.makePayment(amount: '256');
+          },
           child: const Text('Checkout \$256.0'),
         ),
       ),
