@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/images/rounded_image.dart';
+import 'package:mystore/common/widgets/product/product_cards/product_card_horizontal.dart';
+import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 
@@ -10,19 +12,45 @@ class SubCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: Text('Sports sneakers'), showBackArrow: true),
+      appBar: const MyAppBar(title: Text('Sports'), showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(MySizes.defaultSpace),
+          padding: const EdgeInsets.all(MySizes.defaultSpace),
           child: Column(
             children: [
               /// Banner
-              MyRoundedImage(
+              const MyRoundedImage(
                 width: double.infinity,
                 imageUrl: MyImages.promoBanner1,
                 applyImageRadius: true,
               ),
               const SizedBox(height: MySizes.spaceBtwSections),
+
+              /// Sub-Categories
+              Column(
+                children: [
+                  /// Heading
+                  MySectionHeading(
+                    title: 'Sports sneakers',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: MySizes.spaceBtwItems / 2),
+
+                  SizedBox(
+                    height: 120,
+                    child: ListView.separated(
+                      itemCount: 4,
+                      scrollDirection: Axis.horizontal,
+                      separatorBuilder: (context, index) => const SizedBox(
+                        width: MySizes.spaceBtwItems,
+                      ),
+                      itemBuilder: (context, index) {
+                        return const MyProductCardHorizontal();
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
