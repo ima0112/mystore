@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/common/widgets/appbar/tabbar.dart';
@@ -11,6 +12,7 @@ import 'package:mystore/features/shop/screens/store/widgets/category_tabs.dart';
 import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -61,7 +63,9 @@ class StoreScreen extends StatelessWidget {
                       MySectionHeading(
                         title: 'Featured Brand',
                         showActionButton: true,
-                        onPressed: () {},
+                        onPressed: () {
+                          context.goNamed(MyRoutes.allBrands.name);
+                        },
                       ),
                       const SizedBox(height: MySizes.spaceBtwItems / 1.5),
 
