@@ -110,6 +110,34 @@ class ProductAttribute extends StatelessWidget {
             ),
           ],
         ),
+
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const MySectionHeading(title: 'Sizes', showActionButton: false),
+            const SizedBox(height: MySizes.spaceBtwItems / 2),
+            Wrap(
+              spacing: 8,
+              children: [
+                MyChoiceChip(
+                  text: 'EU 34',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+                MyChoiceChip(
+                  text: 'EU 36',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+                MyChoiceChip(
+                  text: 'EU 38',
+                  selected: false,
+                  onSelected: (value) {},
+                ),
+              ],
+            ),
+          ],
+        ),
       ],
     );
   }
