@@ -236,6 +236,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_rating_bar",
+      "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_rating_bar-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///D:/flutter_windows_3.13.7-stable/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -746,7 +752,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-07-29T18:57:30.145015Z",
+  "generated": "2024-07-30T19:26:11.879660Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///D:/flutter_windows_3.13.7-stable/flutter",
