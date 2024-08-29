@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mystore/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 
 import 'package:readmore/readmore.dart';
 
@@ -16,6 +17,7 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -35,6 +37,7 @@ class ProductDetailScreen extends StatelessWidget {
 
                   /// Price, Title, Stock & Brand
                   const ProductMetaData(),
+                  const SizedBox(height: MySizes.spaceBtwItems),
 
                   /// Attributes
                   const ProductAttribute(),
