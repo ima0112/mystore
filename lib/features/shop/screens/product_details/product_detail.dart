@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mystore/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 import 'package:readmore/readmore.dart';
 
@@ -83,7 +85,9 @@ class ProductDetailScreen extends StatelessWidget {
                         showActionButton: false,
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.goNamed(MyRoutes.productReviews.name);
+                        },
                         icon: const Icon(Iconsax.arrow_right_3, size: 18),
                       ),
                     ],

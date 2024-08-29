@@ -12,6 +12,7 @@ import 'package:mystore/features/personalization/screens/profile/profile.dart';
 import 'package:mystore/features/personalization/screens/settings/settings.dart';
 import 'package:mystore/features/shop/screens/home/home.dart';
 import 'package:mystore/features/shop/screens/product_details/product_detail.dart';
+import 'package:mystore/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:mystore/features/shop/screens/store/store.dart';
 import 'package:mystore/features/shop/screens/wishlist/wishlist.dart';
 import 'package:mystore/navigation_menu.dart';
@@ -30,6 +31,7 @@ enum MyRoutes {
   settings,
   profile,
   productDetail,
+  productReviews,
 }
 
 class AppRoute {
@@ -56,6 +58,7 @@ class AppRoute {
   static const String _settings = '/settings';
   static const String _profile = 'profile';
   static const String _productDetail = 'product_detail';
+  static const String _productReviews = 'product_reviews';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -116,6 +119,14 @@ class AppRoute {
                 name: MyRoutes.productDetail.name,
                 parentNavigatorKey: _rootNavigatorKey,
                 builder: (context, state) => const ProductDetailScreen(),
+                routes: [
+                  GoRoute(
+                    path: _productReviews,
+                    name: MyRoutes.productReviews.name,
+                    parentNavigatorKey: _rootNavigatorKey,
+                    builder: (context, state) => const ProductReviewsScreen(),
+                  ),
+                ],
               ),
             ],
           ),
