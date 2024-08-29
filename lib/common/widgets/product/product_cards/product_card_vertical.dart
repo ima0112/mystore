@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'package:mystore/common/styles/shadows.dart';
@@ -12,6 +13,7 @@ import 'package:mystore/utils/constants/colors.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 import 'package:mystore/utils/helpers/helper_functions.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 class MyProductCardVertical extends StatelessWidget {
   const MyProductCardVertical({super.key});
@@ -21,7 +23,7 @@ class MyProductCardVertical extends StatelessWidget {
     final dark = MyHelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () => context.pushNamed(MyRoutes.productDetail.name),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
