@@ -15,7 +15,15 @@ class SubCategoriesScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(MySizes.defaultSpace),
           child: Column(
-            children: [],
+            children: [
+              /// Banner
+              MyRoundedImage(
+                width: double.infinity,
+                imageUrl: MyImages.promoBanner1,
+                applyImageRadius: true,
+              ),
+              const SizedBox(height: MySizes.spaceBtwSections),
+            ],
           ),
         ),
       ),
