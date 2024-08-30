@@ -22,7 +22,6 @@ class MyCartItem extends StatelessWidget {
           imageUrl: MyImages.productImage1,
           width: 60,
           height: 60,
-          padding: const EdgeInsets.all(MySizes.sm),
           backgroundColor: MyHelperFunctions.isDarkMode(context)
               ? MyColors.darkerGrey
               : MyColors.light,
