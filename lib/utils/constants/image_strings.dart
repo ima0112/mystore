@@ -77,4 +77,9 @@ class MyImages {
       'assets/images/products/t-shirt-1976334_640.png';
   static const String productImage10 =
       'assets/images/products/view-soccer-shoes.png';
+
+  // Payment
+  static const String paymentSuccess =
+      'assets/icons/payment/payment-check.png';
+
 }
