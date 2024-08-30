@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mystore/common/widgets/appbar/appbar.dart';
+import 'package:mystore/features/shop/screens/order/widgets/orders_list.dart';
 import 'package:mystore/utils/constants/sizes.dart';
 
 class OrderScreen extends StatelessWidget {
@@ -17,6 +18,7 @@ class OrderScreen extends StatelessWidget {
       ),
       body: const Padding(
         padding: EdgeInsets.all(MySizes.defaultSpace),
+        child: OrderListItems(),
       ),
     );
   }
