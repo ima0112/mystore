@@ -73,7 +73,9 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subtitle: 'In-progress and Completed Orders',
-                    onTap: () {},
+                    onTap: () {
+                      context.goNamed(MyRoutes.orders.name);
+                    },
                   ),
                   MySettingMenuTile(
                     icon: Iconsax.bank,
