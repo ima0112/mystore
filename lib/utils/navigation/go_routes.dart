@@ -13,6 +13,7 @@ import 'package:mystore/features/personalization/screens/address/widgets/add_new
 import 'package:mystore/features/personalization/screens/profile/profile.dart';
 import 'package:mystore/features/personalization/screens/settings/settings.dart';
 import 'package:mystore/features/shop/screens/all_products/all_products.dart';
+import 'package:mystore/features/shop/screens/brand/all_brand.dart';
 import 'package:mystore/features/shop/screens/cart/cart.dart';
 import 'package:mystore/features/shop/screens/checkout/checkout.dart';
 import 'package:mystore/features/shop/screens/home/home.dart';
@@ -46,6 +47,7 @@ enum MyRoutes {
   orders,
   subCategory,
   allProducts,
+  allBrands,
 }
 
 class AppRoute {
@@ -80,6 +82,7 @@ class AppRoute {
   static const String _orders = 'orders';
   static const String _subCategory = 'subCategory';
   static const String _allProducts = 'allProducts';
+  static const String _allBrands = 'allBrands';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -181,6 +184,14 @@ class AppRoute {
             path: _store,
             name: MyRoutes.store.name,
             builder: (context, state) => const StoreScreen(),
+            routes: [
+              GoRoute(
+                path: _allBrands,
+                name: MyRoutes.allBrands.name,
+                parentNavigatorKey: _rootNavigatorKey,
+                builder: (context, state) => const AllBrandsScreen(),
+              ),
+            ],
           ),
           GoRoute(
             path: _wishlist,
