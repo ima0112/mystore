@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:mystore/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
@@ -10,6 +11,7 @@ import 'package:mystore/features/shop/screens/home/widgets/home_categories.dart'
 import 'package:mystore/features/shop/screens/home/widgets/home_promo_slider.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/utils/navigation/go_routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -71,7 +73,9 @@ class HomeScreen extends StatelessWidget {
                   /// Heading
                   MySectionHeading(
                     title: 'Popular Product',
-                    onPressed: () {},
+                    onPressed: () {
+                      context.goNamed(MyRoutes.allProducts.name);
+                    },
                   ),
                   const SizedBox(height: MySizes.spaceBtwItems),
 
