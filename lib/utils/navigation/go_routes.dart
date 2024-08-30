@@ -19,6 +19,7 @@ import 'package:mystore/features/shop/screens/order/order.dart';
 import 'package:mystore/features/shop/screens/product_details/product_detail.dart';
 import 'package:mystore/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:mystore/features/shop/screens/store/store.dart';
+import 'package:mystore/features/shop/screens/sub_category/sub_categories.dart';
 import 'package:mystore/features/shop/screens/wishlist/wishlist.dart';
 import 'package:mystore/navigation_menu.dart';
 
@@ -42,6 +43,7 @@ enum MyRoutes {
   cart,
   checkout,
   orders,
+  subCategory,
 }
 
 class AppRoute {
@@ -74,6 +76,7 @@ class AppRoute {
   static const String _cart = 'cart';
   static const String _checkout = 'checkout';
   static const String _orders = 'orders';
+  static const String _subCategory = 'subCategory';
 
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
@@ -142,6 +145,12 @@ class AppRoute {
                     builder: (context, state) => const ProductReviewsScreen(),
                   ),
                 ],
+              ),
+              GoRoute(
+                path: _subCategory,
+                name: MyRoutes.subCategory.name,
+                parentNavigatorKey: _rootNavigatorKey,
+                builder: (context, state) => const SubCategoriesScreen(),
               ),
               GoRoute(
                 path: _cart,
