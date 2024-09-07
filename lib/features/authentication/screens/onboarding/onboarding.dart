@@ -6,6 +6,7 @@ import 'package:mystore/features/authentication/screens/onboarding/widgets/onboa
 import 'package:mystore/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:mystore/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:mystore/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
+import 'package:mystore/injection_container.dart';
 import 'package:mystore/utils/constants/image_strings.dart';
 import 'package:mystore/utils/constants/text_strings.dart';
 
@@ -15,7 +16,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => OnboardingControllerCubit(),
+      create: (context) => getIt<OnboardingControllerCubit>(),
       child: BlocBuilder<OnboardingControllerCubit, OnboardingControllerState>(
         builder: (context, state) {
           final onboardingCubit = context.read<OnboardingControllerCubit>();

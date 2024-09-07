@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:mystore/data/services/onboarding_service.dart';
 
 import 'package:mystore/features/authentication/screens/login/login.dart';
 import 'package:mystore/features/authentication/screens/onboarding/onboarding.dart';
@@ -24,6 +25,7 @@ import 'package:mystore/features/shop/screens/product_reviews/product_reviews.da
 import 'package:mystore/features/shop/screens/store/store.dart';
 import 'package:mystore/features/shop/screens/sub_category/sub_categories.dart';
 import 'package:mystore/features/shop/screens/wishlist/wishlist.dart';
+import 'package:mystore/injection_container.dart';
 import 'package:mystore/navigation_menu.dart';
 
 enum MyRoutes {
@@ -90,6 +92,18 @@ class AppRoute {
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: _onboarding,
+    redirect: (context, state) {
+      final onboardingService = getIt<OnboardingService>();
+      final isOnboardingCompleted = onboardingService.isOnboardingCompleted;
+
+      if (!isOnboardingCompleted && state.matchedLocation != _onboarding) {
+        return _onboarding;
+      }
+      if (isOnboardingCompleted && state.matchedLocation == _onboarding) {
+        return _login;
+      }
+      return null;
+    },
     routes: [
       // Onboarding
       GoRoute(

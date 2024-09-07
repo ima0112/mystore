@@ -2,22 +2,27 @@ import 'package:flutter/material.dart';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
+import 'package:mystore/data/services/onboarding_service.dart';
 import 'package:mystore/utils/navigation/go_routes.dart';
 
 part 'onboarding_controller_state.dart';
 
+@injectable
 class OnboardingControllerCubit extends Cubit<OnboardingControllerState> {
+  final OnboardingService _onboardingService;
   final PageController pageController = PageController();
 
-  OnboardingControllerCubit()
+  OnboardingControllerCubit(this._onboardingService)
       : super(const OnboardingControllerState(currentPageIndex: 0));
 
   void updatePageIndicator(int index) {
     emit(state.copyWith(currentPageIndex: index));
   }
 
-  void nextPage() {
+  void nextPage() async {
     if (state.currentPageIndex == 2) {
+      await _onboardingService.completeOnboarding();
       AppRoute.routes.goNamed(MyRoutes.login.name);
     } else {
       int page = state.currentPageIndex + 1;
