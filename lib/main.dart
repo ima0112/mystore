@@ -24,6 +24,7 @@ void main() async {
 
   await configureDependencies();
   await dotenv.load(fileName: "assets/.env");
+  await configureDependencies();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   FlutterNativeSplash.remove();

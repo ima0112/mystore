@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mystore/common/domain/usecases/onboarding_use_case.dart';
 import 'package:mystore/common/domain/usecases/usecase.dart';
 import 'package:mystore/features/authentication/domain/usecase/check_user_status_use_case.dart';
+import 'package:mystore/data/services/onboarding_service.dart';
 
 import 'package:mystore/features/authentication/presentation/screens/login/login.dart';
 import 'package:mystore/features/authentication/presentation/screens/onboarding/onboarding.dart';
