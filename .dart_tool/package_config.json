@@ -290,6 +290,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "formz",
+      "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/formz-0.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "freezed_annotation",
       "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/freezed_annotation-2.4.4",
       "packageUri": "lib/",
@@ -860,7 +866,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-09-07T22:19:06.598643Z",
+  "generated": "2024-09-17T21:24:07.686618Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///D:/flutter_windows_3.13.7-stable/flutter",
