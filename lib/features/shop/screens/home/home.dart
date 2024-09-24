@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 
-import 'package:mystore/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:mystore/common/widgets/layouts/grid_layout.dart';
-import 'package:mystore/common/widgets/product/product_cards/product_card_vertical.dart';
-import 'package:mystore/common/widgets/texts/section_heading.dart';
+import 'package:mystore/core/common_widgets/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:mystore/core/common_widgets/widgets/custom_shapes/containers/search_container.dart';
+import 'package:mystore/core/common_widgets/widgets/layouts/grid_layout.dart';
+import 'package:mystore/core/common_widgets/widgets/product/product_cards/product_card_vertical.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:mystore/features/shop/screens/home/widgets/home_promo_slider.dart';
-import 'package:mystore/utils/constants/image_strings.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/navigation/go_routes.dart';
+import 'package:mystore/core/constants/image_strings.dart';
+import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/core/routing/go_routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

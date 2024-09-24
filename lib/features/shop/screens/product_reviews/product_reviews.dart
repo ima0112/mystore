@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
+import 'package:mystore/core/common_widgets/widgets/product/ratings/rating_indicator.dart';
 
-import 'package:mystore/common/widgets/appbar/appbar.dart';
-import 'package:mystore/common/widgets/product/ratings/rating_indicator.dart';
 import 'package:mystore/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
 import 'package:mystore/features/shop/screens/product_reviews/widgets/user_review_card.dart';
-import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/core/constants/sizes.dart';
 
 class ProductReviewsScreen extends StatelessWidget {
   const ProductReviewsScreen({super.key});

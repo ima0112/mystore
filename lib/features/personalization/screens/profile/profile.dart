@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:iconsax/iconsax.dart';
-import 'package:mystore/common/widgets/appbar/appbar.dart';
-import 'package:mystore/common/widgets/images/circular_image.dart';
-import 'package:mystore/common/widgets/texts/section_heading.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
+import 'package:mystore/core/common_widgets/widgets/images/circular_image.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
+
 import 'package:mystore/features/personalization/screens/profile/widgets/profile_menu.dart';
-import 'package:mystore/utils/constants/image_strings.dart';
-import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/core/constants/image_strings.dart';
+import 'package:mystore/core/constants/sizes.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

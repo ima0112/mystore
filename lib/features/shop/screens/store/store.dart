@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/tabbar.dart';
+import 'package:mystore/core/common_widgets/widgets/brands/brand_card.dart';
+import 'package:mystore/core/common_widgets/widgets/custom_shapes/containers/search_container.dart';
+import 'package:mystore/core/common_widgets/widgets/layouts/grid_layout.dart';
+import 'package:mystore/core/common_widgets/widgets/product/cart/cart_menu_icon.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
 
-import 'package:mystore/common/widgets/appbar/appbar.dart';
-import 'package:mystore/common/widgets/appbar/tabbar.dart';
-import 'package:mystore/common/widgets/brands/brand_card.dart';
-import 'package:mystore/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:mystore/common/widgets/layouts/grid_layout.dart';
-import 'package:mystore/common/widgets/product/cart/cart_menu_icon.dart';
-import 'package:mystore/common/widgets/texts/section_heading.dart';
 import 'package:mystore/features/shop/screens/store/widgets/category_tabs.dart';
-import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/helpers/helper_functions.dart';
-import 'package:mystore/utils/navigation/go_routes.dart';
+import 'package:mystore/core/constants/colors.dart';
+import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/core/routing/go_routes.dart';
+import 'package:mystore/core/utils/helpers/helper_functions.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});

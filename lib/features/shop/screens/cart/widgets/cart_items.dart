@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mystore/core/common_widgets/widgets/product/cart/add_remove_button.dart';
+import 'package:mystore/core/common_widgets/widgets/product/cart/cart_item.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/product_price_text.dart';
 
-import 'package:mystore/common/widgets/product/cart/add_remove_button.dart';
-import 'package:mystore/common/widgets/product/cart/cart_item.dart';
-import 'package:mystore/common/widgets/texts/product_price_text.dart';
-import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/core/constants/sizes.dart';
 
 class CartItems extends StatelessWidget {
   const CartItems({

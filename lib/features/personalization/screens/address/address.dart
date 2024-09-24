@@ -3,11 +3,11 @@ import 'package:go_router/go_router.dart';
 
 import 'package:iconsax/iconsax.dart';
 
-import 'package:mystore/common/widgets/appbar/appbar.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
 import 'package:mystore/features/personalization/screens/address/widgets/single_address.dart';
-import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/navigation/go_routes.dart';
+import 'package:mystore/core/constants/colors.dart';
+import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/core/routing/go_routes.dart';
 
 class UserAddressScreen extends StatelessWidget {
   const UserAddressScreen({super.key});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
 
-import 'package:mystore/common/widgets/appbar/appbar.dart';
 import 'package:mystore/features/shop/screens/cart/widgets/cart_items.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/navigation/go_routes.dart';
+import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/core/routing/go_routes.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({

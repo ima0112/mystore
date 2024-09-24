@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:mystore/core/common_widgets/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:mystore/core/common_widgets/widgets/images/rounded_image.dart';
 
-import 'package:mystore/common/widgets/custom_shapes/containers/circular_container.dart';
-import 'package:mystore/common/widgets/images/rounded_image.dart';
-import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/core/constants/colors.dart';
+import 'package:mystore/core/constants/sizes.dart';
 
 class HomePromoSlider extends StatelessWidget {
   const HomePromoSlider({

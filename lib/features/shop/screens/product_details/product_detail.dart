@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mystore/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
-import 'package:mystore/utils/navigation/go_routes.dart';
-
+import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
+import 'package:mystore/core/routing/go_routes.dart';
 import 'package:readmore/readmore.dart';
 
-import 'package:mystore/common/widgets/texts/section_heading.dart';
+import 'package:mystore/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:mystore/features/shop/screens/product_details/widgets/product_attribute.dart';
 import 'package:mystore/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:mystore/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:mystore/features/shop/screens/product_details/widgets/rating_share_widget.dart';
-import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/core/constants/sizes.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key});
