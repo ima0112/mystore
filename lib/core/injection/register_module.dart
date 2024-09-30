@@ -1,8 +1,11 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:isar/isar.dart';
 import 'package:mystore/core/utils/http_client/logger_interceptor.dart';
 import 'package:mystore/features/authentication/data/models/user_model.dart';
@@ -16,6 +19,12 @@ abstract class RegisterModule {
 
   @preResolve
   Future<SharedPreferences> prefs() => SharedPreferences.getInstance();
+
+  @lazySingleton
+  FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
+
+  @lazySingleton
+  FirebaseFirestore get firestore => FirebaseFirestore.instance;
 
   @lazySingleton
   Dio client(@Named('BaseUrl') String url) {
@@ -42,7 +51,7 @@ abstract class RegisterModule {
   @preResolve
   Future<Isar> bd(@Named('dir') Directory dir) => Isar.open(
         [
-          UserModelSchema,
+          IsarUserModelSchema,
         ],
         directory: dir.path,
       );
