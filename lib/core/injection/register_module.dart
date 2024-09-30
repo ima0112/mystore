@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:isar/isar.dart';
 import 'package:mystore/core/utils/http_client/logger_interceptor.dart';
+import 'package:mystore/features/authentication/data/models/user_model.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @module
@@ -29,4 +34,16 @@ abstract class RegisterModule {
 
     return dio;
   }
+
+  @preResolve
+  @Named("dir")
+  Future<Directory> appDocumentsDir() => getApplicationDocumentsDirectory();
+
+  @preResolve
+  Future<Isar> bd(@Named('dir') Directory dir) => Isar.open(
+        [
+          UserModelSchema,
+        ],
+        directory: dir.path,
+      );
 }
