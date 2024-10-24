@@ -159,7 +159,7 @@
     },
     {
       "name": "connectivity_plus",
-      "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/connectivity_plus-6.1.1",
+      "rootUri": "file:///C:/Users/Ima/AppData/Local/Pub/Cache/hosted/pub.dev/connectivity_plus-6.1.2",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -1040,7 +1040,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2025-01-15T03:14:21.322920Z",
+  "generated": "2025-01-15T03:39:34.822642Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///D:/flutter_windows_3.13.7-stable/flutter",
