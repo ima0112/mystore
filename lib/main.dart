@@ -8,7 +8,6 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 
 import 'package:mystore/app.dart';
 import 'package:mystore/features/authentication/presentation/bloc/authentication/authentication_bloc.dart';
-import 'package:mystore/features/authentication/presentation/bloc/sign_up_form/sign_up_form_bloc.dart';
 import 'package:mystore/firebase_options.dart';
 import 'package:mystore/core/injection/injection_container.dart';
 
@@ -34,9 +33,6 @@ void main() async {
       providers: [
         BlocProvider(
           create: (context) => getIt<AuthenticationBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<SignUpFormBloc>(),
         ),
       ],
       child: const App(),

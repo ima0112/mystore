@@ -12,6 +12,5 @@ class AuthenticationEvent with _$AuthenticationEvent {
     required String password,
     required String phoneNumber,
     required String username,
-    required bool privacyAccepted,
   }) = _SignUp;
 }

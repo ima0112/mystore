@@ -25,9 +25,15 @@ class AuthenticationBloc
     on<AuthenticationEvent>((event, emit) async {
       await event.when(
         started: () {},
-        signup: (firstName, lastName, email, password, phoneNumber, username,
-            privacyAccepted) async {
-          emit(const _Loading());
+        signup: (
+          firstName,
+          lastName,
+          email,
+          password,
+          phoneNumber,
+          username,
+        ) async {
+          emit(const AuthenticationState.loading());
 
           /// Checks the internet connection status using `isConnectedUseCase`.
           /// If there is no internet connection, emits an error state with the
@@ -46,20 +52,6 @@ class AuthenticationBloc
             emit(
               AuthenticationState.error(
                 message: internetStatus.$1!.message,
-              ),
-            );
-            return;
-          }
-
-          /// Emits an error state if the privacy policy is not accepted.
-          ///
-          /// This block checks if the `privacyAccepted` flag is `false`. If so, it emits
-          /// an `AuthenticationState.error` with a message indicating that the user must
-          /// accept the privacy policy to continue, and then returns early.
-          if (privacyAccepted == false) {
-            emit(
-              const AuthenticationState.error(
-                message: 'You must accept the privacy policy to continue.',
               ),
             );
             return;
@@ -95,7 +87,11 @@ class AuthenticationBloc
             return;
           }
 
-          emit(const AuthenticationState.success(message: 'User registered.'));
+          emit(
+            const AuthenticationState.success(
+              message: 'Verify your email to continue.',
+            ),
+          );
         },
       );
     });

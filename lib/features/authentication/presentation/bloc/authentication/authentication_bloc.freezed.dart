@@ -19,42 +19,24 @@ mixin _$AuthenticationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)
+    required TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)
         signup,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)?
+    TResult? Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
         signup,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)?
+    TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
         signup,
     required TResult orElse(),
   }) =>
@@ -137,14 +119,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)
+    required TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)
         signup,
   }) {
     return started();
@@ -154,14 +130,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)?
+    TResult? Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
         signup,
   }) {
     return started?.call();
@@ -171,14 +141,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)?
+    TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
         signup,
     required TResult orElse(),
   }) {
@@ -236,8 +200,7 @@ abstract class _$$SignUpImplCopyWith<$Res> {
       String email,
       String password,
       String phoneNumber,
-      String username,
-      bool privacyAccepted});
+      String username});
 }
 
 /// @nodoc
@@ -257,7 +220,6 @@ class __$$SignUpImplCopyWithImpl<$Res>
     Object? password = null,
     Object? phoneNumber = null,
     Object? username = null,
-    Object? privacyAccepted = null,
   }) {
     return _then(_$SignUpImpl(
       firstName: null == firstName
@@ -284,10 +246,6 @@ class __$$SignUpImplCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      privacyAccepted: null == privacyAccepted
-          ? _value.privacyAccepted
-          : privacyAccepted // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -301,8 +259,7 @@ class _$SignUpImpl implements _SignUp {
       required this.email,
       required this.password,
       required this.phoneNumber,
-      required this.username,
-      required this.privacyAccepted});
+      required this.username});
 
   @override
   final String firstName;
@@ -316,12 +273,10 @@ class _$SignUpImpl implements _SignUp {
   final String phoneNumber;
   @override
   final String username;
-  @override
-  final bool privacyAccepted;
 
   @override
   String toString() {
-    return 'AuthenticationEvent.signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, phoneNumber: $phoneNumber, username: $username, privacyAccepted: $privacyAccepted)';
+    return 'AuthenticationEvent.signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, phoneNumber: $phoneNumber, username: $username)';
   }
 
   @override
@@ -339,14 +294,12 @@ class _$SignUpImpl implements _SignUp {
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
             (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.privacyAccepted, privacyAccepted) ||
-                other.privacyAccepted == privacyAccepted));
+                other.username == username));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, firstName, lastName, email,
-      password, phoneNumber, username, privacyAccepted);
+  int get hashCode => Object.hash(
+      runtimeType, firstName, lastName, email, password, phoneNumber, username);
 
   @JsonKey(ignore: true)
   @override
@@ -358,56 +311,37 @@ class _$SignUpImpl implements _SignUp {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)
+    required TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)
         signup,
   }) {
-    return signup(firstName, lastName, email, password, phoneNumber, username,
-        privacyAccepted);
+    return signup(firstName, lastName, email, password, phoneNumber, username);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)?
+    TResult? Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
         signup,
   }) {
-    return signup?.call(firstName, lastName, email, password, phoneNumber,
-        username, privacyAccepted);
+    return signup?.call(
+        firstName, lastName, email, password, phoneNumber, username);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phoneNumber,
-            String username,
-            bool privacyAccepted)?
+    TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
         signup,
     required TResult orElse(),
   }) {
     if (signup != null) {
-      return signup(firstName, lastName, email, password, phoneNumber, username,
-          privacyAccepted);
+      return signup(
+          firstName, lastName, email, password, phoneNumber, username);
     }
     return orElse();
   }
@@ -451,8 +385,7 @@ abstract class _SignUp implements AuthenticationEvent {
       required final String email,
       required final String password,
       required final String phoneNumber,
-      required final String username,
-      required final bool privacyAccepted}) = _$SignUpImpl;
+      required final String username}) = _$SignUpImpl;
 
   String get firstName;
   String get lastName;
@@ -460,7 +393,6 @@ abstract class _SignUp implements AuthenticationEvent {
   String get password;
   String get phoneNumber;
   String get username;
-  bool get privacyAccepted;
   @JsonKey(ignore: true)
   _$$SignUpImplCopyWith<_$SignUpImpl> get copyWith =>
       throw _privateConstructorUsedError;

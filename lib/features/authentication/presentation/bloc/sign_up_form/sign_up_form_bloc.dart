@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 
 import 'package:mystore/core/inputs/user_inputs.dart';
 import 'package:mystore/features/authentication/domain/usecase/register_form_validation_use_case.dart';
-import 'package:mystore/features/authentication/presentation/bloc/authentication/authentication_bloc.dart';
 
 part 'sign_up_form_event.dart';
 part 'sign_up_form_state.dart';
@@ -12,10 +11,9 @@ part 'sign_up_form_bloc.freezed.dart';
 
 @injectable
 class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
-  final AuthenticationBloc authenticationBloc;
   final RegisterFormValidationUseCase registerFormValidationUseCase;
 
-  SignUpFormBloc(this.registerFormValidationUseCase, this.authenticationBloc)
+  SignUpFormBloc(this.registerFormValidationUseCase)
       : super(const SignUpFormState()) {
     on<SignUpFormEvent>((event, emit) async {
       await event.when(
@@ -54,31 +52,29 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
             ),
           );
 
-          if (formStatus.$2 == false) {
-            emit(
-              state.copyWith(
-                firstName: name,
-                lastName: last,
-                username: user,
-                email: mail,
-                phoneNumber: phone,
-                password: pass,
-                isValidated: false,
-              ),
-            );
-            return;
-          } else if (formStatus.$2 == true) {
-            authenticationBloc.add(
-              AuthenticationEvent.signup(
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password,
-                phoneNumber: phoneNumber,
-                username: username,
-                privacyAccepted: privacy,
-              ),
-            );
+          emit(
+            state.copyWith(
+              firstName: name,
+              lastName: last,
+              username: user,
+              email: mail,
+              phoneNumber: phone,
+              password: pass,
+            ),
+          );
+
+          if (formStatus.$2 == true) {
+            if (privacy == false) {
+              emit(state.copyWith(
+                isPrivacyAccepted: privacy,
+                privacyErrorTriggered: true,
+              ));
+
+              emit(state.copyWith(privacyErrorTriggered: false));
+              return;
+            }
+
+            emit(state.copyWith(isFormValid: true));
           }
         },
       );
