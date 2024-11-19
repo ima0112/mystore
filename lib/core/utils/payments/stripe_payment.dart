@@ -10,6 +10,7 @@ import 'package:mystore/core/common_widgets/widgets/success_screen/success_scree
 import 'package:mystore/core/constants/colors.dart';
 import 'package:mystore/core/constants/image_strings.dart';
 import 'package:mystore/core/routing/go_routes.dart';
+import 'package:mystore/core/utils/helpers/helper_functions.dart';
 
 class StripePaymnet {
   static final StripePaymnet _singleton = StripePaymnet._internal();
@@ -123,7 +124,10 @@ class StripePaymnet {
       context,
       MaterialPageRoute(
         builder: (context) => SuccessScreen(
-          image: MyImages.paymentSuccess,
+          image: Image(
+            image: const AssetImage(MyImages.paymentSuccess),
+            width: MyHelperFunctions.screenWidth(context) * 0.6,
+          ),
           title: 'Payment Success!',
           subTitle: 'Your item will be shipped soon',
           onPressed: () {
