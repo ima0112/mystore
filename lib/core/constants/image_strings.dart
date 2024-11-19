@@ -1,6 +1,8 @@
 class MyImages {
   // Lottie Animations
   static const String docerAmination = 'assets/images/animations/docer.lottie';
+  static const String checkRegisterAmination =
+      'assets/images/animations/animation_check_register.lottie';
 
   // App Logos
   static const String lightAppLogo =
