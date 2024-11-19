@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mystore/core/usecases/onboarding/is_onboarding_complete.dart';
 import 'package:mystore/core/usecases/usecase.dart';
+import 'package:mystore/features/authentication/domain/usecase/check_user_status_use_case.dart';
 
 import 'package:mystore/features/authentication/presentation/screens/login/login.dart';
 import 'package:mystore/features/authentication/presentation/screens/onboarding/onboarding.dart';
@@ -69,7 +70,7 @@ class AppRoute {
   static const String _onboarding = '/onboarding';
   static const String _login = '/login';
   static const String _signup = 'signup';
-  static const String _verifyEmail = 'verify_email';
+  static const String _verifyEmail = '/verify_email';
   static const String _success = 'success';
   static const String _forgetPassword = 'forget_password';
   static const String _resetPassword = 'reset_password';
@@ -90,23 +91,48 @@ class AppRoute {
   static const String _allBrands = 'all_brands';
   static const String _brandProducts = 'brand_products';
 
+  static const validRoutes = [_home, _store, _wishlist, _settings];
+
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: _onboarding,
     redirect: (context, state) async {
+      final checkUserStatusUseCase = getIt<CheckUserStatusUseCase>();
       final isOnboardingCompleteUseCase = getIt<IsOnboardingComplete>();
-      final isOnboardingComplete =
-          await isOnboardingCompleteUseCase(const NoParams());
 
-      if (isOnboardingComplete.$2 == false &&
-          state.matchedLocation != _onboarding) {
-        return _onboarding;
-      }
-      if (isOnboardingComplete.$2 == true &&
-          state.matchedLocation == _onboarding) {
-        return _login;
+      final userStatusResult = await checkUserStatusUseCase(const NoParams());
+
+      if (userStatusResult.$2 != null) {
+        switch (userStatusResult.$2) {
+          case UserStatus.emailNotVerified:
+            if (state.matchedLocation != _verifyEmail) {
+              return _verifyEmail;
+            }
+            break;
+          case UserStatus.emailVerified:
+            if (!validRoutes
+                .any((route) => state.matchedLocation.startsWith(route))) {
+              return _home;
+            }
+            break;
+          case UserStatus.notAuthenticated:
+            final isOnboardingComplete =
+                await isOnboardingCompleteUseCase(const NoParams());
+
+            if (isOnboardingComplete.$2 == true &&
+                state.matchedLocation == _onboarding) {
+              return _login;
+            } else if (isOnboardingComplete.$2 == false &&
+                state.matchedLocation != _onboarding) {
+              return _onboarding;
+            }
+            break;
+          case null:
+            return null;
+        }
       }
 
+      // Retorna null si ya estamos en la ruta correcta
       return null;
     },
     routes: [
@@ -129,11 +155,6 @@ class AppRoute {
             name: MyRoutes.signup.name,
             builder: (context, state) => const SignupScreen(),
           ),
-          GoRoute(
-            path: _verifyEmail,
-            name: MyRoutes.verifyEmail.name,
-            builder: (context, state) => const VerifyEmailScreen(),
-          ),
 
           // Forget Password
           GoRoute(
@@ -147,6 +168,16 @@ class AppRoute {
             builder: (context, state) => const ResetPasswordScreen(),
           ),
         ],
+      ),
+
+      // Verify Email
+      GoRoute(
+        path: _verifyEmail,
+        name: MyRoutes.verifyEmail.name,
+        builder: (context, state) {
+          String email = state.extra as String? ?? '';
+          return VerifyEmailScreen(email: email);
+        },
       ),
 
       ShellRoute(
