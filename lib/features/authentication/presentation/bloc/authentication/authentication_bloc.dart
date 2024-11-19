@@ -279,7 +279,9 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           );
         },
         verifyEmail: (String email) async {
-          emit(const AuthenticationState.loading());
+          emit(const AuthenticationState.initial());
+
+          setTimerForAutoRedirect();
 
           if (_cooldownStart == null) {
             _startCooldownTimer();
