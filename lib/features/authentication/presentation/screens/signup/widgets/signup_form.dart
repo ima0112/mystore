@@ -208,8 +208,6 @@ class _SignupFormState extends State<SignupForm> {
                                 privacyAccepted: isPrivacyAccepted,
                               ),
                             );
-
-                        // context.goNamed(MyRoutes.verifyEmail.name);
                       },
                       child: const Text(MyTexts.createAccount),
                     ),
