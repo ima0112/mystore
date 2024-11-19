@@ -71,10 +71,9 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
               ));
 
               emit(state.copyWith(privacyErrorTriggered: false));
-              return;
+            } else {
+              emit(state.copyWith(isFormValid: true));
             }
-
-            emit(state.copyWith(isFormValid: true));
           }
         },
       );

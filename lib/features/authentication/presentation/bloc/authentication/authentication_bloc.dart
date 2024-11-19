@@ -73,8 +73,6 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
   ) : super(const _Initial()) {
     WidgetsBinding.instance.addObserver(this);
 
-    setTimerForAutoRedirect();
-
     on<AuthenticationEvent>((event, emit) async {
       await event.when(
         started: () {},
@@ -86,7 +84,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           phoneNumber,
           username,
         ) async {
-          emit(const AuthenticationState.loading());
+          emit(const AuthenticationState.initial());
 
           /// Checks the internet connection status using `isConnectedUseCase`.
           /// If there is no internet connection, emits an error state with the
@@ -148,7 +146,9 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           );
         },
         verifyEmail: (String email) async {
-          emit(const AuthenticationState.loading());
+          emit(const AuthenticationState.initial());
+
+          setTimerForAutoRedirect();
 
           if (_cooldownStart == null) {
             _startCooldownTimer();
