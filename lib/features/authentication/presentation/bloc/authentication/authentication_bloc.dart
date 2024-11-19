@@ -278,6 +278,57 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
             ),
           );
         },
+        verifyEmail: (String email) async {
+          emit(const AuthenticationState.loading());
+
+          if (_cooldownStart == null) {
+            _startCooldownTimer();
+            final resp = await sendEmailVerificationUseCase(const NoParams());
+
+            if (resp.$1 != null) {
+              emit(
+                AuthenticationState.error(message: resp.$1!.message),
+              );
+              return;
+            } else {
+              emit(const AuthenticationState.emailVerificationSent());
+            }
+          }
+        },
+        checkEmailVerification: () async {
+          emit(const AuthenticationState.loading());
+
+          final userStatus =
+              await checkUserStatusUseCase.call(const NoParams());
+
+          if (userStatus.$1 != null) {
+            emit(
+              AuthenticationState.error(message: userStatus.$1!.message),
+            );
+            return;
+          }
+
+          if (userStatus.$2 == UserStatus.emailVerified) {
+            emit(const AuthenticationState.emailVerified());
+            _timer?.cancel();
+            return;
+          } else {
+            emit(const AuthenticationState.emailVerificationSent());
+          }
+        },
+        logout: () {
+          final logout = logoutUserUseCase(const NoParams());
+          logout.then((value) {
+            if (value.$1 != null) {
+              emit(
+                AuthenticationState.error(message: value.$1!.message),
+              );
+              return;
+            }
+
+            emit(const AuthenticationState.loggedOut());
+          });
+        },
       );
     });
   }
