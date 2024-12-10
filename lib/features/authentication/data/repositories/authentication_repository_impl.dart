@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mystore/common/data/data_source/user/user_remote_data_source.dart';
@@ -166,6 +165,79 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       return (null, null);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
+    } on CacheException catch (e) {
+      return (CacheFailure(e.message), null);
+    } catch (e) {
+      return (ServerFailure(e.toString()), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, void)> sendPasswordResetEmail(String email) async {
+    try {
+      await authRemoteDataSource.sendPasswordResetEmail(email);
+      return (null, null);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, UserEntity?)> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+    required bool rememberMe,
+  }) async {
+    try {
+      final UserModel userModel =
+          await remoteDataSource.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      await localDataSource.cacheUser(userModel.toIsarUserModel());
+
+      return (null, userModel);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    } on CacheException catch (e) {
+      return (CacheFailure(e.message), null);
+    } catch (e) {
+      return (ServerFailure(e.toString()), null);
+    }
+  }
+
+  @override
+  Future<UserAuthCredentials?> getCredentials() async {
+    final email = await sharedPreferencesDataSource.getString(rememberEmail);
+    final password =
+        await sharedPreferencesDataSource.getString(rememberPassword);
+
+    if (email.isNotEmpty || password.isNotEmpty) {
+
+        
+    return UserAuthCredentials(email: email, password: password);;
+
+    }else{
+      return null;
+    }
+  }
+
+  @override
+  Future<void> clearCredentials() async {
+    await sharedPreferencesDataSource.remove(rememberEmail);
+    await sharedPreferencesDataSource.remove(rememberPassword);
+  }
+
+  @override
+  Future<(Failure?, void)> saveCredentials(
+      {required String email, required String password}) async {
+    try {
+      await sharedPreferencesDataSource.saveString(rememberEmail, email);
+      await sharedPreferencesDataSource.saveString(rememberPassword, password);
+      return (null, null);
+    } catch (e) {
+      return (CacheFailure(e.toString()), null);
     }
   }
 }
