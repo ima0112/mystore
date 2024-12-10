@@ -120,11 +120,8 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
         await sharedPreferencesDataSource.getString(rememberPassword);
 
     if (email.isNotEmpty || password.isNotEmpty) {
-
-        
-    return UserAuthCredentials(email: email, password: password);;
-
-    }else{
+      return UserAuthCredentials(email: email, password: password);
+    } else {
       return null;
     }
   }
@@ -144,6 +141,23 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       return (null, null);
     } catch (e) {
       return (CacheFailure(e.toString()), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, UserEntity?)> signInWithGoogle() async {
+    try {
+      final UserModel userModel = await remoteDataSource.signInWithGoogle();
+
+      await localDataSource.cacheUser(userModel.toIsarUserModel());
+
+      return (null, userModel);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    } on CacheException catch (e) {
+      return (CacheFailure(e.message), null);
+    } catch (e) {
+      return (ServerFailure(e.toString()), null);
     }
   }
 }

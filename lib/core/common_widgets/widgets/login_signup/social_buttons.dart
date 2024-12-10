@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mystore/core/constants/colors.dart';
 import 'package:mystore/core/constants/image_strings.dart';
 import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/features/authentication/presentation/bloc/authentication/authentication_bloc.dart';
 
 class SocialButtons extends StatelessWidget {
   const SocialButtons({
@@ -18,7 +20,11 @@ class SocialButtons extends StatelessWidget {
               border: Border.all(color: MyColors.grey),
               borderRadius: BorderRadius.circular(100)),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context
+                  .read<AuthenticationBloc>()
+                  .add(const AuthenticationEvent.signInWithGoogle());
+            },
             icon: const Image(
               image: AssetImage(MyImages.google),
               width: MySizes.iconMd,

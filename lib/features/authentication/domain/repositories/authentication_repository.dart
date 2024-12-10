@@ -23,6 +23,8 @@ abstract class AuthenticationRepository {
     required bool rememberMe,
   });
 
+  Future<(Failure?, UserEntity?)> signInWithGoogle();
+
   Future<UserAuthCredentials?> getCredentials();
 
   Future<(Failure?, void)> saveCredentials({

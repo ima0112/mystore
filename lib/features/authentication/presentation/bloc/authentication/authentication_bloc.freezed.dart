@@ -24,6 +24,7 @@ mixin _$AuthenticationEvent {
         signup,
     required TResult Function(String email, String password, bool rememberMe)
         signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
     required TResult Function() logout,
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
@@ -38,6 +39,7 @@ mixin _$AuthenticationEvent {
         signup,
     TResult? Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
     TResult? Function()? logout,
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
@@ -52,6 +54,7 @@ mixin _$AuthenticationEvent {
         signup,
     TResult Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
     TResult Function()? logout,
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
@@ -65,6 +68,7 @@ mixin _$AuthenticationEvent {
     required TResult Function(_SignUp value) signup,
     required TResult Function(_SignInWithEmailAndPassword value)
         signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
     required TResult Function(_Logout value) logout,
     required TResult Function(_VerifyEmail value) verifyEmail,
     required TResult Function(_CheckEmailVerification value)
@@ -78,6 +82,7 @@ mixin _$AuthenticationEvent {
     TResult? Function(_SignUp value)? signup,
     TResult? Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult? Function(_Logout value)? logout,
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -90,6 +95,7 @@ mixin _$AuthenticationEvent {
     TResult Function(_SignUp value)? signup,
     TResult Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult Function(_Logout value)? logout,
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -161,6 +167,7 @@ class _$StartedImpl implements _Started {
         signup,
     required TResult Function(String email, String password, bool rememberMe)
         signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
     required TResult Function() logout,
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
@@ -178,6 +185,7 @@ class _$StartedImpl implements _Started {
         signup,
     TResult? Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
     TResult? Function()? logout,
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
@@ -195,6 +203,7 @@ class _$StartedImpl implements _Started {
         signup,
     TResult Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
     TResult Function()? logout,
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
@@ -214,6 +223,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_SignUp value) signup,
     required TResult Function(_SignInWithEmailAndPassword value)
         signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
     required TResult Function(_Logout value) logout,
     required TResult Function(_VerifyEmail value) verifyEmail,
     required TResult Function(_CheckEmailVerification value)
@@ -230,6 +240,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_SignUp value)? signup,
     TResult? Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult? Function(_Logout value)? logout,
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -245,6 +256,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_SignUp value)? signup,
     TResult Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult Function(_Logout value)? logout,
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -390,6 +402,7 @@ class _$SignUpImpl implements _SignUp {
         signup,
     required TResult Function(String email, String password, bool rememberMe)
         signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
     required TResult Function() logout,
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
@@ -407,6 +420,7 @@ class _$SignUpImpl implements _SignUp {
         signup,
     TResult? Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
     TResult? Function()? logout,
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
@@ -425,6 +439,7 @@ class _$SignUpImpl implements _SignUp {
         signup,
     TResult Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
     TResult Function()? logout,
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
@@ -445,6 +460,7 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(_SignUp value) signup,
     required TResult Function(_SignInWithEmailAndPassword value)
         signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
     required TResult Function(_Logout value) logout,
     required TResult Function(_VerifyEmail value) verifyEmail,
     required TResult Function(_CheckEmailVerification value)
@@ -461,6 +477,7 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function(_SignUp value)? signup,
     TResult? Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult? Function(_Logout value)? logout,
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -476,6 +493,7 @@ class _$SignUpImpl implements _SignUp {
     TResult Function(_SignUp value)? signup,
     TResult Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult Function(_Logout value)? logout,
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -602,6 +620,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
         signup,
     required TResult Function(String email, String password, bool rememberMe)
         signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
     required TResult Function() logout,
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
@@ -619,6 +638,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
         signup,
     TResult? Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
     TResult? Function()? logout,
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
@@ -636,6 +656,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
         signup,
     TResult Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
     TResult Function()? logout,
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
@@ -655,6 +676,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     required TResult Function(_SignUp value) signup,
     required TResult Function(_SignInWithEmailAndPassword value)
         signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
     required TResult Function(_Logout value) logout,
     required TResult Function(_VerifyEmail value) verifyEmail,
     required TResult Function(_CheckEmailVerification value)
@@ -671,6 +693,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     TResult? Function(_SignUp value)? signup,
     TResult? Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult? Function(_Logout value)? logout,
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -686,6 +709,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     TResult Function(_SignUp value)? signup,
     TResult Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult Function(_Logout value)? logout,
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -711,6 +735,157 @@ abstract class _SignInWithEmailAndPassword implements AuthenticationEvent {
   @JsonKey(ignore: true)
   _$$SignInWithEmailAndPasswordImplCopyWith<_$SignInWithEmailAndPasswordImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignInWithGoogleImplCopyWith<$Res> {
+  factory _$$SignInWithGoogleImplCopyWith(_$SignInWithGoogleImpl value,
+          $Res Function(_$SignInWithGoogleImpl) then) =
+      __$$SignInWithGoogleImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignInWithGoogleImplCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res, _$SignInWithGoogleImpl>
+    implements _$$SignInWithGoogleImplCopyWith<$Res> {
+  __$$SignInWithGoogleImplCopyWithImpl(_$SignInWithGoogleImpl _value,
+      $Res Function(_$SignInWithGoogleImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SignInWithGoogleImpl implements _SignInWithGoogle {
+  const _$SignInWithGoogleImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.signInWithGoogle()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignInWithGoogleImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)
+        signup,
+    required TResult Function(String email, String password, bool rememberMe)
+        signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
+    required TResult Function() logout,
+    required TResult Function(String email) verifyEmail,
+    required TResult Function() checkEmailVerification,
+    required TResult Function() restore,
+  }) {
+    return signInWithGoogle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult? Function(String email, String password, bool rememberMe)?
+        signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
+    TResult? Function()? logout,
+    TResult? Function(String email)? verifyEmail,
+    TResult? Function()? checkEmailVerification,
+    TResult? Function()? restore,
+  }) {
+    return signInWithGoogle?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult Function(String email, String password, bool rememberMe)?
+        signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
+    TResult Function()? logout,
+    TResult Function(String email)? verifyEmail,
+    TResult Function()? checkEmailVerification,
+    TResult Function()? restore,
+    required TResult orElse(),
+  }) {
+    if (signInWithGoogle != null) {
+      return signInWithGoogle();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SignUp value) signup,
+    required TResult Function(_SignInWithEmailAndPassword value)
+        signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_VerifyEmail value) verifyEmail,
+    required TResult Function(_CheckEmailVerification value)
+        checkEmailVerification,
+    required TResult Function(_Restore value) restore,
+  }) {
+    return signInWithGoogle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SignUp value)? signup,
+    TResult? Function(_SignInWithEmailAndPassword value)?
+        signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_VerifyEmail value)? verifyEmail,
+    TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
+    TResult? Function(_Restore value)? restore,
+  }) {
+    return signInWithGoogle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SignUp value)? signup,
+    TResult Function(_SignInWithEmailAndPassword value)?
+        signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_VerifyEmail value)? verifyEmail,
+    TResult Function(_CheckEmailVerification value)? checkEmailVerification,
+    TResult Function(_Restore value)? restore,
+    required TResult orElse(),
+  }) {
+    if (signInWithGoogle != null) {
+      return signInWithGoogle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignInWithGoogle implements AuthenticationEvent {
+  const factory _SignInWithGoogle() = _$SignInWithGoogleImpl;
 }
 
 /// @nodoc
@@ -757,6 +932,7 @@ class _$LogoutImpl implements _Logout {
         signup,
     required TResult Function(String email, String password, bool rememberMe)
         signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
     required TResult Function() logout,
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
@@ -774,6 +950,7 @@ class _$LogoutImpl implements _Logout {
         signup,
     TResult? Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
     TResult? Function()? logout,
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
@@ -791,6 +968,7 @@ class _$LogoutImpl implements _Logout {
         signup,
     TResult Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
     TResult Function()? logout,
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
@@ -810,6 +988,7 @@ class _$LogoutImpl implements _Logout {
     required TResult Function(_SignUp value) signup,
     required TResult Function(_SignInWithEmailAndPassword value)
         signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
     required TResult Function(_Logout value) logout,
     required TResult Function(_VerifyEmail value) verifyEmail,
     required TResult Function(_CheckEmailVerification value)
@@ -826,6 +1005,7 @@ class _$LogoutImpl implements _Logout {
     TResult? Function(_SignUp value)? signup,
     TResult? Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult? Function(_Logout value)? logout,
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -841,6 +1021,7 @@ class _$LogoutImpl implements _Logout {
     TResult Function(_SignUp value)? signup,
     TResult Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult Function(_Logout value)? logout,
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -928,6 +1109,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
         signup,
     required TResult Function(String email, String password, bool rememberMe)
         signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
     required TResult Function() logout,
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
@@ -945,6 +1127,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
         signup,
     TResult? Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
     TResult? Function()? logout,
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
@@ -962,6 +1145,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
         signup,
     TResult Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
     TResult Function()? logout,
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
@@ -981,6 +1165,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     required TResult Function(_SignUp value) signup,
     required TResult Function(_SignInWithEmailAndPassword value)
         signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
     required TResult Function(_Logout value) logout,
     required TResult Function(_VerifyEmail value) verifyEmail,
     required TResult Function(_CheckEmailVerification value)
@@ -997,6 +1182,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     TResult? Function(_SignUp value)? signup,
     TResult? Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult? Function(_Logout value)? logout,
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -1012,6 +1198,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     TResult Function(_SignUp value)? signup,
     TResult Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult Function(_Logout value)? logout,
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -1082,6 +1269,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
         signup,
     required TResult Function(String email, String password, bool rememberMe)
         signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
     required TResult Function() logout,
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
@@ -1099,6 +1287,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
         signup,
     TResult? Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
     TResult? Function()? logout,
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
@@ -1116,6 +1305,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
         signup,
     TResult Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
     TResult Function()? logout,
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
@@ -1135,6 +1325,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     required TResult Function(_SignUp value) signup,
     required TResult Function(_SignInWithEmailAndPassword value)
         signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
     required TResult Function(_Logout value) logout,
     required TResult Function(_VerifyEmail value) verifyEmail,
     required TResult Function(_CheckEmailVerification value)
@@ -1151,6 +1342,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     TResult? Function(_SignUp value)? signup,
     TResult? Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult? Function(_Logout value)? logout,
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -1166,6 +1358,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     TResult Function(_SignUp value)? signup,
     TResult Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult Function(_Logout value)? logout,
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -1227,6 +1420,7 @@ class _$RestoreImpl implements _Restore {
         signup,
     required TResult Function(String email, String password, bool rememberMe)
         signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
     required TResult Function() logout,
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
@@ -1244,6 +1438,7 @@ class _$RestoreImpl implements _Restore {
         signup,
     TResult? Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
     TResult? Function()? logout,
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
@@ -1261,6 +1456,7 @@ class _$RestoreImpl implements _Restore {
         signup,
     TResult Function(String email, String password, bool rememberMe)?
         signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
     TResult Function()? logout,
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
@@ -1280,6 +1476,7 @@ class _$RestoreImpl implements _Restore {
     required TResult Function(_SignUp value) signup,
     required TResult Function(_SignInWithEmailAndPassword value)
         signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
     required TResult Function(_Logout value) logout,
     required TResult Function(_VerifyEmail value) verifyEmail,
     required TResult Function(_CheckEmailVerification value)
@@ -1296,6 +1493,7 @@ class _$RestoreImpl implements _Restore {
     TResult? Function(_SignUp value)? signup,
     TResult? Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult? Function(_Logout value)? logout,
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
@@ -1311,6 +1509,7 @@ class _$RestoreImpl implements _Restore {
     TResult Function(_SignUp value)? signup,
     TResult Function(_SignInWithEmailAndPassword value)?
         signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
     TResult Function(_Logout value)? logout,
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
