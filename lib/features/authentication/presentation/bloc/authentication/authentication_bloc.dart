@@ -32,6 +32,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
   final ForgetPasswordUseCase forgetPasswordUseCase;
   final CheckUserStatusUseCase checkUserStatusUseCase;
   final SendEmailVerificationUseCase sendEmailVerificationUseCase;
+  final SignInWithEmailAndPasswordUseCase signInWithEmailAndPasswordUseCase;
 
   Timer? _cooldownTimer;
   Timer? _timer;
@@ -318,18 +319,21 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
             emit(const AuthenticationState.emailVerificationSent());
           }
         },
-        logout: () {
-          final logout = logoutUserUseCase(const NoParams());
-          logout.then((value) {
-            if (value.$1 != null) {
-              emit(
-                AuthenticationState.error(message: value.$1!.message),
-              );
-              return;
-            }
+        logout: () async {
+          final logout = await logoutUserUseCase(const NoParams());
 
+          if (logout.$1 != null) {
+            emit(
+              AuthenticationState.error(message: logout.$1!.message),
+            );
+            return;
+          } else {
             emit(const AuthenticationState.loggedOut());
-          });
+          }
+        },
+        restore: () {
+          _restoreCooldown();
+          setTimerForAutoRedirect();
         },
       );
     });
