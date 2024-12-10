@@ -19,6 +19,11 @@ abstract class RemoteDataSource {
   Future<void> logOut();
 
   Future<User?> getCurrentUser();
+
+  Future<UserModel> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
 }
 
 @Injectable(as: RemoteDataSource)
@@ -83,5 +88,29 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<User?> getCurrentUser() async {
     await _firebaseAuth.currentUser?.reload();
     return _firebaseAuth.currentUser;
+  }
+
+  @override
+  Future<UserModel> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      final UserCredential userCredential =
+          await _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      final DocumentSnapshot userDoc = await _firestore
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .get();
+
+      UserModel user =
+          UserModel.fromJson(userDoc.data() as Map<String, dynamic>);
+
+      return user.copyWithId(userCredential.user!.uid);
+    } catch (e) {
+      throw ServerException(e.toString());
+    }
   }
 }
