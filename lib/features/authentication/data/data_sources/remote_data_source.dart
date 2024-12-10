@@ -34,8 +34,9 @@ abstract class RemoteDataSource {
 class RemoteDataSourceImpl implements RemoteDataSource {
   final FirebaseAuth _firebaseAuth;
   final FirebaseFirestore _firestore;
+  final GoogleSignIn _googleSignIn;
 
-  RemoteDataSourceImpl(this._firebaseAuth, this._firestore);
+  RemoteDataSourceImpl(this._firebaseAuth, this._firestore, this._googleSignIn);
 
   @override
   Future<UserModel> signUpWithEmailAndPassword(
@@ -82,6 +83,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<void> logOut() async {
     try {
+      await _googleSignIn.signOut();
       await _firebaseAuth.signOut();
     } catch (e) {
       throw ServerException(e.toString());
@@ -121,9 +123,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<UserModel> signInWithGoogle() async {
     try {
-      final GoogleSignIn googleSignIn = GoogleSignIn();
-
-      final GoogleSignInAccount? account = await googleSignIn.signIn();
+      final GoogleSignInAccount? account = await _googleSignIn.signIn();
 
       final GoogleSignInAuthentication? googleAuth =
           await account?.authentication;
