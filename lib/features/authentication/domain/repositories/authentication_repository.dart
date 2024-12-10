@@ -16,4 +16,19 @@ abstract class AuthenticationRepository {
   Future<(Failure?, void)> logOut();
 
   Future<(Failure?, User?)> getCurrentUser();
+
+  Future<(Failure?, UserEntity?)> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+    required bool rememberMe,
+  });
+
+  Future<UserAuthCredentials?> getCredentials();
+
+  Future<(Failure?, void)> saveCredentials({
+    required String email,
+    required String password,
+  });
+
+  Future<void> clearCredentials();
 }
