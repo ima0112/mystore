@@ -32,7 +32,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
   final ForgetPasswordUseCase forgetPasswordUseCase;
   final CheckUserStatusUseCase checkUserStatusUseCase;
   final SendEmailVerificationUseCase sendEmailVerificationUseCase;
-  final SignInWithEmailAndPasswordUseCase signInWithEmailAndPasswordUseCase;
+  final SignIn signIn;
 
   Timer? _cooldownTimer;
   Timer? _timer;
@@ -334,6 +334,22 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
         restore: () {
           _restoreCooldown();
           setTimerForAutoRedirect();
+        },
+        signInWithGoogle: () async {
+          emit(const AuthenticationState.loading());
+
+          final result = await signIn.withGoogle();
+
+          if (result.$1 != null) {
+            emit(
+              AuthenticationState.error(
+                message: result.$1!.message,
+              ),
+            );
+            return;
+          }
+
+          emit(const AuthenticationState.loggedIn());
         },
       );
     });
