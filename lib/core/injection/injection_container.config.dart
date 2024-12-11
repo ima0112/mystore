@@ -34,7 +34,7 @@ import '../../features/authentication/domain/usecase/forget_password_use_case.da
     as _i26;
 import '../../features/authentication/domain/usecase/logout_user_use_case.dart'
     as _i28;
-import '../../features/authentication/domain/usecase/register_form_validation_use_case.dart'
+import '../usecases/form_validation/form_validation_use_case.dart'
     as _i7;
 import '../../features/authentication/domain/usecase/register_user_use_case.dart'
     as _i33;

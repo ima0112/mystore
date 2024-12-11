@@ -18,7 +18,7 @@ class FormValidationUseCase implements UseCase<bool, FormValidationParams> {
     ]);
 
     if (isMandatoryValid && isOptionalValid) {
-       return (null, true);
+      return (null, true);
     } else {
       return (InvalidFormFailure('Invalid form'), false);
     }
