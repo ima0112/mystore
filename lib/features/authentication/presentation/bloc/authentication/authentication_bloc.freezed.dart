@@ -29,6 +29,7 @@ mixin _$AuthenticationEvent {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +45,7 @@ mixin _$AuthenticationEvent {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +61,7 @@ mixin _$AuthenticationEvent {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +77,7 @@ mixin _$AuthenticationEvent {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +91,7 @@ mixin _$AuthenticationEvent {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -100,6 +105,7 @@ mixin _$AuthenticationEvent {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -172,6 +178,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) {
     return started();
   }
@@ -190,6 +197,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) {
     return started?.call();
   }
@@ -208,6 +216,7 @@ class _$StartedImpl implements _Started {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -229,6 +238,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return started(this);
   }
@@ -245,6 +255,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return started?.call(this);
   }
@@ -261,6 +272,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -407,6 +419,7 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) {
     return signup(firstName, lastName, email, password, phoneNumber, username);
   }
@@ -425,6 +438,7 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) {
     return signup?.call(
         firstName, lastName, email, password, phoneNumber, username);
@@ -444,6 +458,7 @@ class _$SignUpImpl implements _SignUp {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) {
     if (signup != null) {
@@ -466,6 +481,7 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return signup(this);
   }
@@ -482,6 +498,7 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return signup?.call(this);
   }
@@ -498,6 +515,7 @@ class _$SignUpImpl implements _SignUp {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (signup != null) {
@@ -625,6 +643,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) {
     return signinWithEmailAndPassword(email, password, rememberMe);
   }
@@ -643,6 +662,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) {
     return signinWithEmailAndPassword?.call(email, password, rememberMe);
   }
@@ -661,6 +681,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) {
     if (signinWithEmailAndPassword != null) {
@@ -682,6 +703,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return signinWithEmailAndPassword(this);
   }
@@ -698,6 +720,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return signinWithEmailAndPassword?.call(this);
   }
@@ -714,6 +737,7 @@ class _$SignInWithEmailAndPasswordImpl implements _SignInWithEmailAndPassword {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (signinWithEmailAndPassword != null) {
@@ -786,6 +810,7 @@ class _$SignInWithGoogleImpl implements _SignInWithGoogle {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) {
     return signInWithGoogle();
   }
@@ -804,6 +829,7 @@ class _$SignInWithGoogleImpl implements _SignInWithGoogle {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) {
     return signInWithGoogle?.call();
   }
@@ -822,6 +848,7 @@ class _$SignInWithGoogleImpl implements _SignInWithGoogle {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) {
     if (signInWithGoogle != null) {
@@ -843,6 +870,7 @@ class _$SignInWithGoogleImpl implements _SignInWithGoogle {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return signInWithGoogle(this);
   }
@@ -859,6 +887,7 @@ class _$SignInWithGoogleImpl implements _SignInWithGoogle {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return signInWithGoogle?.call(this);
   }
@@ -875,6 +904,7 @@ class _$SignInWithGoogleImpl implements _SignInWithGoogle {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (signInWithGoogle != null) {
@@ -937,6 +967,7 @@ class _$LogoutImpl implements _Logout {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) {
     return logout();
   }
@@ -955,6 +986,7 @@ class _$LogoutImpl implements _Logout {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) {
     return logout?.call();
   }
@@ -973,6 +1005,7 @@ class _$LogoutImpl implements _Logout {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -994,6 +1027,7 @@ class _$LogoutImpl implements _Logout {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return logout(this);
   }
@@ -1010,6 +1044,7 @@ class _$LogoutImpl implements _Logout {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return logout?.call(this);
   }
@@ -1026,6 +1061,7 @@ class _$LogoutImpl implements _Logout {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (logout != null) {
@@ -1114,6 +1150,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) {
     return verifyEmail(email);
   }
@@ -1132,6 +1169,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) {
     return verifyEmail?.call(email);
   }
@@ -1150,6 +1188,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) {
     if (verifyEmail != null) {
@@ -1171,6 +1210,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return verifyEmail(this);
   }
@@ -1187,6 +1227,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return verifyEmail?.call(this);
   }
@@ -1203,6 +1244,7 @@ class _$VerifyEmailImpl implements _VerifyEmail {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (verifyEmail != null) {
@@ -1274,6 +1316,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) {
     return checkEmailVerification();
   }
@@ -1292,6 +1335,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) {
     return checkEmailVerification?.call();
   }
@@ -1310,6 +1354,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) {
     if (checkEmailVerification != null) {
@@ -1331,6 +1376,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return checkEmailVerification(this);
   }
@@ -1347,6 +1393,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return checkEmailVerification?.call(this);
   }
@@ -1363,6 +1410,7 @@ class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (checkEmailVerification != null) {
@@ -1425,6 +1473,7 @@ class _$RestoreImpl implements _Restore {
     required TResult Function(String email) verifyEmail,
     required TResult Function() checkEmailVerification,
     required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
   }) {
     return restore();
   }
@@ -1443,6 +1492,7 @@ class _$RestoreImpl implements _Restore {
     TResult? Function(String email)? verifyEmail,
     TResult? Function()? checkEmailVerification,
     TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
   }) {
     return restore?.call();
   }
@@ -1461,6 +1511,7 @@ class _$RestoreImpl implements _Restore {
     TResult Function(String email)? verifyEmail,
     TResult Function()? checkEmailVerification,
     TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
     required TResult orElse(),
   }) {
     if (restore != null) {
@@ -1482,6 +1533,7 @@ class _$RestoreImpl implements _Restore {
     required TResult Function(_CheckEmailVerification value)
         checkEmailVerification,
     required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
   }) {
     return restore(this);
   }
@@ -1498,6 +1550,7 @@ class _$RestoreImpl implements _Restore {
     TResult? Function(_VerifyEmail value)? verifyEmail,
     TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
   }) {
     return restore?.call(this);
   }
@@ -1514,6 +1567,7 @@ class _$RestoreImpl implements _Restore {
     TResult Function(_VerifyEmail value)? verifyEmail,
     TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
   }) {
     if (restore != null) {
@@ -1525,6 +1579,195 @@ class _$RestoreImpl implements _Restore {
 
 abstract class _Restore implements AuthenticationEvent {
   const factory _Restore() = _$RestoreImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetPasswordImplCopyWith<$Res> {
+  factory _$$ResetPasswordImplCopyWith(
+          _$ResetPasswordImpl value, $Res Function(_$ResetPasswordImpl) then) =
+      __$$ResetPasswordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email});
+}
+
+/// @nodoc
+class __$$ResetPasswordImplCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res, _$ResetPasswordImpl>
+    implements _$$ResetPasswordImplCopyWith<$Res> {
+  __$$ResetPasswordImplCopyWithImpl(
+      _$ResetPasswordImpl _value, $Res Function(_$ResetPasswordImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+  }) {
+    return _then(_$ResetPasswordImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ResetPasswordImpl implements _ResetPassword {
+  const _$ResetPasswordImpl({required this.email});
+
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.resetPassword(email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetPasswordImpl &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResetPasswordImplCopyWith<_$ResetPasswordImpl> get copyWith =>
+      __$$ResetPasswordImplCopyWithImpl<_$ResetPasswordImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)
+        signup,
+    required TResult Function(String email, String password, bool rememberMe)
+        signinWithEmailAndPassword,
+    required TResult Function() signInWithGoogle,
+    required TResult Function() logout,
+    required TResult Function(String email) verifyEmail,
+    required TResult Function() checkEmailVerification,
+    required TResult Function() restore,
+    required TResult Function(String email) resetPassword,
+  }) {
+    return resetPassword(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult? Function(String email, String password, bool rememberMe)?
+        signinWithEmailAndPassword,
+    TResult? Function()? signInWithGoogle,
+    TResult? Function()? logout,
+    TResult? Function(String email)? verifyEmail,
+    TResult? Function()? checkEmailVerification,
+    TResult? Function()? restore,
+    TResult? Function(String email)? resetPassword,
+  }) {
+    return resetPassword?.call(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult Function(String email, String password, bool rememberMe)?
+        signinWithEmailAndPassword,
+    TResult Function()? signInWithGoogle,
+    TResult Function()? logout,
+    TResult Function(String email)? verifyEmail,
+    TResult Function()? checkEmailVerification,
+    TResult Function()? restore,
+    TResult Function(String email)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (resetPassword != null) {
+      return resetPassword(email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SignUp value) signup,
+    required TResult Function(_SignInWithEmailAndPassword value)
+        signinWithEmailAndPassword,
+    required TResult Function(_SignInWithGoogle value) signInWithGoogle,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_VerifyEmail value) verifyEmail,
+    required TResult Function(_CheckEmailVerification value)
+        checkEmailVerification,
+    required TResult Function(_Restore value) restore,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return resetPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SignUp value)? signup,
+    TResult? Function(_SignInWithEmailAndPassword value)?
+        signinWithEmailAndPassword,
+    TResult? Function(_SignInWithGoogle value)? signInWithGoogle,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_VerifyEmail value)? verifyEmail,
+    TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
+    TResult? Function(_Restore value)? restore,
+    TResult? Function(_ResetPassword value)? resetPassword,
+  }) {
+    return resetPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SignUp value)? signup,
+    TResult Function(_SignInWithEmailAndPassword value)?
+        signinWithEmailAndPassword,
+    TResult Function(_SignInWithGoogle value)? signInWithGoogle,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_VerifyEmail value)? verifyEmail,
+    TResult Function(_CheckEmailVerification value)? checkEmailVerification,
+    TResult Function(_Restore value)? restore,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (resetPassword != null) {
+      return resetPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetPassword implements AuthenticationEvent {
+  const factory _ResetPassword({required final String email}) =
+      _$ResetPasswordImpl;
+
+  String get email;
+  @JsonKey(ignore: true)
+  _$$ResetPasswordImplCopyWith<_$ResetPasswordImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1540,6 +1783,7 @@ mixin _$AuthenticationState {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1553,6 +1797,7 @@ mixin _$AuthenticationState {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1566,6 +1811,7 @@ mixin _$AuthenticationState {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1581,6 +1827,7 @@ mixin _$AuthenticationState {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1594,6 +1841,7 @@ mixin _$AuthenticationState {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1607,6 +1855,7 @@ mixin _$AuthenticationState {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1677,6 +1926,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return initial();
   }
@@ -1693,6 +1943,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return initial?.call();
   }
@@ -1709,6 +1960,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1730,6 +1982,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return initial(this);
   }
@@ -1746,6 +1999,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return initial?.call(this);
   }
@@ -1762,6 +2016,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1822,6 +2077,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return loading();
   }
@@ -1838,6 +2094,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return loading?.call();
   }
@@ -1854,6 +2111,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1875,6 +2133,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return loading(this);
   }
@@ -1891,6 +2150,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return loading?.call(this);
   }
@@ -1907,6 +2167,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2001,6 +2262,7 @@ class _$SucessImpl implements _Sucess {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return success(message, email);
   }
@@ -2017,6 +2279,7 @@ class _$SucessImpl implements _Sucess {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return success?.call(message, email);
   }
@@ -2033,6 +2296,7 @@ class _$SucessImpl implements _Sucess {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -2054,6 +2318,7 @@ class _$SucessImpl implements _Sucess {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return success(this);
   }
@@ -2070,6 +2335,7 @@ class _$SucessImpl implements _Sucess {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return success?.call(this);
   }
@@ -2086,6 +2352,7 @@ class _$SucessImpl implements _Sucess {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -2154,6 +2421,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return emailVerified();
   }
@@ -2170,6 +2438,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return emailVerified?.call();
   }
@@ -2186,6 +2455,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (emailVerified != null) {
@@ -2207,6 +2477,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return emailVerified(this);
   }
@@ -2223,6 +2494,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return emailVerified?.call(this);
   }
@@ -2239,6 +2511,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (emailVerified != null) {
@@ -2301,6 +2574,7 @@ class _$EmailVerificationSentImpl implements _EmailVerificationSent {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return emailVerificationSent();
   }
@@ -2317,6 +2591,7 @@ class _$EmailVerificationSentImpl implements _EmailVerificationSent {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return emailVerificationSent?.call();
   }
@@ -2333,6 +2608,7 @@ class _$EmailVerificationSentImpl implements _EmailVerificationSent {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (emailVerificationSent != null) {
@@ -2354,6 +2630,7 @@ class _$EmailVerificationSentImpl implements _EmailVerificationSent {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return emailVerificationSent(this);
   }
@@ -2370,6 +2647,7 @@ class _$EmailVerificationSentImpl implements _EmailVerificationSent {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return emailVerificationSent?.call(this);
   }
@@ -2386,6 +2664,7 @@ class _$EmailVerificationSentImpl implements _EmailVerificationSent {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (emailVerificationSent != null) {
@@ -2446,6 +2725,7 @@ class _$LoggedOutImpl implements _LoggedOut {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return loggedOut();
   }
@@ -2462,6 +2742,7 @@ class _$LoggedOutImpl implements _LoggedOut {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return loggedOut?.call();
   }
@@ -2478,6 +2759,7 @@ class _$LoggedOutImpl implements _LoggedOut {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -2499,6 +2781,7 @@ class _$LoggedOutImpl implements _LoggedOut {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return loggedOut(this);
   }
@@ -2515,6 +2798,7 @@ class _$LoggedOutImpl implements _LoggedOut {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return loggedOut?.call(this);
   }
@@ -2531,6 +2815,7 @@ class _$LoggedOutImpl implements _LoggedOut {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -2617,6 +2902,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return error(message);
   }
@@ -2633,6 +2919,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return error?.call(message);
   }
@@ -2649,6 +2936,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2670,6 +2958,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return error(this);
   }
@@ -2686,6 +2975,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return error?.call(this);
   }
@@ -2702,6 +2992,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2795,6 +3086,7 @@ class _$ResendCooldownImpl implements _ResendCooldown {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return resendCooldown(secondsRemaining);
   }
@@ -2811,6 +3103,7 @@ class _$ResendCooldownImpl implements _ResendCooldown {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return resendCooldown?.call(secondsRemaining);
   }
@@ -2827,6 +3120,7 @@ class _$ResendCooldownImpl implements _ResendCooldown {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (resendCooldown != null) {
@@ -2848,6 +3142,7 @@ class _$ResendCooldownImpl implements _ResendCooldown {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return resendCooldown(this);
   }
@@ -2864,6 +3159,7 @@ class _$ResendCooldownImpl implements _ResendCooldown {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return resendCooldown?.call(this);
   }
@@ -2880,6 +3176,7 @@ class _$ResendCooldownImpl implements _ResendCooldown {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (resendCooldown != null) {
@@ -2946,6 +3243,7 @@ class _$LoggedInImpl implements _LoggedIn {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
   }) {
     return loggedIn();
   }
@@ -2962,6 +3260,7 @@ class _$LoggedInImpl implements _LoggedIn {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
   }) {
     return loggedIn?.call();
   }
@@ -2978,6 +3277,7 @@ class _$LoggedInImpl implements _LoggedIn {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -2999,6 +3299,7 @@ class _$LoggedInImpl implements _LoggedIn {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
     return loggedIn(this);
   }
@@ -3015,6 +3316,7 @@ class _$LoggedInImpl implements _LoggedIn {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
     return loggedIn?.call(this);
   }
@@ -3031,6 +3333,7 @@ class _$LoggedInImpl implements _LoggedIn {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -3042,4 +3345,155 @@ class _$LoggedInImpl implements _LoggedIn {
 
 abstract class _LoggedIn implements AuthenticationState {
   const factory _LoggedIn() = _$LoggedInImpl;
+}
+
+/// @nodoc
+abstract class _$$PasswordResetSentImplCopyWith<$Res> {
+  factory _$$PasswordResetSentImplCopyWith(_$PasswordResetSentImpl value,
+          $Res Function(_$PasswordResetSentImpl) then) =
+      __$$PasswordResetSentImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PasswordResetSentImplCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$PasswordResetSentImpl>
+    implements _$$PasswordResetSentImplCopyWith<$Res> {
+  __$$PasswordResetSentImplCopyWithImpl(_$PasswordResetSentImpl _value,
+      $Res Function(_$PasswordResetSentImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PasswordResetSentImpl implements _PasswordResetSent {
+  const _$PasswordResetSentImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationState.passwordResetSent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PasswordResetSentImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
+    required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
+    required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
+  }) {
+    return passwordResetSent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
+    TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
+    TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
+  }) {
+    return passwordResetSent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
+    TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
+    TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
+    required TResult orElse(),
+  }) {
+    if (passwordResetSent != null) {
+      return passwordResetSent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
+    required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
+  }) {
+    return passwordResetSent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
+    TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
+  }) {
+    return passwordResetSent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
+    TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
+    required TResult orElse(),
+  }) {
+    if (passwordResetSent != null) {
+      return passwordResetSent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PasswordResetSent implements AuthenticationState {
+  const factory _PasswordResetSent() = _$PasswordResetSentImpl;
 }

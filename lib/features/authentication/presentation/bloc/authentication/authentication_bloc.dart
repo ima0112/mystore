@@ -10,6 +10,7 @@ import 'package:mystore/core/usecases/network/is_connected.dart';
 import 'package:mystore/core/usecases/usecase.dart';
 import 'package:mystore/features/authentication/domain/entities/user_entity.dart';
 import 'package:mystore/features/authentication/domain/usecase/check_user_status_use_case.dart';
+import 'package:mystore/features/authentication/domain/usecase/forget_password_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/logout_user_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/register_user_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/remember_me_use_case.dart';
@@ -23,13 +24,14 @@ part 'authentication_bloc.freezed.dart';
 @injectable
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     with WidgetsBindingObserver {
+  final SignIn signIn;
   final LogoutUserUseCase logoutUserUseCase;
   final RememberMeUseCase rememberMeUseCase;
   final IsConnectedUseCase isConnectedUseCase;
   final RegisterUserUseCase registerUserUseCase;
+  final ForgetPasswordUseCase forgetPasswordUseCase;
   final CheckUserStatusUseCase checkUserStatusUseCase;
   final SendEmailVerificationUseCase sendEmailVerificationUseCase;
-  final SignIn signIn;
 
   Timer? _cooldownTimer;
   Timer? _timer;
@@ -73,6 +75,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     this.sendEmailVerificationUseCase,
     this.signIn,
     this.rememberMeUseCase,
+    this.forgetPasswordUseCase,
   ) : super(const _Initial()) {
     WidgetsBinding.instance.addObserver(this);
 
@@ -247,6 +250,22 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           }
 
           emit(const AuthenticationState.loggedIn());
+        },
+        resetPassword: (String email) async {
+          emit(const AuthenticationState.loading());
+
+          final result = await forgetPasswordUseCase(email);
+
+          if (result.$1 != null) {
+            emit(
+              AuthenticationState.error(
+                message: result.$1!.message,
+              ),
+            );
+            return;
+          }
+
+          emit(const AuthenticationState.passwordResetSent());
         },
       );
     });

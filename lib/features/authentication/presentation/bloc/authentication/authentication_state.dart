@@ -14,4 +14,5 @@ class AuthenticationState with _$AuthenticationState {
   const factory AuthenticationState.resendCooldown(int secondsRemaining) =
       _ResendCooldown;
   const factory AuthenticationState.loggedIn() = _LoggedIn;
+  const factory AuthenticationState.passwordResetSent() = _PasswordResetSent;
 }
