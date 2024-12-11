@@ -3351,6 +3351,151 @@ class _$LoggedInImpl implements _LoggedIn {
     required TResult Function() emailVerified,
     required TResult Function() emailVerificationSent,
     required TResult Function() loggedIn,
+  }) {
+    return loggedIn();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? processing,
+    TResult? Function(String message)? error,
+    TResult? Function(String message, String email)? success,
+    TResult? Function(int secondsRemaining)? resendCooldown,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedIn,
+  }) {
+    return loggedIn?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? processing,
+    TResult Function(String message)? error,
+    TResult Function(String message, String email)? success,
+    TResult Function(int secondsRemaining)? resendCooldown,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedIn,
+    required TResult orElse(),
+  }) {
+    if (loggedIn != null) {
+      return loggedIn();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Processing value) processing,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Sucess value) success,
+    required TResult Function(_ResendCooldown value) resendCooldown,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedIn value) loggedIn,
+  }) {
+    return loggedIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Processing value)? processing,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Sucess value)? success,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedIn value)? loggedIn,
+  }) {
+    return loggedIn?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Processing value)? processing,
+    TResult Function(_Error value)? error,
+    TResult Function(_Sucess value)? success,
+    TResult Function(_ResendCooldown value)? resendCooldown,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedIn value)? loggedIn,
+    required TResult orElse(),
+  }) {
+    if (loggedIn != null) {
+      return loggedIn(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoggedIn implements AuthenticationState {
+  const factory _LoggedIn() = _$LoggedInImpl;
+}
+
+/// @nodoc
+abstract class _$$LoggedInImplCopyWith<$Res> {
+  factory _$$LoggedInImplCopyWith(
+          _$LoggedInImpl value, $Res Function(_$LoggedInImpl) then) =
+      __$$LoggedInImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoggedInImplCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$LoggedInImpl>
+    implements _$$LoggedInImplCopyWith<$Res> {
+  __$$LoggedInImplCopyWithImpl(
+      _$LoggedInImpl _value, $Res Function(_$LoggedInImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoggedInImpl implements _LoggedIn {
+  const _$LoggedInImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationState.loggedIn()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoggedInImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() processing,
+    required TResult Function(String message) error,
+    required TResult Function(String message, String email) success,
+    required TResult Function(int secondsRemaining) resendCooldown,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedIn,
     required TResult Function() loggedOut,
     required TResult Function() loggingOut,
     required TResult Function(String message, String email) passwordResetSent,
@@ -3879,6 +4024,7 @@ class _$PasswordResetSentImpl implements _PasswordResetSent {
     required TResult Function(String message) error,
     required TResult Function(int secondsRemaining) resendCooldown,
     required TResult Function() loggedIn,
+    required TResult Function() passwordResetSent,
     required TResult Function() loggingOut,
     required TResult Function(String message, String email) passwordResetSent,
   }) {
@@ -3901,6 +4047,7 @@ class _$PasswordResetSentImpl implements _PasswordResetSent {
     TResult? Function(String message)? error,
     TResult? Function(int secondsRemaining)? resendCooldown,
     TResult? Function()? loggedIn,
+    TResult? Function()? passwordResetSent,
     TResult? Function()? loggingOut,
     TResult? Function(String message, String email)? passwordResetSent,
   }) {
@@ -3923,6 +4070,7 @@ class _$PasswordResetSentImpl implements _PasswordResetSent {
     TResult Function(String message)? error,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? loggedIn,
+    TResult Function()? passwordResetSent,
     TResult Function()? loggingOut,
     TResult Function(String message, String email)? passwordResetSent,
     required TResult orElse(),
@@ -3950,6 +4098,7 @@ class _$PasswordResetSentImpl implements _PasswordResetSent {
     required TResult Function(_Error value) error,
     required TResult Function(_ResendCooldown value) resendCooldown,
     required TResult Function(_LoggedIn value) loggedIn,
+    required TResult Function(_PasswordResetSent value) passwordResetSent,
     required TResult Function(_LoggingOut value) loggingOut,
     required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
@@ -3972,6 +4121,7 @@ class _$PasswordResetSentImpl implements _PasswordResetSent {
     TResult? Function(_Error value)? error,
     TResult? Function(_ResendCooldown value)? resendCooldown,
     TResult? Function(_LoggedIn value)? loggedIn,
+    TResult? Function(_PasswordResetSent value)? passwordResetSent,
     TResult? Function(_LoggingOut value)? loggingOut,
     TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
@@ -3994,6 +4144,7 @@ class _$PasswordResetSentImpl implements _PasswordResetSent {
     TResult Function(_Error value)? error,
     TResult Function(_ResendCooldown value)? resendCooldown,
     TResult Function(_LoggedIn value)? loggedIn,
+    TResult Function(_PasswordResetSent value)? passwordResetSent,
     TResult Function(_LoggingOut value)? loggingOut,
     TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),

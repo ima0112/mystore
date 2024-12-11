@@ -32,7 +32,6 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
   final ForgetPasswordUseCase forgetPasswordUseCase;
   final CheckUserStatusUseCase checkUserStatusUseCase;
   final SendEmailVerificationUseCase sendEmailVerificationUseCase;
-  final SignIn signIn;
 
   Timer? _cooldownTimer;
   Timer? _timer;
@@ -350,6 +349,22 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           }
 
           emit(const AuthenticationState.loggedIn());
+        },
+        resetPassword: (String email) async {
+          emit(const AuthenticationState.loading());
+
+          final result = await forgetPasswordUseCase(email);
+
+          if (result.$1 != null) {
+            emit(
+              AuthenticationState.error(
+                message: result.$1!.message,
+              ),
+            );
+            return;
+          }
+
+          emit(const AuthenticationState.passwordResetSent());
         },
       );
     });
