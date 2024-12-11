@@ -37,23 +37,18 @@ const IsarUserModelSchema = CollectionSchema(
       name: r'lastName',
       type: IsarType.string,
     ),
-    r'password': PropertySchema(
-      id: 4,
-      name: r'password',
-      type: IsarType.string,
-    ),
     r'phoneNumber': PropertySchema(
-      id: 5,
+      id: 4,
       name: r'phoneNumber',
       type: IsarType.string,
     ),
     r'photo': PropertySchema(
-      id: 6,
+      id: 5,
       name: r'photo',
       type: IsarType.string,
     ),
     r'username': PropertySchema(
-      id: 7,
+      id: 6,
       name: r'username',
       type: IsarType.string,
     )
@@ -87,7 +82,6 @@ int _isarUserModelEstimateSize(
     }
   }
   bytesCount += 3 + object.lastName.length * 3;
-  bytesCount += 3 + object.password.length * 3;
   bytesCount += 3 + object.phoneNumber.length * 3;
   {
     final value = object.photo;
@@ -109,10 +103,9 @@ void _isarUserModelSerialize(
   writer.writeString(offsets[1], object.firstName);
   writer.writeString(offsets[2], object.id);
   writer.writeString(offsets[3], object.lastName);
-  writer.writeString(offsets[4], object.password);
-  writer.writeString(offsets[5], object.phoneNumber);
-  writer.writeString(offsets[6], object.photo);
-  writer.writeString(offsets[7], object.username);
+  writer.writeString(offsets[4], object.phoneNumber);
+  writer.writeString(offsets[5], object.photo);
+  writer.writeString(offsets[6], object.username);
 }
 
 IsarUserModel _isarUserModelDeserialize(
@@ -126,9 +119,8 @@ IsarUserModel _isarUserModelDeserialize(
     firstName: reader.readString(offsets[1]),
     id: reader.readStringOrNull(offsets[2]),
     lastName: reader.readString(offsets[3]),
-    password: reader.readString(offsets[4]),
-    phoneNumber: reader.readString(offsets[5]),
-    username: reader.readString(offsets[7]),
+    phoneNumber: reader.readString(offsets[4]),
+    username: reader.readString(offsets[6]),
   );
   return object;
 }
@@ -151,10 +143,8 @@ P _isarUserModelDeserializeProp<P>(
     case 4:
       return (reader.readString(offset)) as P;
     case 5:
-      return (reader.readString(offset)) as P;
-    case 6:
       return (reader.readStringOrNull(offset)) as P;
-    case 7:
+    case 6:
       return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -870,142 +860,6 @@ extension IsarUserModelQueryFilter
   }
 
   QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'password',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordGreaterThan(
-    String value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'password',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordLessThan(
-    String value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'password',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordBetween(
-    String lower,
-    String upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'password',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'password',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'password',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordContains(String value, {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'password',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordMatches(String pattern, {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'password',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'password',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
-      passwordIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'password',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterFilterCondition>
       phoneNumberEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -1490,19 +1344,6 @@ extension IsarUserModelQuerySortBy
     });
   }
 
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterSortBy> sortByPassword() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'password', Sort.asc);
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterSortBy>
-      sortByPasswordDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'password', Sort.desc);
-    });
-  }
-
   QueryBuilder<IsarUserModel, IsarUserModel, QAfterSortBy> sortByPhoneNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'phoneNumber', Sort.asc);
@@ -1606,19 +1447,6 @@ extension IsarUserModelQuerySortThenBy
     });
   }
 
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterSortBy> thenByPassword() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'password', Sort.asc);
-    });
-  }
-
-  QueryBuilder<IsarUserModel, IsarUserModel, QAfterSortBy>
-      thenByPasswordDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'password', Sort.desc);
-    });
-  }
-
   QueryBuilder<IsarUserModel, IsarUserModel, QAfterSortBy> thenByPhoneNumber() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'phoneNumber', Sort.asc);
@@ -1688,13 +1516,6 @@ extension IsarUserModelQueryWhereDistinct
     });
   }
 
-  QueryBuilder<IsarUserModel, IsarUserModel, QDistinct> distinctByPassword(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'password', caseSensitive: caseSensitive);
-    });
-  }
-
   QueryBuilder<IsarUserModel, IsarUserModel, QDistinct> distinctByPhoneNumber(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -1749,12 +1570,6 @@ extension IsarUserModelQueryProperty
     });
   }
 
-  QueryBuilder<IsarUserModel, String, QQueryOperations> passwordProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'password');
-    });
-  }
-
   QueryBuilder<IsarUserModel, String, QQueryOperations> phoneNumberProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'phoneNumber');
@@ -1784,7 +1599,6 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
       email: json['email'] as String,
-      password: json['password'] as String,
       username: json['username'] as String,
       phoneNumber: json['phoneNumber'] as String,
       photo: json['photo'] as String?,
@@ -1796,7 +1610,6 @@ Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'email': instance.email,
-      'password': instance.password,
       'username': instance.username,
       'phoneNumber': instance.phoneNumber,
       'photo': instance.photo,
