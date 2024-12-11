@@ -23,7 +23,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         emit(
           state.copyWith(
             email: Email.dirty(credentials.email),
-            password: Password.dirty(credentials.password),
+            password: Password.dirty(credentials.password ?? ''),
           ),
         );
       }

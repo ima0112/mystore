@@ -122,9 +122,10 @@ Future<_i1.GetIt> $initGetIt(
   );
   gh.factory<_i22.AuthenticationRepository>(
       () => _i23.AuthenticationRepositoryImpl(
-            remoteDataSource: gh<_i15.RemoteDataSource>(),
-            localDataSource: gh<_i10.LocalDataSource>(),
-            sharedPreferencesDataSource: gh<_i19.SharedPreferencesDataSource>(),
+            gh<_i16.SecureStorageDataSource>(),
+            gh<_i15.RemoteDataSource>(),
+            gh<_i10.LocalDataSource>(),
+            gh<_i19.SharedPreferencesDataSource>(),
           ));
   gh.factory<_i24.CheckUserStatusUseCase>(() => _i24.CheckUserStatusUseCase(
       repository: gh<_i22.AuthenticationRepository>()));

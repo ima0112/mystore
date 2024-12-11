@@ -1,4 +1,5 @@
-class UserEntity extends UserAuthCredentials {
+class UserEntity {
+  final String email;
   final String firstName;
   final String lastName;
   final String username;
@@ -10,8 +11,7 @@ class UserEntity extends UserAuthCredentials {
     required this.lastName,
     required this.username,
     required this.phoneNumber,
-    required super.email,
-    required super.password,
+    required this.email,
     this.photo,
   });
 }
