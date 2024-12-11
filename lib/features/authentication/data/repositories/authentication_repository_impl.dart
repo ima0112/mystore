@@ -210,8 +210,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<UserAuthCredentials?> getCredentials() async {
     final email = await sharedPreferencesDataSource.getString(rememberEmail);
-    final password =
-        await sharedPreferencesDataSource.getString(rememberPassword);
+    final password = await secureStorageDataSource.read(rememberPassword);
 
     if (email.isNotEmpty || password.isNotEmpty) {
       return UserAuthCredentials(email: email, password: password);
@@ -223,7 +222,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<void> clearCredentials() async {
     await sharedPreferencesDataSource.remove(rememberEmail);
-    await sharedPreferencesDataSource.remove(rememberPassword);
+    await secureStorageDataSource.delete(rememberPassword);
   }
 
   @override
@@ -231,7 +230,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       {required String email, required String password}) async {
     try {
       await sharedPreferencesDataSource.saveString(rememberEmail, email);
-      await sharedPreferencesDataSource.saveString(rememberPassword, password);
+      await secureStorageDataSource.write(rememberPassword, password);
       return (null, null);
     } catch (e) {
       return (CacheFailure(e.toString()), null);
@@ -252,6 +251,16 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       return (CacheFailure(e.message), null);
     } catch (e) {
       return (ServerFailure(e.toString()), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, void)> sendPasswordResetEmail(String email) async {
+    try {
+      await remoteDataSource.sendPasswordResetEmail(email);
+      return (null, null);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
     }
   }
 }
