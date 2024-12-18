@@ -2105,7 +2105,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loggingOut,
     required TResult Function(String message, String email) passwordResetSent,
   }) {
-    return loading();
+    return error(message);
   }
 
   @override
@@ -2120,11 +2120,12 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? emailVerified,
     TResult? Function()? emailVerificationSent,
     TResult? Function()? loggedIn,
+    TResult? Function(String message, String email)? passwordResetSent,
     TResult? Function()? loggedOut,
     TResult? Function()? loggingOut,
     TResult? Function(String message, String email)? passwordResetSent,
   }) {
-    return loading?.call();
+    return processing?.call();
   }
 
   @override
@@ -2133,19 +2134,21 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? processing,
+    TResult Function()? processing,
     TResult Function(String message)? error,
     TResult Function(String message, String email)? success,
     TResult Function(int secondsRemaining)? resendCooldown,
     TResult Function()? emailVerified,
     TResult Function()? emailVerificationSent,
     TResult Function()? loggedIn,
+    TResult Function(String message, String email)? passwordResetSent,
     TResult Function()? loggedOut,
     TResult Function()? loggingOut,
     TResult Function(String message, String email)? passwordResetSent,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading();
+    if (processing != null) {
+      return processing();
     }
     return orElse();
   }
@@ -2155,6 +2158,7 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Processing value) processing,
     required TResult Function(_Processing value) processing,
     required TResult Function(_Error value) error,
     required TResult Function(_Sucess value) success,
@@ -2167,7 +2171,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_LoggingOut value) loggingOut,
     required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
-    return loading(this);
+    return processing(this);
   }
 
   @override
@@ -2175,6 +2179,7 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Processing value)? processing,
     TResult? Function(_Processing value)? processing,
     TResult? Function(_Error value)? error,
     TResult? Function(_Sucess value)? success,
@@ -2357,6 +2362,7 @@ class _$ProcessingImpl implements _Processing {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Processing value)? processing,
     TResult Function(_Processing value)? processing,
     TResult Function(_Error value)? error,
     TResult Function(_Sucess value)? success,

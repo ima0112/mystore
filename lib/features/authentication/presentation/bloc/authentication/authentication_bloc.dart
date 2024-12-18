@@ -351,7 +351,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           emit(const AuthenticationState.loggedIn());
         },
         resetPassword: (String email) async {
-          emit(const AuthenticationState.loading());
+          emit(const AuthenticationState.processing());
 
           final result = await forgetPasswordUseCase(email);
 
@@ -364,7 +364,12 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
             return;
           }
 
-          emit(const AuthenticationState.passwordResetSent());
+          emit(
+            AuthenticationState.passwordResetSent(
+              message: 'Password reset link sent to your email.',
+              email: email,
+            ),
+          );
         },
       );
     });
