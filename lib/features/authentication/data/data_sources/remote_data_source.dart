@@ -52,12 +52,12 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         password: password,
       );
 
-      await _firestore
-          .collection('users')
-          .doc(userCredential.user!.uid)
-          .set(user.toJson());
+      final userId = userCredential.user!.uid;
+      final newUser = user.copyWithId(userId);
 
-      return user.copyWithId(userCredential.user!.uid);
+      await _firestore.collection('users').doc(userId).set(newUser.toJson());
+
+      return newUser;
     } catch (e) {
       throw ServerException(e.toString());
     }
