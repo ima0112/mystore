@@ -15,7 +15,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   final SharedPreferencesDataSource sharedPreferencesDataSource;
   final SecureStorageDataSource secureStorageDataSource;
   final RemoteDataSource remoteDataSource;
-  final LocalDataSource localDataSource;
+  final UserLocalDataSource localDataSource;
 
   static const rememberEmail = 'remember_email';
   static const rememberPassword = 'remember_password';

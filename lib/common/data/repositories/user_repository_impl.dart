@@ -1,11 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
+import 'package:mystore/common/data/data_source/user_local_data_source.dart';
+import 'package:mystore/common/data/data_source/user_remote_data_source.dart';
 import 'package:mystore/common/domain/entities/user_entity.dart';
 import 'package:mystore/common/domain/repositories/user_repository.dart';
 
 @Injectable(as: UserRepository)
 class UserRepositoryImpl implements UserRepository {
-  final FirebaseFirestore _firestore;
+  final UserLocalDataSource _userLocalDataSource;
+  final UserRemoteDataSource _userRemoteDataSource;
+
+  UserRepositoryImpl(this._userLocalDataSource, this._userRemoteDataSource);
 
   @override
   Future<UserEntity?> getUser({required String userId}) {
