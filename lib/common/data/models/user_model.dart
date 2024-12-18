@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:isar/isar.dart';
 import 'package:mystore/core/utils/string_ids/string_id.dart';
 
-import 'package:mystore/features/authentication/domain/entities/user_entity.dart';
+import 'package:mystore/common/domain/entities/user_entity.dart';
 
 part 'user_model.freezed.dart';
 part 'user_model.g.dart';

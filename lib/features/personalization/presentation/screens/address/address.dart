@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
-import 'package:mystore/features/personalization/screens/address/widgets/single_address.dart';
+import 'package:mystore/features/personalization/presentation/screens/address/widgets/single_address.dart';
 import 'package:mystore/core/constants/colors.dart';
 import 'package:mystore/core/constants/sizes.dart';
 import 'package:mystore/core/routing/go_routes.dart';

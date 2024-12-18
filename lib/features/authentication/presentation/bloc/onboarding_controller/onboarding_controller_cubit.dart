@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:mystore/common/domain/usecases/onboarding_use_case.dart';
 import 'package:mystore/core/routing/go_routes.dart';
-import 'package:mystore/core/usecases/onboarding/set_onboarding_complete.dart';
-import 'package:mystore/core/usecases/usecase.dart';
+import 'package:mystore/common/domain/usecases/usecase.dart';
 
 part 'onboarding_controller_state.dart';
 
 @injectable
 class OnboardingControllerCubit extends Cubit<OnboardingControllerState> {
-  final SetOnboardingComplete _onboardingComplete;
+  final OnboardingUseCase _onboardingComplete;
   final PageController pageController = PageController();
 
   OnboardingControllerCubit(this._onboardingComplete)
@@ -23,7 +23,7 @@ class OnboardingControllerCubit extends Cubit<OnboardingControllerState> {
 
   void nextPage() async {
     if (state.currentPageIndex == 2) {
-      await _onboardingComplete(const NoParams());
+      await _onboardingComplete.setOnboardingComplete(const NoParams());
       AppRoute.routes.goNamed(MyRoutes.login.name);
     } else {
       int page = state.currentPageIndex + 1;

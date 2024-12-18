@@ -1,20 +1,20 @@
 import 'package:injectable/injectable.dart';
 import 'package:mystore/core/error/failures.dart';
-import 'package:mystore/core/repositories/onboarding/onboarding_repository.dart';
-import 'package:mystore/core/usecases/usecase.dart';
+import 'package:mystore/common/domain/repositories/onboarding_repository.dart';
+import 'package:mystore/common/domain/usecases/usecase.dart';
 
 /// A use case that checks if the onboarding process is complete.
 ///
 /// This class implements the [UseCase] interface with a return type of [bool]
 /// and no parameters ([NoParams]).
 ///
-/// The [IsOnboardingComplete] use case is responsible for determining whether
+/// The [OnboardingUseCase] use case is responsible for determining whether
 /// the user has completed the onboarding process.
 @lazySingleton
-class IsOnboardingComplete implements UseCase<bool, NoParams> {
+class OnboardingUseCase implements UseCase<bool, NoParams> {
   final OnboardingRepository repository;
 
-  IsOnboardingComplete({required this.repository});
+  OnboardingUseCase({required this.repository});
 
   @override
   Future<(Failure?, bool?)> call(NoParams params) async {
@@ -23,6 +23,15 @@ class IsOnboardingComplete implements UseCase<bool, NoParams> {
       return (null, result);
     } catch (e) {
       return (Failure('Error checking onboarding status'), null);
+    }
+  }
+
+  Future<(Failure?, void)> setOnboardingComplete(NoParams params) async {
+    try {
+      await repository.setOnboardingCompleted(true);
+      return (null, null);
+    } catch (e) {
+      return (Failure('Error setting onboarding status'), null);
     }
   }
 }

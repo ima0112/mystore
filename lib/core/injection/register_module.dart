@@ -9,7 +9,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
 import 'package:mystore/core/utils/http_client/logger_interceptor.dart';
-import 'package:mystore/features/authentication/data/models/user_model.dart';
+import 'package:mystore/common/data/models/user_model.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

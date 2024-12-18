@@ -2,7 +2,7 @@ import 'package:formz/formz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mystore/core/error/failures.dart';
 import 'package:mystore/core/inputs/user_inputs.dart';
-import 'package:mystore/core/usecases/usecase.dart';
+import 'package:mystore/common/domain/usecases/usecase.dart';
 
 @lazySingleton
 class FormValidationUseCase implements UseCase<bool, FormValidationParams> {

@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mystore/core/error/exceptions.dart';
 import 'package:mystore/core/error/failures.dart';
-import 'package:mystore/core/local_storage/secure_storage/secure_storage_data_source.dart';
-import 'package:mystore/core/local_storage/shared_preferences/shared_preferences_data_source.dart';
-import 'package:mystore/features/authentication/data/data_sources/local_data_source.dart';
-import 'package:mystore/features/authentication/data/data_sources/remote_data_source.dart';
-import 'package:mystore/features/authentication/data/models/user_model.dart';
-import 'package:mystore/features/authentication/domain/entities/user_entity.dart';
+import 'package:mystore/common/data/data_source/secure_storage/secure_storage_data_source.dart';
+import 'package:mystore/common/data/data_source/shared_preferences/shared_preferences_data_source.dart';
+import 'package:mystore/common/data/data_source/user_local_data_source.dart';
+import 'package:mystore/features/authentication/data/data_sources/auth_remote_data_source.dart';
+import 'package:mystore/common/data/models/user_model.dart';
+import 'package:mystore/common/domain/entities/user_entity.dart';
 import 'package:mystore/features/authentication/domain/repositories/authentication_repository.dart';
 
 @Injectable(as: AuthenticationRepository)
