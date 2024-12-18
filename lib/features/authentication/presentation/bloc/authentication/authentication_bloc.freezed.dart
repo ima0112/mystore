@@ -2983,39 +2983,67 @@ abstract class _ResendCooldown implements AuthenticationState {
 }
 
 /// @nodoc
-abstract class _$$EmailVerifiedImplCopyWith<$Res> {
-  factory _$$EmailVerifiedImplCopyWith(
-          _$EmailVerifiedImpl value, $Res Function(_$EmailVerifiedImpl) then) =
-      __$$EmailVerifiedImplCopyWithImpl<$Res>;
+abstract class _$$ResendCooldownImplCopyWith<$Res> {
+  factory _$$ResendCooldownImplCopyWith(_$ResendCooldownImpl value,
+          $Res Function(_$ResendCooldownImpl) then) =
+      __$$ResendCooldownImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int secondsRemaining});
 }
 
 /// @nodoc
-class __$$EmailVerifiedImplCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$EmailVerifiedImpl>
-    implements _$$EmailVerifiedImplCopyWith<$Res> {
-  __$$EmailVerifiedImplCopyWithImpl(
-      _$EmailVerifiedImpl _value, $Res Function(_$EmailVerifiedImpl) _then)
+class __$$ResendCooldownImplCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$ResendCooldownImpl>
+    implements _$$ResendCooldownImplCopyWith<$Res> {
+  __$$ResendCooldownImplCopyWithImpl(
+      _$ResendCooldownImpl _value, $Res Function(_$ResendCooldownImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? secondsRemaining = null,
+  }) {
+    return _then(_$ResendCooldownImpl(
+      null == secondsRemaining
+          ? _value.secondsRemaining
+          : secondsRemaining // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$EmailVerifiedImpl implements _EmailVerified {
-  const _$EmailVerifiedImpl();
+class _$ResendCooldownImpl implements _ResendCooldown {
+  const _$ResendCooldownImpl(this.secondsRemaining);
+
+  @override
+  final int secondsRemaining;
 
   @override
   String toString() {
-    return 'AuthenticationState.emailVerified()';
+    return 'AuthenticationState.resendCooldown(secondsRemaining: $secondsRemaining)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmailVerifiedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ResendCooldownImpl &&
+            (identical(other.secondsRemaining, secondsRemaining) ||
+                other.secondsRemaining == secondsRemaining));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, secondsRemaining);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResendCooldownImplCopyWith<_$ResendCooldownImpl> get copyWith =>
+      __$$ResendCooldownImplCopyWithImpl<_$ResendCooldownImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3033,7 +3061,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     required TResult Function() loggingOut,
     required TResult Function(String message, String email) passwordResetSent,
   }) {
-    return emailVerified();
+    return resendCooldown(secondsRemaining);
   }
 
   @override
@@ -3052,7 +3080,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     TResult? Function()? loggingOut,
     TResult? Function(String message, String email)? passwordResetSent,
   }) {
-    return emailVerified?.call();
+    return resendCooldown?.call(secondsRemaining);
   }
 
   @override
@@ -3072,8 +3100,8 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     TResult Function(String message, String email)? passwordResetSent,
     required TResult orElse(),
   }) {
-    if (emailVerified != null) {
-      return emailVerified();
+    if (resendCooldown != null) {
+      return resendCooldown(secondsRemaining);
     }
     return orElse();
   }
@@ -3095,7 +3123,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     required TResult Function(_LoggingOut value) loggingOut,
     required TResult Function(_PasswordResetSent value) passwordResetSent,
   }) {
-    return emailVerified(this);
+    return resendCooldown(this);
   }
 
   @override
@@ -3114,7 +3142,7 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     TResult? Function(_LoggingOut value)? loggingOut,
     TResult? Function(_PasswordResetSent value)? passwordResetSent,
   }) {
-    return emailVerified?.call(this);
+    return resendCooldown?.call(this);
   }
 
   @override
@@ -3134,15 +3162,21 @@ class _$EmailVerifiedImpl implements _EmailVerified {
     TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
-    if (emailVerified != null) {
-      return emailVerified(this);
+    if (resendCooldown != null) {
+      return resendCooldown(this);
     }
     return orElse();
   }
 }
 
-abstract class _EmailVerified implements AuthenticationState {
-  const factory _EmailVerified() = _$EmailVerifiedImpl;
+abstract class _ResendCooldown implements AuthenticationState {
+  const factory _ResendCooldown(final int secondsRemaining) =
+      _$ResendCooldownImpl;
+
+  int get secondsRemaining;
+  @JsonKey(ignore: true)
+  _$$ResendCooldownImplCopyWith<_$ResendCooldownImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3160,6 +3194,19 @@ class __$$EmailVerificationSentImplCopyWithImpl<$Res>
   __$$EmailVerificationSentImplCopyWithImpl(_$EmailVerificationSentImpl _value,
       $Res Function(_$EmailVerificationSentImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? secondsRemaining = null,
+  }) {
+    return _then(_$ResendCooldownImpl(
+      null == secondsRemaining
+          ? _value.secondsRemaining
+          : secondsRemaining // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
@@ -3180,7 +3227,14 @@ class _$EmailVerificationSentImpl implements _EmailVerificationSent {
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, secondsRemaining);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResendCooldownImplCopyWith<_$ResendCooldownImpl> get copyWith =>
+      __$$ResendCooldownImplCopyWithImpl<_$ResendCooldownImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3299,15 +3353,15 @@ class _$EmailVerificationSentImpl implements _EmailVerificationSent {
     TResult Function(_PasswordResetSent value)? passwordResetSent,
     required TResult orElse(),
   }) {
-    if (emailVerificationSent != null) {
-      return emailVerificationSent(this);
+    if (emailVerified != null) {
+      return emailVerified(this);
     }
     return orElse();
   }
 }
 
-abstract class _EmailVerificationSent implements AuthenticationState {
-  const factory _EmailVerificationSent() = _$EmailVerificationSentImpl;
+abstract class _EmailVerified implements AuthenticationState {
+  const factory _EmailVerified() = _$EmailVerifiedImpl;
 }
 
 /// @nodoc
