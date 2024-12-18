@@ -10,6 +10,11 @@ extension StringExtension on String {
         .join(' ');
   }
 
+  bool get isValidEmail {
+    final emailRegExp = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
+    return emailRegExp.hasMatch(this);
+  }
+
   String generateUsername() {
     List<String> nameParts = split(' ');
     String firstName = nameParts[0].toLowerCase();
