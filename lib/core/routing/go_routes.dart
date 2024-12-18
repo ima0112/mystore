@@ -165,7 +165,10 @@ class AppRoute {
           GoRoute(
             path: _resetPassword,
             name: MyRoutes.resetPassword.name,
-            builder: (context, state) => const ResetPasswordScreen(),
+            builder: (context, state) {
+              String email = state.extra as String? ?? '';
+              return ResetPasswordScreen(email: email);
+            },
           ),
         ],
       ),
