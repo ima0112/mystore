@@ -73,3 +73,17 @@ extension UserModelX on UserModel {
     );
   }
 }
+
+extension IsarUserModelX on IsarUserModel {
+  UserModel toUserModel() {
+    return UserModel(
+      id: id,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      username: username,
+      phoneNumber: phoneNumber,
+      photo: photo,
+    );
+  }
+}
