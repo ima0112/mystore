@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mystore/common/data/data_source/user/user_remote_data_source.dart';
 import 'package:mystore/core/error/exceptions.dart';
@@ -190,12 +189,12 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   }) async {
     try {
       final UserModel userModel =
-          await remoteDataSource.signInWithEmailAndPassword(
+          await authRemoteDataSource.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      await localDataSource.cacheUser(userModel.toIsarUserModel());
+      await userLocalDataSource.cacheUser(userModel.toIsarUserModel());
 
       return (null, userModel);
     } on ServerException catch (e) {
@@ -240,11 +239,12 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<(Failure?, UserEntity?)> signInWithGoogle() async {
     try {
-      final UserModel userModel = await remoteDataSource.signInWithGoogle();
+      final userCredential = await authRemoteDataSource.signInWithGoogle();
+      final user = await userRemoteDataSource.createAndSaveUser(userCredential);
 
-      await localDataSource.cacheUser(userModel.toIsarUserModel());
+      await userLocalDataSource.cacheUser(user.toIsarUserModel());
 
-      return (null, userModel);
+      return (null, user);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
     } on CacheException catch (e) {
@@ -257,7 +257,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<(Failure?, void)> sendPasswordResetEmail(String email) async {
     try {
-      await remoteDataSource.sendPasswordResetEmail(email);
+      await authRemoteDataSource.sendPasswordResetEmail(email);
       return (null, null);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
