@@ -5,7 +5,7 @@ import 'package:mystore/common/domain/repositories/network_info_repository.dart'
 
 @LazySingleton(as: NetworkInfoRepository)
 class NetworkInfoImpl implements NetworkInfoRepository {
-  InternetConnectionChecker connectionChecker = InternetConnectionChecker();
+  InternetConnectionChecker connectionChecker = InternetConnectionChecker.createInstance();
 
   @override
   Future<(Failure?, bool?)> isConnected() async {
