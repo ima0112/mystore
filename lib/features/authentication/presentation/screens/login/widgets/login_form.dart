@@ -6,7 +6,6 @@ import 'package:iconsax/iconsax.dart';
 
 import 'package:mystore/core/constants/sizes.dart';
 import 'package:mystore/core/constants/text_strings.dart';
-import 'package:mystore/core/injection/injection_container.dart';
 import 'package:mystore/core/inputs/user_inputs.dart';
 import 'package:mystore/core/routing/go_routes.dart';
 import 'package:mystore/features/authentication/presentation/bloc/authentication/authentication_bloc.dart';
