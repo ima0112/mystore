@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -6,22 +9,72 @@ import 'package:injectable/injectable.dart';
 import 'package:mystore/core/usecases/network/is_connected.dart';
 import 'package:mystore/core/usecases/usecase.dart';
 import 'package:mystore/features/authentication/domain/entities/user_entity.dart';
+import 'package:mystore/features/authentication/domain/usecase/check_user_status_use_case.dart';
+import 'package:mystore/features/authentication/domain/usecase/logout_user_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/register_user_use_case.dart';
+import 'package:mystore/features/authentication/domain/usecase/send_email_verification_use_case.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
 part 'authentication_bloc.freezed.dart';
 
 @injectable
-class AuthenticationBloc
-    extends Bloc<AuthenticationEvent, AuthenticationState> {
+class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
+    with WidgetsBindingObserver {
+  final LogoutUserUseCase logoutUserUseCase;
   final IsConnectedUseCase isConnectedUseCase;
   final RegisterUserUseCase registerUserUseCase;
+  final CheckUserStatusUseCase checkUserStatusUseCase;
+  final SendEmailVerificationUseCase sendEmailVerificationUseCase;
+
+  Timer? _cooldownTimer;
+  Timer? _timer;
+
+  static const int _cooldownDuration = 60;
+  DateTime? _cooldownStart;
+
+  /// Sets a timer for automatic redirection.
+  ///
+  /// This method initializes a timer that triggers an automatic redirection
+  /// after a specified duration. It is typically used to navigate the user
+  /// to a different screen or perform a specific action after a delay.
+  setTimerForAutoRedirect() {
+    _timer?.cancel();
+    _timer = Timer(const Duration(seconds: 1), () {
+      add(const AuthenticationEvent.checkEmailVerification());
+    });
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _restoreCooldown();
+      setTimerForAutoRedirect();
+    } else if (state == AppLifecycleState.paused) {
+      _timer?.cancel();
+      _cooldownTimer?.cancel();
+    }
+  }
+
+  @override
+  Future<void> close() {
+    WidgetsBinding.instance.removeObserver(this);
+    _timer?.cancel();
+    _cooldownTimer?.cancel();
+    return super.close();
+  }
 
   AuthenticationBloc(
+    this.logoutUserUseCase,
     this.isConnectedUseCase,
     this.registerUserUseCase,
+    this.checkUserStatusUseCase,
+    this.sendEmailVerificationUseCase,
   ) : super(const _Initial()) {
+    WidgetsBinding.instance.addObserver(this);
+
+    setTimerForAutoRedirect();
+
     on<AuthenticationEvent>((event, emit) async {
       await event.when(
         started: () {},
@@ -88,12 +141,110 @@ class AuthenticationBloc
           }
 
           emit(
-            const AuthenticationState.success(
+            AuthenticationState.success(
               message: 'Verify your email to continue.',
+              email: email,
             ),
           );
         },
+        verifyEmail: (String email) async {
+          emit(const AuthenticationState.loading());
+
+          if (_cooldownStart == null) {
+            _startCooldownTimer();
+            final resp = await sendEmailVerificationUseCase(const NoParams());
+
+            if (resp.$1 != null) {
+              emit(
+                AuthenticationState.error(message: resp.$1!.message),
+              );
+              return;
+            } else {
+              emit(const AuthenticationState.emailVerificationSent());
+            }
+          }
+        },
+        checkEmailVerification: () async {
+          emit(const AuthenticationState.loading());
+
+          final userStatus =
+              await checkUserStatusUseCase.call(const NoParams());
+
+          if (userStatus.$1 != null) {
+            emit(
+              AuthenticationState.error(message: userStatus.$1!.message),
+            );
+            return;
+          }
+
+          if (userStatus.$2 == UserStatus.emailVerified) {
+            emit(const AuthenticationState.emailVerified());
+            _timer?.cancel();
+            return;
+          } else {
+            emit(const AuthenticationState.emailVerificationSent());
+          }
+        },
+        logout: () {
+          final logout = logoutUserUseCase(const NoParams());
+          logout.then((value) {
+            if (value.$1 != null) {
+              emit(
+                AuthenticationState.error(message: value.$1!.message),
+              );
+              return;
+            }
+
+            emit(const AuthenticationState.loggedOut());
+          });
+        },
       );
     });
+  }
+
+  void _startCooldownTimer() {
+    _cooldownStart = DateTime.now();
+    emitCooldownDuration(_cooldownDuration);
+
+    _cooldownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      final remainingSeconds = _cooldownDuration -
+          DateTime.now().difference(_cooldownStart!).inSeconds;
+
+      if (remainingSeconds > 0) {
+        emitCooldownDuration(remainingSeconds);
+      } else {
+        _cooldownTimer?.cancel();
+        _cooldownStart = null;
+        emit(const AuthenticationState.resendCooldown(0));
+      }
+    });
+  }
+
+  void _restoreCooldown() {
+    if (_cooldownStart != null) {
+      final elapsed = DateTime.now().difference(_cooldownStart!).inSeconds;
+      final remaining = _cooldownDuration - elapsed;
+
+      if (remaining > 0) {
+        emitCooldownDuration(remaining);
+        _cooldownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+          final updatedRemaining = remaining - timer.tick;
+          if (updatedRemaining > 0) {
+            emitCooldownDuration(updatedRemaining);
+          } else {
+            _cooldownTimer?.cancel();
+            _cooldownStart = null;
+            emit(const AuthenticationState.resendCooldown(0));
+          }
+        });
+      } else {
+        _cooldownStart = null;
+        emit(const AuthenticationState.resendCooldown(0));
+      }
+    }
+  }
+
+  void emitCooldownDuration(int seconds) {
+    emit(AuthenticationState.resendCooldown(seconds));
   }
 }

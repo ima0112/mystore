@@ -22,6 +22,9 @@ mixin _$AuthenticationEvent {
     required TResult Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)
         signup,
+    required TResult Function() logout,
+    required TResult Function(String email) verifyEmail,
+    required TResult Function() checkEmailVerification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$AuthenticationEvent {
     TResult? Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)?
         signup,
+    TResult? Function()? logout,
+    TResult? Function(String email)? verifyEmail,
+    TResult? Function()? checkEmailVerification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$AuthenticationEvent {
     TResult Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)?
         signup,
+    TResult Function()? logout,
+    TResult Function(String email)? verifyEmail,
+    TResult Function()? checkEmailVerification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,18 +54,28 @@ mixin _$AuthenticationEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SignUp value) signup,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_VerifyEmail value) verifyEmail,
+    required TResult Function(_CheckEmailVerification value)
+        checkEmailVerification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SignUp value)? signup,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_VerifyEmail value)? verifyEmail,
+    TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SignUp value)? signup,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_VerifyEmail value)? verifyEmail,
+    TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,6 +141,9 @@ class _$StartedImpl implements _Started {
     required TResult Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)
         signup,
+    required TResult Function() logout,
+    required TResult Function(String email) verifyEmail,
+    required TResult Function() checkEmailVerification,
   }) {
     return started();
   }
@@ -133,6 +155,9 @@ class _$StartedImpl implements _Started {
     TResult? Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)?
         signup,
+    TResult? Function()? logout,
+    TResult? Function(String email)? verifyEmail,
+    TResult? Function()? checkEmailVerification,
   }) {
     return started?.call();
   }
@@ -144,6 +169,9 @@ class _$StartedImpl implements _Started {
     TResult Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)?
         signup,
+    TResult Function()? logout,
+    TResult Function(String email)? verifyEmail,
+    TResult Function()? checkEmailVerification,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -157,6 +185,10 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SignUp value) signup,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_VerifyEmail value) verifyEmail,
+    required TResult Function(_CheckEmailVerification value)
+        checkEmailVerification,
   }) {
     return started(this);
   }
@@ -166,6 +198,9 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SignUp value)? signup,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_VerifyEmail value)? verifyEmail,
+    TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
   }) {
     return started?.call(this);
   }
@@ -175,6 +210,9 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SignUp value)? signup,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_VerifyEmail value)? verifyEmail,
+    TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -314,6 +352,9 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)
         signup,
+    required TResult Function() logout,
+    required TResult Function(String email) verifyEmail,
+    required TResult Function() checkEmailVerification,
   }) {
     return signup(firstName, lastName, email, password, phoneNumber, username);
   }
@@ -325,6 +366,9 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)?
         signup,
+    TResult? Function()? logout,
+    TResult? Function(String email)? verifyEmail,
+    TResult? Function()? checkEmailVerification,
   }) {
     return signup?.call(
         firstName, lastName, email, password, phoneNumber, username);
@@ -337,6 +381,9 @@ class _$SignUpImpl implements _SignUp {
     TResult Function(String firstName, String lastName, String email,
             String password, String phoneNumber, String username)?
         signup,
+    TResult Function()? logout,
+    TResult Function(String email)? verifyEmail,
+    TResult Function()? checkEmailVerification,
     required TResult orElse(),
   }) {
     if (signup != null) {
@@ -351,6 +398,10 @@ class _$SignUpImpl implements _SignUp {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SignUp value) signup,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_VerifyEmail value) verifyEmail,
+    required TResult Function(_CheckEmailVerification value)
+        checkEmailVerification,
   }) {
     return signup(this);
   }
@@ -360,6 +411,9 @@ class _$SignUpImpl implements _SignUp {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SignUp value)? signup,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_VerifyEmail value)? verifyEmail,
+    TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
   }) {
     return signup?.call(this);
   }
@@ -369,6 +423,9 @@ class _$SignUpImpl implements _SignUp {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SignUp value)? signup,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_VerifyEmail value)? verifyEmail,
+    TResult Function(_CheckEmailVerification value)? checkEmailVerification,
     required TResult orElse(),
   }) {
     if (signup != null) {
@@ -399,29 +456,457 @@ abstract class _SignUp implements AuthenticationEvent {
 }
 
 /// @nodoc
+abstract class _$$LogoutImplCopyWith<$Res> {
+  factory _$$LogoutImplCopyWith(
+          _$LogoutImpl value, $Res Function(_$LogoutImpl) then) =
+      __$$LogoutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LogoutImplCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res, _$LogoutImpl>
+    implements _$$LogoutImplCopyWith<$Res> {
+  __$$LogoutImplCopyWithImpl(
+      _$LogoutImpl _value, $Res Function(_$LogoutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LogoutImpl implements _Logout {
+  const _$LogoutImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.logout()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LogoutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)
+        signup,
+    required TResult Function() logout,
+    required TResult Function(String email) verifyEmail,
+    required TResult Function() checkEmailVerification,
+  }) {
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult? Function()? logout,
+    TResult? Function(String email)? verifyEmail,
+    TResult? Function()? checkEmailVerification,
+  }) {
+    return logout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult Function()? logout,
+    TResult Function(String email)? verifyEmail,
+    TResult Function()? checkEmailVerification,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SignUp value) signup,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_VerifyEmail value) verifyEmail,
+    required TResult Function(_CheckEmailVerification value)
+        checkEmailVerification,
+  }) {
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SignUp value)? signup,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_VerifyEmail value)? verifyEmail,
+    TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
+  }) {
+    return logout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SignUp value)? signup,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_VerifyEmail value)? verifyEmail,
+    TResult Function(_CheckEmailVerification value)? checkEmailVerification,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Logout implements AuthenticationEvent {
+  const factory _Logout() = _$LogoutImpl;
+}
+
+/// @nodoc
+abstract class _$$VerifyEmailImplCopyWith<$Res> {
+  factory _$$VerifyEmailImplCopyWith(
+          _$VerifyEmailImpl value, $Res Function(_$VerifyEmailImpl) then) =
+      __$$VerifyEmailImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email});
+}
+
+/// @nodoc
+class __$$VerifyEmailImplCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res, _$VerifyEmailImpl>
+    implements _$$VerifyEmailImplCopyWith<$Res> {
+  __$$VerifyEmailImplCopyWithImpl(
+      _$VerifyEmailImpl _value, $Res Function(_$VerifyEmailImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+  }) {
+    return _then(_$VerifyEmailImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifyEmailImpl implements _VerifyEmail {
+  const _$VerifyEmailImpl({required this.email});
+
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.verifyEmail(email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyEmailImpl &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifyEmailImplCopyWith<_$VerifyEmailImpl> get copyWith =>
+      __$$VerifyEmailImplCopyWithImpl<_$VerifyEmailImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)
+        signup,
+    required TResult Function() logout,
+    required TResult Function(String email) verifyEmail,
+    required TResult Function() checkEmailVerification,
+  }) {
+    return verifyEmail(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult? Function()? logout,
+    TResult? Function(String email)? verifyEmail,
+    TResult? Function()? checkEmailVerification,
+  }) {
+    return verifyEmail?.call(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult Function()? logout,
+    TResult Function(String email)? verifyEmail,
+    TResult Function()? checkEmailVerification,
+    required TResult orElse(),
+  }) {
+    if (verifyEmail != null) {
+      return verifyEmail(email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SignUp value) signup,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_VerifyEmail value) verifyEmail,
+    required TResult Function(_CheckEmailVerification value)
+        checkEmailVerification,
+  }) {
+    return verifyEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SignUp value)? signup,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_VerifyEmail value)? verifyEmail,
+    TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
+  }) {
+    return verifyEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SignUp value)? signup,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_VerifyEmail value)? verifyEmail,
+    TResult Function(_CheckEmailVerification value)? checkEmailVerification,
+    required TResult orElse(),
+  }) {
+    if (verifyEmail != null) {
+      return verifyEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VerifyEmail implements AuthenticationEvent {
+  const factory _VerifyEmail({required final String email}) = _$VerifyEmailImpl;
+
+  String get email;
+  @JsonKey(ignore: true)
+  _$$VerifyEmailImplCopyWith<_$VerifyEmailImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CheckEmailVerificationImplCopyWith<$Res> {
+  factory _$$CheckEmailVerificationImplCopyWith(
+          _$CheckEmailVerificationImpl value,
+          $Res Function(_$CheckEmailVerificationImpl) then) =
+      __$$CheckEmailVerificationImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CheckEmailVerificationImplCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res,
+        _$CheckEmailVerificationImpl>
+    implements _$$CheckEmailVerificationImplCopyWith<$Res> {
+  __$$CheckEmailVerificationImplCopyWithImpl(
+      _$CheckEmailVerificationImpl _value,
+      $Res Function(_$CheckEmailVerificationImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CheckEmailVerificationImpl implements _CheckEmailVerification {
+  const _$CheckEmailVerificationImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.checkEmailVerification()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckEmailVerificationImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)
+        signup,
+    required TResult Function() logout,
+    required TResult Function(String email) verifyEmail,
+    required TResult Function() checkEmailVerification,
+  }) {
+    return checkEmailVerification();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult? Function()? logout,
+    TResult? Function(String email)? verifyEmail,
+    TResult? Function()? checkEmailVerification,
+  }) {
+    return checkEmailVerification?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String firstName, String lastName, String email,
+            String password, String phoneNumber, String username)?
+        signup,
+    TResult Function()? logout,
+    TResult Function(String email)? verifyEmail,
+    TResult Function()? checkEmailVerification,
+    required TResult orElse(),
+  }) {
+    if (checkEmailVerification != null) {
+      return checkEmailVerification();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SignUp value) signup,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_VerifyEmail value) verifyEmail,
+    required TResult Function(_CheckEmailVerification value)
+        checkEmailVerification,
+  }) {
+    return checkEmailVerification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SignUp value)? signup,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_VerifyEmail value)? verifyEmail,
+    TResult? Function(_CheckEmailVerification value)? checkEmailVerification,
+  }) {
+    return checkEmailVerification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SignUp value)? signup,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_VerifyEmail value)? verifyEmail,
+    TResult Function(_CheckEmailVerification value)? checkEmailVerification,
+    required TResult orElse(),
+  }) {
+    if (checkEmailVerification != null) {
+      return checkEmailVerification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckEmailVerification implements AuthenticationEvent {
+  const factory _CheckEmailVerification() = _$CheckEmailVerificationImpl;
+}
+
+/// @nodoc
 mixin _$AuthenticationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
     TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -430,7 +915,12 @@ mixin _$AuthenticationState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -438,7 +928,11 @@ mixin _$AuthenticationState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -446,7 +940,11 @@ mixin _$AuthenticationState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -510,8 +1008,12 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
   }) {
     return initial();
   }
@@ -521,8 +1023,12 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
     TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
   }) {
     return initial?.call();
   }
@@ -532,8 +1038,12 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -548,7 +1058,12 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
   }) {
     return initial(this);
   }
@@ -559,7 +1074,11 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
   }) {
     return initial?.call(this);
   }
@@ -570,7 +1089,11 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -624,8 +1147,12 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
   }) {
     return loading();
   }
@@ -635,8 +1162,12 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
     TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
   }) {
     return loading?.call();
   }
@@ -646,8 +1177,12 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -662,7 +1197,12 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
   }) {
     return loading(this);
   }
@@ -673,7 +1213,11 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
   }) {
     return loading?.call(this);
   }
@@ -684,7 +1228,11 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -704,7 +1252,7 @@ abstract class _$$SucessImplCopyWith<$Res> {
           _$SucessImpl value, $Res Function(_$SucessImpl) then) =
       __$$SucessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String message, String email});
 }
 
 /// @nodoc
@@ -719,11 +1267,16 @@ class __$$SucessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? email = null,
   }) {
     return _then(_$SucessImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -732,14 +1285,16 @@ class __$$SucessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SucessImpl implements _Sucess {
-  const _$SucessImpl({required this.message});
+  const _$SucessImpl({required this.message, required this.email});
 
   @override
   final String message;
+  @override
+  final String email;
 
   @override
   String toString() {
-    return 'AuthenticationState.success(message: $message)';
+    return 'AuthenticationState.success(message: $message, email: $email)';
   }
 
   @override
@@ -747,11 +1302,12 @@ class _$SucessImpl implements _Sucess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SucessImpl &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, message, email);
 
   @JsonKey(ignore: true)
   @override
@@ -764,10 +1320,14 @@ class _$SucessImpl implements _Sucess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
   }) {
-    return success(message);
+    return success(message, email);
   }
 
   @override
@@ -775,10 +1335,14 @@ class _$SucessImpl implements _Sucess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
     TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
   }) {
-    return success?.call(message);
+    return success?.call(message, email);
   }
 
   @override
@@ -786,12 +1350,16 @@ class _$SucessImpl implements _Sucess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(message);
+      return success(message, email);
     }
     return orElse();
   }
@@ -802,7 +1370,12 @@ class _$SucessImpl implements _Sucess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
   }) {
     return success(this);
   }
@@ -813,7 +1386,11 @@ class _$SucessImpl implements _Sucess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
   }) {
     return success?.call(this);
   }
@@ -824,7 +1401,11 @@ class _$SucessImpl implements _Sucess {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -835,12 +1416,434 @@ class _$SucessImpl implements _Sucess {
 }
 
 abstract class _Sucess implements AuthenticationState {
-  const factory _Sucess({required final String message}) = _$SucessImpl;
+  const factory _Sucess(
+      {required final String message,
+      required final String email}) = _$SucessImpl;
 
   String get message;
+  String get email;
   @JsonKey(ignore: true)
   _$$SucessImplCopyWith<_$SucessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmailVerifiedImplCopyWith<$Res> {
+  factory _$$EmailVerifiedImplCopyWith(
+          _$EmailVerifiedImpl value, $Res Function(_$EmailVerifiedImpl) then) =
+      __$$EmailVerifiedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmailVerifiedImplCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$EmailVerifiedImpl>
+    implements _$$EmailVerifiedImplCopyWith<$Res> {
+  __$$EmailVerifiedImplCopyWithImpl(
+      _$EmailVerifiedImpl _value, $Res Function(_$EmailVerifiedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmailVerifiedImpl implements _EmailVerified {
+  const _$EmailVerifiedImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationState.emailVerified()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmailVerifiedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
+    required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
+  }) {
+    return emailVerified();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
+    TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
+  }) {
+    return emailVerified?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
+    TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
+    required TResult orElse(),
+  }) {
+    if (emailVerified != null) {
+      return emailVerified();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
+  }) {
+    return emailVerified(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
+  }) {
+    return emailVerified?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
+    required TResult orElse(),
+  }) {
+    if (emailVerified != null) {
+      return emailVerified(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EmailVerified implements AuthenticationState {
+  const factory _EmailVerified() = _$EmailVerifiedImpl;
+}
+
+/// @nodoc
+abstract class _$$EmailVerificationSentImplCopyWith<$Res> {
+  factory _$$EmailVerificationSentImplCopyWith(
+          _$EmailVerificationSentImpl value,
+          $Res Function(_$EmailVerificationSentImpl) then) =
+      __$$EmailVerificationSentImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmailVerificationSentImplCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$EmailVerificationSentImpl>
+    implements _$$EmailVerificationSentImplCopyWith<$Res> {
+  __$$EmailVerificationSentImplCopyWithImpl(_$EmailVerificationSentImpl _value,
+      $Res Function(_$EmailVerificationSentImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmailVerificationSentImpl implements _EmailVerificationSent {
+  const _$EmailVerificationSentImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationState.emailVerificationSent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EmailVerificationSentImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
+    required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
+  }) {
+    return emailVerificationSent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
+    TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
+  }) {
+    return emailVerificationSent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
+    TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
+    required TResult orElse(),
+  }) {
+    if (emailVerificationSent != null) {
+      return emailVerificationSent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
+  }) {
+    return emailVerificationSent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
+  }) {
+    return emailVerificationSent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
+    required TResult orElse(),
+  }) {
+    if (emailVerificationSent != null) {
+      return emailVerificationSent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EmailVerificationSent implements AuthenticationState {
+  const factory _EmailVerificationSent() = _$EmailVerificationSentImpl;
+}
+
+/// @nodoc
+abstract class _$$LoggedOutImplCopyWith<$Res> {
+  factory _$$LoggedOutImplCopyWith(
+          _$LoggedOutImpl value, $Res Function(_$LoggedOutImpl) then) =
+      __$$LoggedOutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoggedOutImplCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$LoggedOutImpl>
+    implements _$$LoggedOutImplCopyWith<$Res> {
+  __$$LoggedOutImplCopyWithImpl(
+      _$LoggedOutImpl _value, $Res Function(_$LoggedOutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoggedOutImpl implements _LoggedOut {
+  const _$LoggedOutImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationState.loggedOut()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoggedOutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
+    required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
+  }) {
+    return loggedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
+    TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
+  }) {
+    return loggedOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
+    TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
+  }) {
+    return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
+  }) {
+    return loggedOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoggedOut implements AuthenticationState {
+  const factory _LoggedOut() = _$LoggedOutImpl;
 }
 
 /// @nodoc
@@ -909,8 +1912,12 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
     required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
   }) {
     return error(message);
   }
@@ -920,8 +1927,12 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
     TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
   }) {
     return error?.call(message);
   }
@@ -931,8 +1942,12 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
     TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -947,7 +1962,12 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
   }) {
     return error(this);
   }
@@ -958,7 +1978,11 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
   }) {
     return error?.call(this);
   }
@@ -969,7 +1993,11 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -985,5 +2013,178 @@ abstract class _Error implements AuthenticationState {
   String get message;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResendCooldownImplCopyWith<$Res> {
+  factory _$$ResendCooldownImplCopyWith(_$ResendCooldownImpl value,
+          $Res Function(_$ResendCooldownImpl) then) =
+      __$$ResendCooldownImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int secondsRemaining});
+}
+
+/// @nodoc
+class __$$ResendCooldownImplCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$ResendCooldownImpl>
+    implements _$$ResendCooldownImplCopyWith<$Res> {
+  __$$ResendCooldownImplCopyWithImpl(
+      _$ResendCooldownImpl _value, $Res Function(_$ResendCooldownImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? secondsRemaining = null,
+  }) {
+    return _then(_$ResendCooldownImpl(
+      null == secondsRemaining
+          ? _value.secondsRemaining
+          : secondsRemaining // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ResendCooldownImpl implements _ResendCooldown {
+  const _$ResendCooldownImpl(this.secondsRemaining);
+
+  @override
+  final int secondsRemaining;
+
+  @override
+  String toString() {
+    return 'AuthenticationState.resendCooldown(secondsRemaining: $secondsRemaining)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResendCooldownImpl &&
+            (identical(other.secondsRemaining, secondsRemaining) ||
+                other.secondsRemaining == secondsRemaining));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, secondsRemaining);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResendCooldownImplCopyWith<_$ResendCooldownImpl> get copyWith =>
+      __$$ResendCooldownImplCopyWithImpl<_$ResendCooldownImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message, String email) success,
+    required TResult Function() emailVerified,
+    required TResult Function() emailVerificationSent,
+    required TResult Function() loggedOut,
+    required TResult Function(String message) error,
+    required TResult Function(int secondsRemaining) resendCooldown,
+  }) {
+    return resendCooldown(secondsRemaining);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message, String email)? success,
+    TResult? Function()? emailVerified,
+    TResult? Function()? emailVerificationSent,
+    TResult? Function()? loggedOut,
+    TResult? Function(String message)? error,
+    TResult? Function(int secondsRemaining)? resendCooldown,
+  }) {
+    return resendCooldown?.call(secondsRemaining);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message, String email)? success,
+    TResult Function()? emailVerified,
+    TResult Function()? emailVerificationSent,
+    TResult Function()? loggedOut,
+    TResult Function(String message)? error,
+    TResult Function(int secondsRemaining)? resendCooldown,
+    required TResult orElse(),
+  }) {
+    if (resendCooldown != null) {
+      return resendCooldown(secondsRemaining);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Sucess value) success,
+    required TResult Function(_EmailVerified value) emailVerified,
+    required TResult Function(_EmailVerificationSent value)
+        emailVerificationSent,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ResendCooldown value) resendCooldown,
+  }) {
+    return resendCooldown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Sucess value)? success,
+    TResult? Function(_EmailVerified value)? emailVerified,
+    TResult? Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult? Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ResendCooldown value)? resendCooldown,
+  }) {
+    return resendCooldown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Sucess value)? success,
+    TResult Function(_EmailVerified value)? emailVerified,
+    TResult Function(_EmailVerificationSent value)? emailVerificationSent,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Error value)? error,
+    TResult Function(_ResendCooldown value)? resendCooldown,
+    required TResult orElse(),
+  }) {
+    if (resendCooldown != null) {
+      return resendCooldown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResendCooldown implements AuthenticationState {
+  const factory _ResendCooldown(final int secondsRemaining) =
+      _$ResendCooldownImpl;
+
+  int get secondsRemaining;
+  @JsonKey(ignore: true)
+  _$$ResendCooldownImplCopyWith<_$ResendCooldownImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
