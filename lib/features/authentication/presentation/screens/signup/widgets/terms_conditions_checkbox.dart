@@ -8,7 +8,12 @@ import 'package:mystore/core/utils/helpers/helper_functions.dart';
 class TermsAndConditionsCheckbox extends StatelessWidget {
   const TermsAndConditionsCheckbox({
     super.key,
+    this.value = false,
+    this.onChanged,
   });
+
+  final bool value;
+  final void Function(bool?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +25,8 @@ class TermsAndConditionsCheckbox extends StatelessWidget {
           width: 24,
           height: 24,
           child: Checkbox(
-            value: true,
-            onChanged: (value) {},
+            value: value,
+            onChanged: onChanged,
           ),
         ),
         const SizedBox(width: MySizes.spaceBtwItems),
