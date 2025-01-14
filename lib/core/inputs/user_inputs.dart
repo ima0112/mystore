@@ -39,8 +39,6 @@ class FirstName extends FormzInput<String, ReportProblemFormError> {
 }
 
 class LastName extends FormzInput<String, ReportProblemFormError> {
-  static const int minLength = 2;
-
   const LastName.pure() : super.pure('');
   const LastName.dirty(super.value) : super.dirty();
 
@@ -67,7 +65,7 @@ class Username extends FormzInput<String, ReportProblemFormError> {
       return ReportProblemFormError.empty;
     } else if (value.length < minLength) {
       return ReportProblemFormError.username;
-    } else if (!RegExp(r'^[A-Za-z0-9_.]+$').hasMatch(value)) {
+    } else if (!RegExp(r'^[A-Za-z]+$').hasMatch(value)) {
       return ReportProblemFormError.invalid;
     }
     return null;
