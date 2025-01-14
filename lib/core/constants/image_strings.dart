@@ -1,4 +1,7 @@
 class MyImages {
+  // Lottie Animations
+  static const String docerAmination = 'assets/images/animations/docer.lottie';
+
   // App Logos
   static const String lightAppLogo =
       'assets/images/login_logos/logo_light_transparent_background.png';
@@ -49,9 +52,12 @@ class MyImages {
   static const String promoBanner3 = 'assets/images/banners/promo-banner-3.png';
 
   // Product Reviews
-  static const String userProfileImage1 = 'assets/images/reviews/review_profile_image_1.jpg';
-  static const String userProfileImage2 = 'assets/images/reviews/review_profile_image_2.jpg';
-  static const String userProfileImage3 = 'assets/images/reviews/review_profile_image_3.jpg';
+  static const String userProfileImage1 =
+      'assets/images/reviews/review_profile_image_1.jpg';
+  static const String userProfileImage2 =
+      'assets/images/reviews/review_profile_image_2.jpg';
+  static const String userProfileImage3 =
+      'assets/images/reviews/review_profile_image_3.jpg';
 
   // Profile
   static const String user = 'assets/images/user/user.png';
@@ -79,7 +85,5 @@ class MyImages {
       'assets/images/products/view-soccer-shoes.png';
 
   // Payment
-  static const String paymentSuccess =
-      'assets/icons/payment/payment-check.png';
-
+  static const String paymentSuccess = 'assets/icons/payment/payment-check.png';
 }
