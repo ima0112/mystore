@@ -12,7 +12,10 @@ import 'package:mystore/features/authentication/domain/entities/user_entity.dart
 import 'package:mystore/features/authentication/domain/usecase/check_user_status_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/logout_user_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/register_user_use_case.dart';
+import 'package:mystore/features/authentication/domain/usecase/remember_me_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/send_email_verification_use_case.dart';
+import 'package:mystore/features/authentication/domain/usecase/sign_in_with_email_password.dart';
+import 'package:mystore/features/authentication/presentation/bloc/sign_in_form/sign_in_form_bloc.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
@@ -22,10 +25,12 @@ part 'authentication_bloc.freezed.dart';
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     with WidgetsBindingObserver {
   final LogoutUserUseCase logoutUserUseCase;
+  final RememberMeUseCase rememberMeUseCase;
   final IsConnectedUseCase isConnectedUseCase;
   final RegisterUserUseCase registerUserUseCase;
   final CheckUserStatusUseCase checkUserStatusUseCase;
   final SendEmailVerificationUseCase sendEmailVerificationUseCase;
+  final SignInWithEmailAndPasswordUseCase signInWithEmailAndPasswordUseCase;
 
   Timer? _cooldownTimer;
   Timer? _timer;
@@ -47,10 +52,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) {
-      _restoreCooldown();
-      setTimerForAutoRedirect();
-    } else if (state == AppLifecycleState.paused) {
+    if (state == AppLifecycleState.paused) {
       _timer?.cancel();
       _cooldownTimer?.cancel();
     }
@@ -70,6 +72,8 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     this.registerUserUseCase,
     this.checkUserStatusUseCase,
     this.sendEmailVerificationUseCase,
+    this.signInWithEmailAndPasswordUseCase,
+    this.rememberMeUseCase,
   ) : super(const _Initial()) {
     WidgetsBinding.instance.addObserver(this);
 
@@ -145,6 +149,35 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
             ),
           );
         },
+        signinWithEmailAndPassword: (email, password, rememberMe) async {
+          emit(const AuthenticationState.loading());
+
+          final result = await signInWithEmailAndPasswordUseCase(
+            SignInWithEmailAndPasswordParams(
+              email: email,
+              password: password,
+              rememberMe: rememberMe,
+            ),
+          );
+
+          if (result.$1 != null) {
+            emit(
+              AuthenticationState.error(
+                message: result.$1!.message,
+              ),
+            );
+            return;
+          }
+
+          if (rememberMe) {
+            await rememberMeUseCase(
+                RmemeberMeParams(email: email, password: password));
+          } else {
+            await rememberMeUseCase.clearSavedCredentials();
+          }
+
+          emit(const AuthenticationState.loggedIn());
+        },
         verifyEmail: (String email) async {
           emit(const AuthenticationState.initial());
 
@@ -185,18 +218,21 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
             emit(const AuthenticationState.emailVerificationSent());
           }
         },
-        logout: () {
-          final logout = logoutUserUseCase(const NoParams());
-          logout.then((value) {
-            if (value.$1 != null) {
-              emit(
-                AuthenticationState.error(message: value.$1!.message),
-              );
-              return;
-            }
+        logout: () async {
+          final logout = await logoutUserUseCase(const NoParams());
 
+          if (logout.$1 != null) {
+            emit(
+              AuthenticationState.error(message: logout.$1!.message),
+            );
+            return;
+          } else {
             emit(const AuthenticationState.loggedOut());
-          });
+          }
+        },
+        restore: () {
+          _restoreCooldown();
+          setTimerForAutoRedirect();
         },
       );
     });

@@ -13,4 +13,5 @@ class AuthenticationState with _$AuthenticationState {
   const factory AuthenticationState.error({required String message}) = _Error;
   const factory AuthenticationState.resendCooldown(int secondsRemaining) =
       _ResendCooldown;
+  const factory AuthenticationState.loggedIn() = _LoggedIn;
 }

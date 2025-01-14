@@ -13,6 +13,12 @@ class AuthenticationEvent with _$AuthenticationEvent {
     required String username,
   }) = _SignUp;
 
+  const factory AuthenticationEvent.signinWithEmailAndPassword({
+    required String email,
+    required String password,
+    required bool rememberMe,
+  }) = _SignInWithEmailAndPassword;
+
   const factory AuthenticationEvent.logout() = _Logout;
 
   const factory AuthenticationEvent.verifyEmail({
@@ -21,4 +27,6 @@ class AuthenticationEvent with _$AuthenticationEvent {
 
   const factory AuthenticationEvent.checkEmailVerification() =
       _CheckEmailVerification;
+
+  const factory AuthenticationEvent.restore() = _Restore;
 }
