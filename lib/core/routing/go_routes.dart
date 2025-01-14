@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:mystore/core/usecases/onboarding/is_onboarding_complete.dart';
+import 'package:mystore/core/usecases/usecase.dart';
 
 import 'package:mystore/features/authentication/presentation/screens/login/login.dart';
 import 'package:mystore/features/authentication/presentation/screens/onboarding/onboarding.dart';
@@ -91,16 +93,20 @@ class AppRoute {
   static final _routes = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: _onboarding,
-    redirect: (context, state) {
-      final onboardingService = getIt<OnboardingService>();
-      final isOnboardingCompleted = onboardingService.isOnboardingCompleted;
+    redirect: (context, state) async {
+      final isOnboardingCompleteUseCase = getIt<IsOnboardingComplete>();
+      final isOnboardingComplete =
+          await isOnboardingCompleteUseCase(const NoParams());
 
-      if (!isOnboardingCompleted && state.matchedLocation != _onboarding) {
+      if (isOnboardingComplete.$2 == false &&
+          state.matchedLocation != _onboarding) {
         return _onboarding;
       }
-      if (isOnboardingCompleted && state.matchedLocation == _onboarding) {
+      if (isOnboardingComplete.$2 == true &&
+          state.matchedLocation == _onboarding) {
         return _login;
       }
+
       return null;
     },
     routes: [

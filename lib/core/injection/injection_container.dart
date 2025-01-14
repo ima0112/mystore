@@ -10,7 +10,7 @@ Future<void> init() async {
 }
 
 @InjectableInit(
-  generateForDir: ['lib/core/injection'],
+  rootDir: 'lib/core/injection',
   initializerName: r'$initGetIt', // default
   preferRelativeImports: true, // default
   asExtension: false, // default
