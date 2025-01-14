@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mystore/common/widgets/appbar/appbar.dart';
-import 'package:mystore/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:mystore/common/widgets/list_tiles/settings_menu_tile.dart';
-import 'package:mystore/common/widgets/list_tiles/user_profile_tile.dart';
-import 'package:mystore/common/widgets/texts/section_heading.dart';
-import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/navigation/go_routes.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
+import 'package:mystore/core/common_widgets/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:mystore/core/common_widgets/widgets/list_tiles/settings_menu_tile.dart';
+import 'package:mystore/core/common_widgets/widgets/list_tiles/user_profile_tile.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
+
+import 'package:mystore/core/constants/colors.dart';
+import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/core/routing/go_routes.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mystore/common/widgets/appbar/appbar.dart';
-import 'package:mystore/common/widgets/brands/brand_card.dart';
-import 'package:mystore/common/widgets/product/sortable/sortable_products.dart';
-import 'package:mystore/utils/constants/sizes.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
+import 'package:mystore/core/common_widgets/widgets/brands/brand_card.dart';
+import 'package:mystore/core/common_widgets/widgets/product/sortable/sortable_products.dart';
+
+import 'package:mystore/core/constants/sizes.dart';
 
 class BrandProductsScreen extends StatelessWidget {
   const BrandProductsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: MyAppBar(
         showBackArrow: true,
         title: Text('Close Up'),

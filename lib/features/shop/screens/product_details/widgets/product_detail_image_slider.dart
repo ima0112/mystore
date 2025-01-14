@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:iconsax/iconsax.dart';
 
-import 'package:mystore/common/widgets/appbar/appbar.dart';
-import 'package:mystore/common/widgets/custom_shapes/curved_edges/curved_edges_widgets.dart';
-import 'package:mystore/common/widgets/icons/circular_icon.dart';
-import 'package:mystore/common/widgets/images/rounded_image.dart';
-import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/image_strings.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/helpers/helper_functions.dart';
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
+import 'package:mystore/core/common_widgets/widgets/custom_shapes/curved_edges/curved_edges_widgets.dart';
+import 'package:mystore/core/common_widgets/widgets/icons/circular_icon.dart';
+import 'package:mystore/core/common_widgets/widgets/images/rounded_image.dart';
+import 'package:mystore/core/constants/colors.dart';
+import 'package:mystore/core/constants/image_strings.dart';
+import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/core/utils/helpers/helper_functions.dart';
 
 class ProductImageSlider extends StatelessWidget {
   const ProductImageSlider({

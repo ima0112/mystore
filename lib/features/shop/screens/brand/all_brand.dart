@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
-import 'package:mystore/common/widgets/appbar/appbar.dart';
-import 'package:mystore/common/widgets/brands/brand_card.dart';
-import 'package:mystore/common/widgets/layouts/grid_layout.dart';
-import 'package:mystore/common/widgets/texts/section_heading.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/navigation/go_routes.dart';
+
+import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
+import 'package:mystore/core/common_widgets/widgets/brands/brand_card.dart';
+import 'package:mystore/core/common_widgets/widgets/layouts/grid_layout.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
+import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/core/routing/go_routes.dart';
 
 class AllBrandsScreen extends StatelessWidget {
   const AllBrandsScreen({super.key});
@@ -13,15 +15,15 @@ class AllBrandsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: Text('Brand'), showBackArrow: true),
+      appBar: const MyAppBar(title: Text('Brand'), showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(MySizes.defaultSpace),
+          padding: const EdgeInsets.all(MySizes.defaultSpace),
           child: Column(
             children: [
               /// Heading
-              MySectionHeading(title: 'Brands', showActionButton: false),
-              SizedBox(height: MySizes.spaceBtwItems),
+              const MySectionHeading(title: 'Brands', showActionButton: false),
+              const SizedBox(height: MySizes.spaceBtwItems),
 
               /// Brands
               MyGridLayout(

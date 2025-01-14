@@ -7,7 +7,7 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 
 import 'package:mystore/app.dart';
 import 'package:mystore/firebase_options.dart';
-import 'package:mystore/injection_container.dart';
+import 'package:mystore/core/injection/injection_container.dart';
 
 void main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

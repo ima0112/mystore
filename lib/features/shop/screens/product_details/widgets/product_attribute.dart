@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mystore/common/widgets/chips/choice_chip.dart';
-import 'package:mystore/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:mystore/common/widgets/texts/product_price_text.dart';
-import 'package:mystore/common/widgets/texts/product_title_text.dart';
-import 'package:mystore/common/widgets/texts/section_heading.dart';
-import 'package:mystore/utils/constants/colors.dart';
-import 'package:mystore/utils/constants/sizes.dart';
-import 'package:mystore/utils/helpers/helper_functions.dart';
+import 'package:mystore/core/common_widgets/widgets/chips/choice_chip.dart';
+import 'package:mystore/core/common_widgets/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/product_price_text.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/product_title_text.dart';
+import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
+
+import 'package:mystore/core/constants/colors.dart';
+import 'package:mystore/core/constants/sizes.dart';
+import 'package:mystore/core/utils/helpers/helper_functions.dart';
 
 class ProductAttribute extends StatelessWidget {
   const ProductAttribute({super.key});
