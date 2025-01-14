@@ -1,3 +1,5 @@
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mystore/core/error/exceptions.dart';
 import 'package:mystore/core/error/failures.dart';
@@ -38,6 +40,46 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       return (ServerFailure(e.message), null);
     } on CacheException catch (e) {
       return (CacheFailure(e.message), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, void)> sendEmailVerification() async {
+    try {
+      await remoteDataSource.emailVerification();
+      return (null, null);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, bool)> isEmailVerified() async {
+    try {
+      final bool isEmailVerified = await remoteDataSource.isEmailVerified();
+      return (null, isEmailVerified);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), false);
+    }
+  }
+
+  @override
+  Future<(Failure?, void)> logOut() async {
+    try {
+      await remoteDataSource.logOut();
+      return (null, null);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, User?)> getCurrentUser() async {
+    try {
+      final User? user = await remoteDataSource.getCurrentUser();
+      return (null, user);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
     }
   }
 }
