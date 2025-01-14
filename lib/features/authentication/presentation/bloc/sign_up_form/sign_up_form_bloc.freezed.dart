@@ -474,7 +474,9 @@ mixin _$SignUpFormState {
   Email get email => throw _privateConstructorUsedError;
   PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  bool get isValidated => throw _privateConstructorUsedError;
+  bool get isPrivacyAccepted => throw _privateConstructorUsedError;
+  bool? get privacyErrorTriggered => throw _privateConstructorUsedError;
+  bool? get isFormValid => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignUpFormStateCopyWith<SignUpFormState> get copyWith =>
@@ -494,7 +496,9 @@ abstract class $SignUpFormStateCopyWith<$Res> {
       Email email,
       PhoneNumber phoneNumber,
       Password password,
-      bool isValidated});
+      bool isPrivacyAccepted,
+      bool? privacyErrorTriggered,
+      bool? isFormValid});
 }
 
 /// @nodoc
@@ -516,7 +520,9 @@ class _$SignUpFormStateCopyWithImpl<$Res, $Val extends SignUpFormState>
     Object? email = null,
     Object? phoneNumber = null,
     Object? password = null,
-    Object? isValidated = null,
+    Object? isPrivacyAccepted = null,
+    Object? privacyErrorTriggered = freezed,
+    Object? isFormValid = freezed,
   }) {
     return _then(_value.copyWith(
       firstName: null == firstName
@@ -543,10 +549,18 @@ class _$SignUpFormStateCopyWithImpl<$Res, $Val extends SignUpFormState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      isValidated: null == isValidated
-          ? _value.isValidated
-          : isValidated // ignore: cast_nullable_to_non_nullable
+      isPrivacyAccepted: null == isPrivacyAccepted
+          ? _value.isPrivacyAccepted
+          : isPrivacyAccepted // ignore: cast_nullable_to_non_nullable
               as bool,
+      privacyErrorTriggered: freezed == privacyErrorTriggered
+          ? _value.privacyErrorTriggered
+          : privacyErrorTriggered // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isFormValid: freezed == isFormValid
+          ? _value.isFormValid
+          : isFormValid // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -566,7 +580,9 @@ abstract class _$$SignUpFormStateImplCopyWith<$Res>
       Email email,
       PhoneNumber phoneNumber,
       Password password,
-      bool isValidated});
+      bool isPrivacyAccepted,
+      bool? privacyErrorTriggered,
+      bool? isFormValid});
 }
 
 /// @nodoc
@@ -586,7 +602,9 @@ class __$$SignUpFormStateImplCopyWithImpl<$Res>
     Object? email = null,
     Object? phoneNumber = null,
     Object? password = null,
-    Object? isValidated = null,
+    Object? isPrivacyAccepted = null,
+    Object? privacyErrorTriggered = freezed,
+    Object? isFormValid = freezed,
   }) {
     return _then(_$SignUpFormStateImpl(
       firstName: null == firstName
@@ -613,10 +631,18 @@ class __$$SignUpFormStateImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      isValidated: null == isValidated
-          ? _value.isValidated
-          : isValidated // ignore: cast_nullable_to_non_nullable
+      isPrivacyAccepted: null == isPrivacyAccepted
+          ? _value.isPrivacyAccepted
+          : isPrivacyAccepted // ignore: cast_nullable_to_non_nullable
               as bool,
+      privacyErrorTriggered: freezed == privacyErrorTriggered
+          ? _value.privacyErrorTriggered
+          : privacyErrorTriggered // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isFormValid: freezed == isFormValid
+          ? _value.isFormValid
+          : isFormValid // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -631,7 +657,9 @@ class _$SignUpFormStateImpl implements _SignUpFormState {
       this.email = const Email.pure(),
       this.phoneNumber = const PhoneNumber.pure(),
       this.password = const Password.pure(),
-      this.isValidated = true});
+      this.isPrivacyAccepted = false,
+      this.privacyErrorTriggered,
+      this.isFormValid});
 
   @override
   @JsonKey()
@@ -653,11 +681,15 @@ class _$SignUpFormStateImpl implements _SignUpFormState {
   final Password password;
   @override
   @JsonKey()
-  final bool isValidated;
+  final bool isPrivacyAccepted;
+  @override
+  final bool? privacyErrorTriggered;
+  @override
+  final bool? isFormValid;
 
   @override
   String toString() {
-    return 'SignUpFormState(firstName: $firstName, lastName: $lastName, username: $username, email: $email, phoneNumber: $phoneNumber, password: $password, isValidated: $isValidated)';
+    return 'SignUpFormState(firstName: $firstName, lastName: $lastName, username: $username, email: $email, phoneNumber: $phoneNumber, password: $password, isPrivacyAccepted: $isPrivacyAccepted, privacyErrorTriggered: $privacyErrorTriggered, isFormValid: $isFormValid)';
   }
 
   @override
@@ -676,13 +708,26 @@ class _$SignUpFormStateImpl implements _SignUpFormState {
                 other.phoneNumber == phoneNumber) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.isValidated, isValidated) ||
-                other.isValidated == isValidated));
+            (identical(other.isPrivacyAccepted, isPrivacyAccepted) ||
+                other.isPrivacyAccepted == isPrivacyAccepted) &&
+            (identical(other.privacyErrorTriggered, privacyErrorTriggered) ||
+                other.privacyErrorTriggered == privacyErrorTriggered) &&
+            (identical(other.isFormValid, isFormValid) ||
+                other.isFormValid == isFormValid));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, firstName, lastName, username,
-      email, phoneNumber, password, isValidated);
+  int get hashCode => Object.hash(
+      runtimeType,
+      firstName,
+      lastName,
+      username,
+      email,
+      phoneNumber,
+      password,
+      isPrivacyAccepted,
+      privacyErrorTriggered,
+      isFormValid);
 
   @JsonKey(ignore: true)
   @override
@@ -700,7 +745,9 @@ abstract class _SignUpFormState implements SignUpFormState {
       final Email email,
       final PhoneNumber phoneNumber,
       final Password password,
-      final bool isValidated}) = _$SignUpFormStateImpl;
+      final bool isPrivacyAccepted,
+      final bool? privacyErrorTriggered,
+      final bool? isFormValid}) = _$SignUpFormStateImpl;
 
   @override
   FirstName get firstName;
@@ -715,7 +762,11 @@ abstract class _SignUpFormState implements SignUpFormState {
   @override
   Password get password;
   @override
-  bool get isValidated;
+  bool get isPrivacyAccepted;
+  @override
+  bool? get privacyErrorTriggered;
+  @override
+  bool? get isFormValid;
   @override
   @JsonKey(ignore: true)
   _$$SignUpFormStateImplCopyWith<_$SignUpFormStateImpl> get copyWith =>

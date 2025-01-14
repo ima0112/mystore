@@ -9,6 +9,8 @@ class SignUpFormState with _$SignUpFormState {
     @Default(Email.pure()) Email email,
     @Default(PhoneNumber.pure()) PhoneNumber phoneNumber,
     @Default(Password.pure()) Password password,
-    @Default(true) bool isValidated,
+    @Default(false) bool isPrivacyAccepted,
+    bool? privacyErrorTriggered,
+    bool? isFormValid,
   }) = _SignUpFormState;
 }
