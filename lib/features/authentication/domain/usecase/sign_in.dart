@@ -5,11 +5,10 @@ import 'package:mystore/features/authentication/domain/entities/user_entity.dart
 import 'package:mystore/features/authentication/domain/repositories/authentication_repository.dart';
 
 @injectable
-class SignInWithEmailAndPasswordUseCase
-    implements UseCase<UserEntity?, SignInWithEmailAndPasswordParams> {
+class SignIn implements UseCase<UserEntity?, SignInWithEmailAndPasswordParams> {
   final AuthenticationRepository repository;
 
-  SignInWithEmailAndPasswordUseCase(this.repository);
+  SignIn(this.repository);
 
   @override
   Future<(Failure?, UserEntity?)> call(params) async {
@@ -18,6 +17,10 @@ class SignInWithEmailAndPasswordUseCase
       password: params.password,
       rememberMe: params.rememberMe,
     );
+  }
+
+  Future<(Failure?, UserEntity?)> withGoogle() async {
+    return await repository.signInWithGoogle();
   }
 }
 

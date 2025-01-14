@@ -14,8 +14,7 @@ import 'package:mystore/features/authentication/domain/usecase/logout_user_use_c
 import 'package:mystore/features/authentication/domain/usecase/register_user_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/remember_me_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/send_email_verification_use_case.dart';
-import 'package:mystore/features/authentication/domain/usecase/sign_in_with_email_password.dart';
-import 'package:mystore/features/authentication/presentation/bloc/sign_in_form/sign_in_form_bloc.dart';
+import 'package:mystore/features/authentication/domain/usecase/sign_in.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
@@ -30,7 +29,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
   final RegisterUserUseCase registerUserUseCase;
   final CheckUserStatusUseCase checkUserStatusUseCase;
   final SendEmailVerificationUseCase sendEmailVerificationUseCase;
-  final SignInWithEmailAndPasswordUseCase signInWithEmailAndPasswordUseCase;
+  final SignIn signIn;
 
   Timer? _cooldownTimer;
   Timer? _timer;
@@ -72,7 +71,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     this.registerUserUseCase,
     this.checkUserStatusUseCase,
     this.sendEmailVerificationUseCase,
-    this.signInWithEmailAndPasswordUseCase,
+    this.signIn,
     this.rememberMeUseCase,
   ) : super(const _Initial()) {
     WidgetsBinding.instance.addObserver(this);
@@ -152,7 +151,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
         signinWithEmailAndPassword: (email, password, rememberMe) async {
           emit(const AuthenticationState.loading());
 
-          final result = await signInWithEmailAndPasswordUseCase(
+          final result = await signIn(
             SignInWithEmailAndPasswordParams(
               email: email,
               password: password,
@@ -233,6 +232,22 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
         restore: () {
           _restoreCooldown();
           setTimerForAutoRedirect();
+        },
+        signInWithGoogle: () async {
+          emit(const AuthenticationState.loading());
+
+          final result = await signIn.withGoogle();
+
+          if (result.$1 != null) {
+            emit(
+              AuthenticationState.error(
+                message: result.$1!.message,
+              ),
+            );
+            return;
+          }
+
+          emit(const AuthenticationState.loggedIn());
         },
       );
     });

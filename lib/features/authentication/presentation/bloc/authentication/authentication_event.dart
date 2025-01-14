@@ -19,6 +19,8 @@ class AuthenticationEvent with _$AuthenticationEvent {
     required bool rememberMe,
   }) = _SignInWithEmailAndPassword;
 
+  const factory AuthenticationEvent.signInWithGoogle() = _SignInWithGoogle;
+
   const factory AuthenticationEvent.logout() = _Logout;
 
   const factory AuthenticationEvent.verifyEmail({
