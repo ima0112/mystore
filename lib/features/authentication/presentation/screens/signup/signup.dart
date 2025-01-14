@@ -12,8 +12,22 @@ import 'package:mystore/features/authentication/presentation/screens/signup/widg
 import 'package:mystore/core/constants/sizes.dart';
 import 'package:mystore/core/constants/text_strings.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen>
+    with WidgetsBindingObserver {
+      
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      context.read<AuthenticationBloc>().add(const AuthenticationEvent.restore());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
