@@ -11,10 +11,9 @@ part 'sign_up_form_bloc.freezed.dart';
 
 @injectable
 class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
-  final RegisterFormValidationUseCase registerFormValidationUseCase;
+  final FormValidationUseCase formValidationUseCase;
 
-  SignUpFormBloc(this.registerFormValidationUseCase)
-      : super(const SignUpFormState()) {
+  SignUpFormBloc(this.formValidationUseCase) : super(const SignUpFormState()) {
     on<SignUpFormEvent>((event, emit) async {
       await event.when(
         started: () {},
@@ -41,14 +40,14 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
           final phone = PhoneNumber.dirty(phoneNumber);
           final pass = Password.dirty(password);
 
-          final formStatus = await registerFormValidationUseCase.call(
-            RegisterFormValidationParams(
-              email: mail,
-              password: pass,
+          final formStatus = await formValidationUseCase.call(
+            FormValidationParams(
               firstName: name,
               lastName: last,
               username: user,
               phoneNumber: phone,
+              email: mail,
+              password: pass,
             ),
           );
 
