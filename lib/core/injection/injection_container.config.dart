@@ -22,10 +22,10 @@ import '../../features/authentication/data/data_sources/local_data_source.dart'
     as _i7;
 import '../../features/authentication/data/data_sources/remote_data_source.dart'
     as _i13;
-import '../../features/authentication/data/repositories/authentication_repository.dart'
-    as _i17;
-import '../../features/authentication/domain/repositories/authentication_repository_impl.dart'
+import '../../features/authentication/data/repositories/authentication_repository_impl.dart'
     as _i18;
+import '../../features/authentication/domain/repositories/authentication_repository.dart'
+    as _i17;
 import '../../features/authentication/domain/usecase/register_form_validation_use_case.dart'
     as _i12;
 import '../../features/authentication/domain/usecase/register_user_use_case.dart'
