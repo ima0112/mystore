@@ -5,41 +5,40 @@ import 'package:mystore/core/inputs/user_inputs.dart';
 import 'package:mystore/core/usecases/usecase.dart';
 
 @lazySingleton
-class RegisterFormValidationUseCase
-    implements UseCase<bool, RegisterFormValidationParams> {
+class FormValidationUseCase implements UseCase<bool, FormValidationParams> {
   @override
   Future<(Failure?, bool?)> call(params) async {
-    final formStatus = Formz.validate([
-      params.firstName,
-      params.lastName,
-      params.username,
-      params.email,
-      params.phoneNumber,
-      params.password,
+    final isMandatoryValid = Formz.validate([params.email, params.password]);
+
+    final isOptionalValid = Formz.validate([
+      if (params.firstName != null) params.firstName!,
+      if (params.lastName != null) params.lastName!,
+      if (params.username != null) params.username!,
+      if (params.phoneNumber != null) params.phoneNumber!,
     ]);
 
-    if (formStatus) {
-      return (null, true);
+    if (isMandatoryValid && isOptionalValid) {
+       return (null, true);
     } else {
       return (InvalidFormFailure('Invalid form'), false);
     }
   }
 }
 
-class RegisterFormValidationParams {
+class FormValidationParams {
   final Email email;
   final Password password;
-  final FirstName firstName;
-  final LastName lastName;
-  final Username username;
-  final PhoneNumber phoneNumber;
+  final FirstName? firstName;
+  final LastName? lastName;
+  final Username? username;
+  final PhoneNumber? phoneNumber;
 
-  RegisterFormValidationParams({
+  FormValidationParams({
     required this.email,
     required this.password,
-    required this.firstName,
-    required this.lastName,
-    required this.username,
-    required this.phoneNumber,
+    this.firstName,
+    this.lastName,
+    this.username,
+    this.phoneNumber,
   });
 }
