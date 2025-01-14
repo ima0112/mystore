@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:mystore/core/common_widgets/styles/spacing_styles.dart';
 import 'package:mystore/core/constants/sizes.dart';
 import 'package:mystore/core/constants/text_strings.dart';
-import 'package:mystore/core/utils/helpers/helper_functions.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({
@@ -14,7 +13,8 @@ class SuccessScreen extends StatelessWidget {
     this.onPressed,
   });
 
-  final String image, title, subTitle;
+  final String title, subTitle;
+  final Widget image;
   final VoidCallback? onPressed;
 
   @override
@@ -28,10 +28,7 @@ class SuccessScreen extends StatelessWidget {
             child: Column(
               children: [
                 /// Image
-                Image(
-                  image: AssetImage(image),
-                  width: MyHelperFunctions.screenWidth(context) * 0.6,
-                ),
+                image,
                 const SizedBox(height: MySizes.spaceBtwSections),
 
                 // Title & SubTitle
