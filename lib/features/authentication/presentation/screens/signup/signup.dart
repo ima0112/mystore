@@ -32,8 +32,8 @@ class SignupScreen extends StatelessWidget {
               ..hideCurrentSnackBar()
               ..showSnackBar(MySnackBar.errorSnackBar(message: message));
           },
-          success: (message) {
-            context.goNamed(MyRoutes.verifyEmail.name);
+          success: (message, email) {
+            context.goNamed(MyRoutes.verifyEmail.name, extra: email);
 
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
