@@ -31,4 +31,8 @@ class AuthenticationEvent with _$AuthenticationEvent {
       _CheckEmailVerification;
 
   const factory AuthenticationEvent.restore() = _Restore;
+
+  const factory AuthenticationEvent.resetPassword({
+    required String email,
+  }) = _ResetPassword;
 }
