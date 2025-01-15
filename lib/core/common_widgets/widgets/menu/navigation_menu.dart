@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mystore/core/constants/colors.dart';
+import 'package:mystore/core/injection/injection_container.dart';
 import 'package:mystore/core/utils/helpers/helper_functions.dart';
+import 'package:mystore/features/personalization/presentation/bloc/user/user_bloc.dart';
 
 class NavigationMenu extends StatefulWidget {
   const NavigationMenu({super.key, required this.child});
@@ -55,7 +58,11 @@ class _NavigationMenuState extends State<NavigationMenu> {
               NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
             ],
           ),
-          body: widget.child,
+          body: BlocProvider(
+            create: (context) =>
+                getIt<UserBloc>()..add(const UserEvent.getUser()),
+            child: widget.child,
+          ),
         );
       },
     );

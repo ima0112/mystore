@@ -57,6 +57,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     context
         .read<AuthenticationBloc>()
         .add(AuthenticationEvent.verifyEmail(email: email));
+
     super.initState();
   }
 
