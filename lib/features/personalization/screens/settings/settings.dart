@@ -7,12 +7,14 @@ import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
 import 'package:mystore/core/common_widgets/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:mystore/core/common_widgets/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:mystore/core/common_widgets/widgets/list_tiles/user_profile_tile.dart';
+import 'package:mystore/core/common_widgets/widgets/loaders/full_screen_loader.dart';
 import 'package:mystore/core/common_widgets/widgets/snackbar/snackbar.dart';
 import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
 
 import 'package:mystore/core/constants/colors.dart';
 import 'package:mystore/core/constants/sizes.dart';
 import 'package:mystore/core/routing/go_routes.dart';
+import 'package:mystore/core/utils/helpers/helper_functions.dart';
 import 'package:mystore/features/authentication/presentation/bloc/authentication/authentication_bloc.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -28,6 +30,9 @@ class SettingsScreen extends StatelessWidget {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(MySnackBar.errorSnackBar(message: message));
+          },
+          loggingOut: () {
+            MyFullScreenLoader.showCircularProgressLoading(context: context);
           },
           loggedOut: () {
             context.goNamed(MyRoutes.login.name);
@@ -165,9 +170,16 @@ class SettingsScreen extends StatelessWidget {
                       width: double.infinity,
                       child: OutlinedButton(
                         onPressed: () {
-                          context.read<AuthenticationBloc>().add(
-                                const AuthenticationEvent.logout(),
-                              );
+                          MyHelperFunctions.showConfirmCancelDialog(
+                            context: context,
+                            title: 'Logout',
+                            content: 'Are you sure you want to logout?',
+                            onConfirm: () {
+                              context.read<AuthenticationBloc>().add(
+                                    const AuthenticationEvent.logout(),
+                                  );
+                            },
+                          );
                         },
                         child: const Text('Logout'),
                       ),

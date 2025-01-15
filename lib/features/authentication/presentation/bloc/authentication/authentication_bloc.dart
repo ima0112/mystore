@@ -220,6 +220,8 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           }
         },
         logout: () async {
+          emit(const AuthenticationState.loggingOut());
+
           final logout = await logoutUserUseCase(const NoParams());
 
           if (logout.$1 != null) {
