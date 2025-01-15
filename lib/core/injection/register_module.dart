@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
 import 'package:mystore/core/utils/http_client/logger_interceptor.dart';
@@ -18,6 +20,12 @@ abstract class RegisterModule {
 
   @preResolve
   Future<SharedPreferences> prefs() => SharedPreferences.getInstance();
+
+  @lazySingleton
+  GoogleSignIn get googleSignIn => GoogleSignIn();
+
+  @lazySingleton
+  FlutterSecureStorage get storage => const FlutterSecureStorage();
 
   @lazySingleton
   FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
