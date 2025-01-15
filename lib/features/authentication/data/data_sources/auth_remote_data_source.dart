@@ -4,7 +4,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:mystore/core/error/exceptions.dart';
-import 'package:mystore/core/utils/extensions/extensions.dart';
 import 'package:mystore/common/data/models/user_model.dart';
 
 abstract class AuthRemoteDataSource {

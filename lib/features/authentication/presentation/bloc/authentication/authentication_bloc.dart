@@ -57,6 +57,10 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
       _timer?.cancel();
       _cooldownTimer?.cancel();
     }
+
+    if (state == AppLifecycleState.resumed) {
+      add(const AuthenticationEvent.restore());
+    }
   }
 
   @override
@@ -172,7 +176,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
 
           if (rememberMe) {
             await rememberMeUseCase(
-                RmemeberMeParams(email: email, password: password));
+                RememberMeParams(email: email, password: password));
           } else {
             await rememberMeUseCase.clearSavedCredentials();
           }
