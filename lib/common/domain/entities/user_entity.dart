@@ -14,6 +14,19 @@ class UserEntity {
     required this.email,
     this.photo,
   });
+
+  static const UserEntity empty = UserEntity(
+    email: '',
+    firstName: '',
+    lastName: '',
+    username: '',
+    phoneNumber: '',
+    photo: null,
+  );
+}
+
+extension UserEntityX on UserEntity {
+  String get fullName => '$firstName $lastName';
 }
 
 class UserAuthCredentials {
