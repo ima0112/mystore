@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:mystore/core/inputs/user_inputs.dart';
-import 'package:mystore/features/authentication/domain/usecase/register_form_validation_use_case.dart';
+import 'package:mystore/core/usecases/form_validation/form_validation_use_case.dart';
 
 part 'sign_up_form_event.dart';
 part 'sign_up_form_state.dart';
