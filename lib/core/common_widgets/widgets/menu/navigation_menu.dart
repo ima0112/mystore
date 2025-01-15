@@ -4,18 +4,28 @@ import 'package:iconsax/iconsax.dart';
 import 'package:mystore/core/constants/colors.dart';
 import 'package:mystore/core/utils/helpers/helper_functions.dart';
 
-class NavigationMenu extends StatelessWidget {
+class NavigationMenu extends StatefulWidget {
   const NavigationMenu({super.key, required this.child});
-
   final Widget child;
-  static final ValueNotifier<int> selectedIndexNotifier = ValueNotifier<int>(0);
 
+  @override
+  State<NavigationMenu> createState() => _NavigationMenuState();
+}
+
+class _NavigationMenuState extends State<NavigationMenu> {
+  late ValueNotifier<int> selectedIndexNotifier;
   static final List<String> routes = [
     '/home',
     '/store',
     '/wishlist',
     '/settings',
   ];
+
+  @override
+  void initState() {
+    selectedIndexNotifier = ValueNotifier<int>(0);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +55,7 @@ class NavigationMenu extends StatelessWidget {
               NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
             ],
           ),
-          body: child,
+          body: widget.child,
         );
       },
     );
