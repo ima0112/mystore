@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 
 import 'package:mystore/core/error/exceptions.dart';
 import 'package:mystore/core/utils/extensions/extensions.dart';
-import 'package:mystore/features/authentication/data/models/user_model.dart';
+import 'package:mystore/common/data/models/user_model.dart';
 
 abstract class RemoteDataSource {
   Future<UserModel> signUpWithEmailAndPassword({

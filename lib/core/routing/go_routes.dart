@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
-import 'package:mystore/core/usecases/onboarding/is_onboarding_complete.dart';
-import 'package:mystore/core/usecases/usecase.dart';
+import 'package:mystore/common/domain/usecases/onboarding_use_case.dart';
+import 'package:mystore/common/domain/usecases/usecase.dart';
 import 'package:mystore/features/authentication/domain/usecase/check_user_status_use_case.dart';
 
 import 'package:mystore/features/authentication/presentation/screens/login/login.dart';
@@ -11,10 +11,10 @@ import 'package:mystore/features/authentication/presentation/screens/password_co
 import 'package:mystore/features/authentication/presentation/screens/password_configuration/reset_password.dart';
 import 'package:mystore/features/authentication/presentation/screens/signup/signup.dart';
 import 'package:mystore/features/authentication/presentation/screens/signup/verify_email.dart';
-import 'package:mystore/features/personalization/screens/address/address.dart';
-import 'package:mystore/features/personalization/screens/address/widgets/add_new_address.dart';
-import 'package:mystore/features/personalization/screens/profile/profile.dart';
-import 'package:mystore/features/personalization/screens/settings/settings.dart';
+import 'package:mystore/features/personalization/presentation/screens/address/address.dart';
+import 'package:mystore/features/personalization/presentation/screens/address/widgets/add_new_address.dart';
+import 'package:mystore/features/personalization/presentation/screens/profile/profile.dart';
+import 'package:mystore/features/personalization/presentation/screens/settings/settings.dart';
 import 'package:mystore/features/shop/screens/all_products/all_products.dart';
 import 'package:mystore/features/shop/screens/brand/all_brand.dart';
 import 'package:mystore/features/shop/screens/brand/brand_products.dart';
@@ -98,7 +98,7 @@ class AppRoute {
     initialLocation: _onboarding,
     redirect: (context, state) async {
       final checkUserStatusUseCase = getIt<CheckUserStatusUseCase>();
-      final isOnboardingCompleteUseCase = getIt<IsOnboardingComplete>();
+      final isOnboardingCompleteUseCase = getIt<OnboardingUseCase>();
 
       final userStatusResult = await checkUserStatusUseCase(const NoParams());
 

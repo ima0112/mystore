@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:mystore/core/local_storage/shared_preferences/shared_preferences_data_source.dart';
-import 'package:mystore/core/repositories/onboarding/onboarding_repository.dart';
+import 'package:mystore/common/data/data_source/shared_preferences/shared_preferences_data_source.dart';
+import 'package:mystore/common/domain/repositories/onboarding_repository.dart';
 
 @LazySingleton(as: OnboardingRepository)
 class OnboardingRepositoryImpl implements OnboardingRepository {

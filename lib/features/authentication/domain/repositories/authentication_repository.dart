@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mystore/core/error/failures.dart';
-import 'package:mystore/features/authentication/domain/entities/user_entity.dart';
+import 'package:mystore/common/domain/entities/user_entity.dart';
 
 abstract class AuthenticationRepository {
   Future<(Failure?, UserEntity?)> signUpWithEmailAndPassword({

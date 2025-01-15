@@ -6,9 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:mystore/core/usecases/network/is_connected.dart';
-import 'package:mystore/core/usecases/usecase.dart';
-import 'package:mystore/features/authentication/domain/entities/user_entity.dart';
+import 'package:mystore/common/domain/usecases/is_connected_use_case.dart';
+import 'package:mystore/common/domain/usecases/usecase.dart';
+import 'package:mystore/common/domain/entities/user_entity.dart';
 import 'package:mystore/features/authentication/domain/usecase/check_user_status_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/forget_password_use_case.dart';
 import 'package:mystore/features/authentication/domain/usecase/logout_user_use_case.dart';

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
 import 'package:mystore/core/error/exceptions.dart';
-import 'package:mystore/features/authentication/data/models/user_model.dart';
+import 'package:mystore/common/data/models/user_model.dart';
 
 abstract class LocalDataSource {
   Future<void> cacheUser(IsarUserModel user);

@@ -20,9 +20,25 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:isar/isar.dart' as _i9;
 import 'package:shared_preferences/shared_preferences.dart' as _i18;
 
-import '../../features/authentication/data/data_sources/local_data_source.dart'
+import '../../common/data/data_source/secure_storage/secure_storage_data_source.dart'
+    as _i16;
+import '../../common/data/data_source/secure_storage/secure_storage_data_source_impl.dart'
+    as _i17;
+import '../../common/data/data_source/shared_preferences/shared_preferences_data_source.dart'
+    as _i19;
+import '../../common/data/data_source/shared_preferences/shared_preferences_data_source_impl.dart'
+    as _i20;
+import '../../common/data/repositories/network_info_repository_impl.dart'
+    as _i14;
+import '../../common/data/repositories/onboarding_repository_impl.dart' as _i32;
+import '../../common/domain/repositories/network_info_repository.dart' as _i13;
+import '../../common/domain/repositories/onboarding_repository.dart' as _i31;
+import '../../common/domain/usecases/form_validation_use_case.dart' as _i7;
+import '../../common/domain/usecases/is_connected_use_case.dart' as _i27;
+import '../../common/domain/usecases/onboarding_use_case.dart' as _i33;
+import '../../common/data/data_source/user_local_data_source.dart'
     as _i10;
-import '../../features/authentication/data/data_sources/remote_data_source.dart'
+import '../../features/authentication/data/data_sources/auth_remote_data_source.dart'
     as _i15;
 import '../../features/authentication/data/repositories/authentication_repository_impl.dart'
     as _i23;
@@ -35,41 +51,25 @@ import '../../features/authentication/domain/usecase/forget_password_use_case.da
 import '../../features/authentication/domain/usecase/logout_user_use_case.dart'
     as _i28;
 import '../../features/authentication/domain/usecase/register_user_use_case.dart'
-    as _i33;
-import '../../features/authentication/domain/usecase/remember_me_use_case.dart'
     as _i34;
-import '../../features/authentication/domain/usecase/send_email_verification_use_case.dart'
+import '../../features/authentication/domain/usecase/remember_me_use_case.dart'
     as _i35;
+import '../../features/authentication/domain/usecase/send_email_verification_use_case.dart'
+    as _i36;
 import '../../features/authentication/domain/usecase/sign_in.dart' as _i37;
 import '../../features/authentication/presentation/bloc/authentication/authentication_bloc.dart'
     as _i39;
 import '../../features/authentication/presentation/bloc/onboarding_controller/onboarding_controller_cubit.dart'
-    as _i41;
+    as _i40;
 import '../../features/authentication/presentation/bloc/sign_in_form/sign_in_form_bloc.dart'
     as _i38;
 import '../../features/authentication/presentation/bloc/sign_up_form/sign_up_form_bloc.dart'
     as _i21;
-import '../local_storage/secure_storage/secure_storage_data_source.dart'
-    as _i16;
-import '../local_storage/secure_storage/secure_storage_data_source_impl.dart'
-    as _i17;
-import '../local_storage/shared_preferences/shared_preferences_data_source.dart'
-    as _i19;
-import '../local_storage/shared_preferences/shared_preferences_data_source_impl.dart'
-    as _i20;
-import '../repositories/network/network_info_repository.dart' as _i13;
-import '../repositories/network/network_info_repository_impl.dart' as _i14;
-import '../repositories/onboarding/onboarding_repository.dart' as _i31;
-import '../repositories/onboarding/onboarding_repository_impl.dart' as _i32;
-import '../usecases/form_validation/form_validation_use_case.dart' as _i7;
-import '../usecases/network/is_connected.dart' as _i27;
-import '../usecases/onboarding/is_onboarding_complete.dart' as _i40;
-import '../usecases/onboarding/set_onboarding_complete.dart' as _i36;
 import '../utils/http_client/dio_client.dart' as _i30;
 import '../utils/http_client/http_client.dart' as _i29;
 import '../utils/local_storage/isar_storage.dart' as _i12;
 import '../utils/local_storage/local_storage.dart' as _i11;
-import 'register_module.dart' as _i42;
+import 'register_module.dart' as _i41;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 Future<_i1.GetIt> $initGetIt(
@@ -141,35 +141,33 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i29.MyHttpClient>(() => _i30.MyDioClient(dio: gh<_i25.Dio>()));
   gh.lazySingleton<_i31.OnboardingRepository>(() =>
       _i32.OnboardingRepositoryImpl(gh<_i19.SharedPreferencesDataSource>()));
-  gh.lazySingleton<_i33.RegisterUserUseCase>(
-      () => _i33.RegisterUserUseCase(gh<_i22.AuthenticationRepository>()));
-  gh.factory<_i34.RememberMeUseCase>(() =>
-      _i34.RememberMeUseCase(repository: gh<_i22.AuthenticationRepository>()));
-  gh.lazySingleton<_i35.SendEmailVerificationUseCase>(() =>
-      _i35.SendEmailVerificationUseCase(gh<_i22.AuthenticationRepository>()));
-  gh.lazySingleton<_i36.SetOnboardingComplete>(() =>
-      _i36.SetOnboardingComplete(repository: gh<_i31.OnboardingRepository>()));
+  gh.lazySingleton<_i33.OnboardingUseCase>(() =>
+      _i33.OnboardingUseCase(repository: gh<_i31.OnboardingRepository>()));
+  gh.lazySingleton<_i34.RegisterUserUseCase>(
+      () => _i34.RegisterUserUseCase(gh<_i22.AuthenticationRepository>()));
+  gh.factory<_i35.RememberMeUseCase>(() =>
+      _i35.RememberMeUseCase(repository: gh<_i22.AuthenticationRepository>()));
+  gh.lazySingleton<_i36.SendEmailVerificationUseCase>(() =>
+      _i36.SendEmailVerificationUseCase(gh<_i22.AuthenticationRepository>()));
   gh.factory<_i37.SignIn>(
       () => _i37.SignIn(gh<_i22.AuthenticationRepository>()));
   gh.factory<_i38.SignInFormBloc>(() => _i38.SignInFormBloc(
         gh<_i7.FormValidationUseCase>(),
-        gh<_i34.RememberMeUseCase>(),
+        gh<_i35.RememberMeUseCase>(),
       ));
   gh.factory<_i39.AuthenticationBloc>(() => _i39.AuthenticationBloc(
         gh<_i28.LogoutUserUseCase>(),
         gh<_i27.IsConnectedUseCase>(),
-        gh<_i33.RegisterUserUseCase>(),
+        gh<_i34.RegisterUserUseCase>(),
         gh<_i24.CheckUserStatusUseCase>(),
-        gh<_i35.SendEmailVerificationUseCase>(),
+        gh<_i36.SendEmailVerificationUseCase>(),
         gh<_i37.SignIn>(),
-        gh<_i34.RememberMeUseCase>(),
+        gh<_i35.RememberMeUseCase>(),
         gh<_i26.ForgetPasswordUseCase>(),
       ));
-  gh.lazySingleton<_i40.IsOnboardingComplete>(() =>
-      _i40.IsOnboardingComplete(repository: gh<_i31.OnboardingRepository>()));
-  gh.factory<_i41.OnboardingControllerCubit>(
-      () => _i41.OnboardingControllerCubit(gh<_i36.SetOnboardingComplete>()));
+  gh.factory<_i40.OnboardingControllerCubit>(
+      () => _i40.OnboardingControllerCubit(gh<_i33.OnboardingUseCase>()));
   return getIt;
 }
 
-class _$RegisterModule extends _i42.RegisterModule {}
+class _$RegisterModule extends _i41.RegisterModule {}
