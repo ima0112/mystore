@@ -5,7 +5,7 @@ import 'package:mystore/common/data/models/user_model.dart';
 
 abstract class UserLocalDataSource {
   Future<void> cacheUser(IsarUserModel user);
-  Future<UserModel?> getUser();
+  UserModel? getUser();
 }
 
 @Injectable(as: UserLocalDataSource)
@@ -26,9 +26,9 @@ class UserLocalDataSourceImpl implements UserLocalDataSource {
   }
 
   @override
-  Future<UserModel?> getUser() async {
+  UserModel? getUser() {
     try {
-      final user = await _isar.isarUserModels.where().findFirst();
+      final user = _isar.isarUserModels.where().findFirstSync();
       return user?.toUserModel();
     } catch (e) {
       throw CacheException(e.toString());

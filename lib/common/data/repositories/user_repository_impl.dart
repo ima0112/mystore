@@ -30,7 +30,7 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future<(Failure?, UserEntity?)> getUser() async {
     try {
-      final user = await _userLocalDataSource.getUser();
+      final user = _userLocalDataSource.getUser();
       return (null, user);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
