@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mystore/core/constants/colors.dart';
 
 class MyHelperFunctions {
   static Color? getColor(String value) {
@@ -49,6 +50,58 @@ class MyHelperFunctions {
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
               child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  static Future<bool?> showConfirmCancelDialog({
+    required BuildContext context,
+    String title = '',
+    String content = '',
+    String confirmText = 'Confirm',
+    String cancelText = 'Cancel',
+    VoidCallback? onConfirm,
+  }) {
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Center(child: Text(title)),
+          content: Text(content),
+          actions: [
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side:
+                          const BorderSide(color: MyColors.grey), // Borde gris
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      minimumSize: const Size(0, 55),
+                    ),
+                    child: Text(cancelText),
+                    onPressed: () => Navigator.of(context).pop(false),
+                  ),
+                ),
+                const SizedBox(width: 8), // Espaciado entre los botones
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      minimumSize: const Size(0, 55),
+                    ),
+                    onPressed: onConfirm,
+                    child: Text(confirmText),
+                  ),
+                ),
+              ],
             ),
           ],
         );
