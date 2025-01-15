@@ -1,10 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
+import 'package:mystore/common/data/data_source/user/user_remote_data_source.dart';
 import 'package:mystore/core/error/exceptions.dart';
 import 'package:mystore/core/error/failures.dart';
 import 'package:mystore/common/data/data_source/secure_storage/secure_storage_data_source.dart';
 import 'package:mystore/common/data/data_source/shared_preferences/shared_preferences_data_source.dart';
-import 'package:mystore/common/data/data_source/user_local_data_source.dart';
+import 'package:mystore/common/data/data_source/user/user_local_data_source.dart';
 import 'package:mystore/features/authentication/data/data_sources/auth_remote_data_source.dart';
 import 'package:mystore/common/data/models/user_model.dart';
 import 'package:mystore/common/domain/entities/user_entity.dart';
@@ -14,17 +14,20 @@ import 'package:mystore/features/authentication/domain/repositories/authenticati
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   final SharedPreferencesDataSource sharedPreferencesDataSource;
   final SecureStorageDataSource secureStorageDataSource;
-  final RemoteDataSource remoteDataSource;
-  final UserLocalDataSource localDataSource;
+
+  final UserRemoteDataSource userRemoteDataSource;
+  final AuthRemoteDataSource authRemoteDataSource;
+  final UserLocalDataSource userLocalDataSource;
 
   static const rememberEmail = 'remember_email';
   static const rememberPassword = 'remember_password';
 
   AuthenticationRepositoryImpl(
     this.secureStorageDataSource,
-    this.remoteDataSource,
-    this.localDataSource,
+    this.authRemoteDataSource,
+    this.userLocalDataSource,
     this.sharedPreferencesDataSource,
+    this.userRemoteDataSource,
   );
 
   @override
@@ -35,13 +38,13 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   }) async {
     try {
       final UserModel userModel =
-          await remoteDataSource.signUpWithEmailAndPassword(
+          await authRemoteDataSource.signUpWithEmailAndPassword(
         email: email,
         password: password,
         user: UserModel.fromEntity(user),
       );
 
-      await localDataSource.cacheUser(userModel.toIsarUserModel());
+      await userLocalDataSource.cacheUser(userModel.toIsarUserModel());
 
       return (null, userModel);
     } on ServerException catch (e) {
@@ -54,7 +57,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<(Failure?, void)> sendEmailVerification() async {
     try {
-      await remoteDataSource.emailVerification();
+      await authRemoteDataSource.emailVerification();
       return (null, null);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
@@ -64,7 +67,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<(Failure?, bool)> isEmailVerified() async {
     try {
-      final bool isEmailVerified = await remoteDataSource.isEmailVerified();
+      final bool isEmailVerified = await authRemoteDataSource.isEmailVerified();
       return (null, isEmailVerified);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), false);
@@ -74,18 +77,8 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<(Failure?, void)> logOut() async {
     try {
-      await remoteDataSource.logOut();
+      await authRemoteDataSource.logOut();
       return (null, null);
-    } on ServerException catch (e) {
-      return (ServerFailure(e.message), null);
-    }
-  }
-
-  @override
-  Future<(Failure?, User?)> getCurrentUser() async {
-    try {
-      final User? user = await remoteDataSource.getCurrentUser();
-      return (null, user);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
     }
@@ -99,12 +92,12 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   }) async {
     try {
       final UserModel userModel =
-          await remoteDataSource.signInWithEmailAndPassword(
+          await authRemoteDataSource.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      await localDataSource.cacheUser(userModel.toIsarUserModel());
+      await userLocalDataSource.cacheUser(userModel.toIsarUserModel());
 
       return (null, userModel);
     } on ServerException catch (e) {
@@ -149,11 +142,12 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<(Failure?, UserEntity?)> signInWithGoogle() async {
     try {
-      final UserModel userModel = await remoteDataSource.signInWithGoogle();
+      final userCredential = await authRemoteDataSource.signInWithGoogle();
+      final user = await userRemoteDataSource.createAndSaveUser(userCredential);
 
-      await localDataSource.cacheUser(userModel.toIsarUserModel());
+      await userLocalDataSource.cacheUser(user.toIsarUserModel());
 
-      return (null, userModel);
+      return (null, user);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
     } on CacheException catch (e) {
@@ -166,7 +160,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<(Failure?, void)> sendPasswordResetEmail(String email) async {
     try {
-      await remoteDataSource.sendPasswordResetEmail(email);
+      await authRemoteDataSource.sendPasswordResetEmail(email);
       return (null, null);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);

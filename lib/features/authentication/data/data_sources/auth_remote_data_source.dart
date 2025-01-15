@@ -7,7 +7,7 @@ import 'package:mystore/core/error/exceptions.dart';
 import 'package:mystore/core/utils/extensions/extensions.dart';
 import 'package:mystore/common/data/models/user_model.dart';
 
-abstract class RemoteDataSource {
+abstract class AuthRemoteDataSource {
   Future<UserModel> signUpWithEmailAndPassword({
     required String email,
     required String password,
@@ -20,25 +20,24 @@ abstract class RemoteDataSource {
 
   Future<void> logOut();
 
-  Future<User?> getCurrentUser();
-
   Future<UserModel> signInWithEmailAndPassword({
     required String email,
     required String password,
   });
 
-  Future<UserModel> signInWithGoogle();
+  Future<UserCredential> signInWithGoogle();
 
   Future<void> sendPasswordResetEmail(String email);
 }
 
-@Injectable(as: RemoteDataSource)
-class RemoteDataSourceImpl implements RemoteDataSource {
+@Injectable(as: AuthRemoteDataSource)
+class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final FirebaseAuth _firebaseAuth;
   final FirebaseFirestore _firestore;
   final GoogleSignIn _googleSignIn;
 
-  RemoteDataSourceImpl(this._firebaseAuth, this._firestore, this._googleSignIn);
+  AuthRemoteDataSourceImpl(
+      this._firebaseAuth, this._firestore, this._googleSignIn);
 
   @override
   Future<UserModel> signUpWithEmailAndPassword(
@@ -93,12 +92,6 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<User?> getCurrentUser() async {
-    await _firebaseAuth.currentUser?.reload();
-    return _firebaseAuth.currentUser;
-  }
-
-  @override
   Future<UserModel> signInWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
@@ -123,7 +116,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<UserModel> signInWithGoogle() async {
+  Future<UserCredential> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? account = await _googleSignIn.signIn();
 
@@ -138,41 +131,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       final userCredential =
           await _firebaseAuth.signInWithCredential(credentials);
 
-      final user = await _createUserRecord(userCredential);
-
-      await _firestore
-          .collection('users')
-          .doc(userCredential.user!.uid)
-          .set(user.toJson());
-
-      return user;
-    } catch (e) {
-      throw ServerException(e.toString());
-    }
-  }
-
-  Future<UserModel> _createUserRecord(UserCredential? userCredential) async {
-    try {
-      if (userCredential != null) {
-        final displayName = userCredential.user!.displayName ?? '';
-
-        final nameParts = displayName.split(' ');
-        final firstName = nameParts[0];
-        final lastName = nameParts.length > 1 ? nameParts[1] : '';
-        final username = displayName.generateUsername();
-
-        return UserModel(
-          id: userCredential.user!.uid,
-          username: username,
-          firstName: firstName,
-          lastName: lastName,
-          email: userCredential.user!.email ?? '',
-          photo: userCredential.user!.photoURL ?? '',
-          phoneNumber: userCredential.user!.phoneNumber ?? '',
-        );
-      } else {
-        throw ServerException('UserCredential is null');
-      }
+      return userCredential;
     } catch (e) {
       throw ServerException(e.toString());
     }
