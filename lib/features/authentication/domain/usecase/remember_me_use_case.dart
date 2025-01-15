@@ -5,13 +5,13 @@ import 'package:mystore/common/domain/entities/user_entity.dart';
 import 'package:mystore/features/authentication/domain/repositories/authentication_repository.dart';
 
 @injectable
-class RememberMeUseCase implements UseCase<void, RmemeberMeParams> {
+class RememberMeUseCase implements UseCase<void, RememberMeParams> {
   final AuthenticationRepository repository;
 
   RememberMeUseCase({required this.repository});
 
   @override
-  Future<(Failure?, void)> call(RmemeberMeParams params) async {
+  Future<(Failure?, void)> call(RememberMeParams params) async {
     return await repository.saveCredentials(
         email: params.email, password: params.password);
   }
@@ -25,9 +25,9 @@ class RememberMeUseCase implements UseCase<void, RmemeberMeParams> {
   }
 }
 
-class RmemeberMeParams {
+class RememberMeParams {
   final String email;
   final String password;
 
-  RmemeberMeParams({required this.email, required this.password});
+  RememberMeParams({required this.email, required this.password});
 }
