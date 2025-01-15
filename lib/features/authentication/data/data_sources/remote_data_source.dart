@@ -28,6 +28,8 @@ abstract class RemoteDataSource {
   });
 
   Future<UserModel> signInWithGoogle();
+
+  Future<void> sendPasswordResetEmail(String email);
 }
 
 @Injectable(as: RemoteDataSource)
@@ -167,11 +169,19 @@ class RemoteDataSourceImpl implements RemoteDataSource {
           email: userCredential.user!.email ?? '',
           photo: userCredential.user!.photoURL ?? '',
           phoneNumber: userCredential.user!.phoneNumber ?? '',
-          password: '',
         );
       } else {
         throw ServerException('UserCredential is null');
       }
+    } catch (e) {
+      throw ServerException(e.toString());
+    }
+  }
+
+  @override
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
     } catch (e) {
       throw ServerException(e.toString());
     }

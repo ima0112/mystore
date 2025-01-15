@@ -33,4 +33,6 @@ abstract class AuthenticationRepository {
   });
 
   Future<void> clearCredentials();
+
+  Future<(Failure?, void)> sendPasswordResetEmail(String email);
 }
