@@ -3,15 +3,15 @@ import 'package:isar/isar.dart';
 import 'package:mystore/core/error/exceptions.dart';
 import 'package:mystore/common/data/models/user_model.dart';
 
-abstract class LocalDataSource {
+abstract class UserLocalDataSource {
   Future<void> cacheUser(IsarUserModel user);
 }
 
-@Injectable(as: LocalDataSource)
-class LocalDataSourceImpl implements LocalDataSource {
+@Injectable(as: UserLocalDataSource)
+class UserLocalDataSourceImpl implements UserLocalDataSource {
   final Isar _isar;
 
-  LocalDataSourceImpl(this._isar);
+  UserLocalDataSourceImpl(this._isar);
 
   @override
   Future<void> cacheUser(IsarUserModel user) async {
