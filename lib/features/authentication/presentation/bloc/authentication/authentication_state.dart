@@ -4,6 +4,7 @@ part of 'authentication_bloc.dart';
 class AuthenticationState with _$AuthenticationState {
   const factory AuthenticationState.initial() = _Initial;
   const factory AuthenticationState.loading() = _Loading;
+  const factory AuthenticationState.processing() = _Processing;
   const factory AuthenticationState.success(
       {required String message, required String email}) = _Sucess;
   const factory AuthenticationState.emailVerified() = _EmailVerified;
@@ -14,5 +15,6 @@ class AuthenticationState with _$AuthenticationState {
   const factory AuthenticationState.resendCooldown(int secondsRemaining) =
       _ResendCooldown;
   const factory AuthenticationState.loggedIn() = _LoggedIn;
-  const factory AuthenticationState.passwordResetSent() = _PasswordResetSent;
+  const factory AuthenticationState.passwordResetSent(
+      {required String message, required String email}) = _PasswordResetSent;
 }

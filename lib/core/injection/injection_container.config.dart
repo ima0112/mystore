@@ -34,8 +34,6 @@ import '../../features/authentication/domain/usecase/forget_password_use_case.da
     as _i26;
 import '../../features/authentication/domain/usecase/logout_user_use_case.dart'
     as _i28;
-import '../usecases/form_validation/form_validation_use_case.dart'
-    as _i7;
 import '../../features/authentication/domain/usecase/register_user_use_case.dart'
     as _i33;
 import '../../features/authentication/domain/usecase/remember_me_use_case.dart'
@@ -63,6 +61,7 @@ import '../repositories/network/network_info_repository.dart' as _i13;
 import '../repositories/network/network_info_repository_impl.dart' as _i14;
 import '../repositories/onboarding/onboarding_repository.dart' as _i31;
 import '../repositories/onboarding/onboarding_repository_impl.dart' as _i32;
+import '../usecases/form_validation/form_validation_use_case.dart' as _i7;
 import '../usecases/network/is_connected.dart' as _i27;
 import '../usecases/onboarding/is_onboarding_complete.dart' as _i40;
 import '../usecases/onboarding/set_onboarding_complete.dart' as _i36;
