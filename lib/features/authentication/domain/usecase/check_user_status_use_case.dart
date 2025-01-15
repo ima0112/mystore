@@ -1,13 +1,13 @@
 import 'package:injectable/injectable.dart';
+import 'package:mystore/common/domain/repositories/user_repository.dart';
 import 'package:mystore/core/error/failures.dart';
 import 'package:mystore/common/domain/usecases/usecase.dart';
-import 'package:mystore/features/authentication/domain/repositories/authentication_repository.dart';
 
 enum UserStatus { notAuthenticated, emailNotVerified, emailVerified }
 
 @injectable
 class CheckUserStatusUseCase implements UseCase<UserStatus, NoParams> {
-  final AuthenticationRepository repository;
+  final UserRepository repository;
 
   CheckUserStatusUseCase({required this.repository});
 
