@@ -125,7 +125,6 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
-                password: password,
                 username: username,
                 phoneNumber: phoneNumber,
               ),

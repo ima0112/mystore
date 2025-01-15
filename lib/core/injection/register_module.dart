@@ -25,7 +25,12 @@ abstract class RegisterModule {
   GoogleSignIn get googleSignIn => GoogleSignIn();
 
   @lazySingleton
-  FlutterSecureStorage get storage => const FlutterSecureStorage();
+  FlutterSecureStorage get storage {
+    AndroidOptions getAndroidOptions() => const AndroidOptions(
+          encryptedSharedPreferences: true,
+        );
+    return FlutterSecureStorage(aOptions: getAndroidOptions());
+  }
 
   @lazySingleton
   FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
