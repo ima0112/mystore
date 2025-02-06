@@ -278,6 +278,99 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
             ),
           );
         },
+        verifyEmail: (String email) async {
+          emit(const AuthenticationState.initial());
+
+          setTimerForAutoRedirect();
+
+          if (_cooldownStart == null) {
+            _startCooldownTimer();
+            final resp = await sendEmailVerificationUseCase(const NoParams());
+
+            if (resp.$1 != null) {
+              emit(
+                AuthenticationState.error(message: resp.$1!.message),
+              );
+              return;
+            } else {
+              emit(const AuthenticationState.emailVerificationSent());
+            }
+          }
+        },
+        checkEmailVerification: () async {
+          emit(const AuthenticationState.loading());
+
+          final userStatus =
+              await checkUserStatusUseCase.call(const NoParams());
+
+          if (userStatus.$1 != null) {
+            emit(
+              AuthenticationState.error(message: userStatus.$1!.message),
+            );
+            return;
+          }
+
+          if (userStatus.$2 == UserStatus.emailVerified) {
+            emit(const AuthenticationState.emailVerified());
+            _timer?.cancel();
+            return;
+          } else {
+            emit(const AuthenticationState.emailVerificationSent());
+          }
+        },
+        logout: () async {
+          final logout = await logoutUserUseCase(const NoParams());
+
+          if (logout.$1 != null) {
+            emit(
+              AuthenticationState.error(message: logout.$1!.message),
+            );
+            return;
+          } else {
+            emit(const AuthenticationState.loggedOut());
+          }
+        },
+        restore: () {
+          _restoreCooldown();
+          setTimerForAutoRedirect();
+        },
+        signInWithGoogle: () async {
+          emit(const AuthenticationState.loading());
+
+          final result = await signIn.withGoogle();
+
+          if (result.$1 != null) {
+            emit(
+              AuthenticationState.error(
+                message: result.$1!.message,
+              ),
+            );
+            return;
+          }
+
+          emit(const AuthenticationState.loggedIn());
+        },
+        resetPassword: (String email) async {
+          emit(const AuthenticationState.processing());
+
+          final result = await forgetPasswordUseCase(email);
+
+          if (result.$1 != null) {
+            emit(
+              AuthenticationState.error(
+                message: result.$1!.message,
+              ),
+            );
+            return;
+          }
+
+          emit(
+            AuthenticationState.passwordResetSent(
+              message: 'Password reset link sent to your email.',
+              email: email,
+            ),
+          );
+        },
       );
     });
   }

@@ -164,6 +164,103 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       return (null, null);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
+    } on CacheException catch (e) {
+      return (CacheFailure(e.message), null);
+    } catch (e) {
+      return (ServerFailure(e.toString()), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, void)> sendPasswordResetEmail(String email) async {
+    try {
+      await authRemoteDataSource.sendPasswordResetEmail(email);
+      return (null, null);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, UserEntity?)> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+    required bool rememberMe,
+  }) async {
+    try {
+      final UserModel userModel =
+          await authRemoteDataSource.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      await userLocalDataSource.cacheUser(userModel.toIsarUserModel());
+
+      return (null, userModel);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    } on CacheException catch (e) {
+      return (CacheFailure(e.message), null);
+    } catch (e) {
+      return (ServerFailure(e.toString()), null);
+    }
+  }
+
+  @override
+  Future<UserAuthCredentials?> getCredentials() async {
+    final email = await sharedPreferencesDataSource.getString(rememberEmail);
+    final password = await secureStorageDataSource.read(rememberPassword);
+
+    if (email.isNotEmpty || password.isNotEmpty) {
+      return UserAuthCredentials(email: email, password: password);
+    } else {
+      return null;
+    }
+  }
+
+  @override
+  Future<void> clearCredentials() async {
+    await sharedPreferencesDataSource.remove(rememberEmail);
+    await secureStorageDataSource.delete(rememberPassword);
+  }
+
+  @override
+  Future<(Failure?, void)> saveCredentials(
+      {required String email, required String password}) async {
+    try {
+      await sharedPreferencesDataSource.saveString(rememberEmail, email);
+      await secureStorageDataSource.write(rememberPassword, password);
+      return (null, null);
+    } catch (e) {
+      return (CacheFailure(e.toString()), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, UserEntity?)> signInWithGoogle() async {
+    try {
+      final userCredential = await authRemoteDataSource.signInWithGoogle();
+      final user = await userRemoteDataSource.createAndSaveUser(userCredential);
+
+      await userLocalDataSource.cacheUser(user.toIsarUserModel());
+
+      return (null, user);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    } on CacheException catch (e) {
+      return (CacheFailure(e.message), null);
+    } catch (e) {
+      return (ServerFailure(e.toString()), null);
+    }
+  }
+
+  @override
+  Future<(Failure?, void)> sendPasswordResetEmail(String email) async {
+    try {
+      await authRemoteDataSource.sendPasswordResetEmail(email);
+      return (null, null);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
     }
   }
 }
