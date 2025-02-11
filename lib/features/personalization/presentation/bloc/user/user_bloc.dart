@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:mystore/common/domain/entities/user_entity.dart';
 import 'package:mystore/common/domain/usecases/manage_user_use_case.dart';
 import 'package:mystore/common/domain/usecases/usecase.dart';
+import 'package:mystore/core/constants/enums.dart';
 
 part 'user_event.dart';
 part 'user_state.dart';
@@ -18,10 +19,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<UserEvent>((event, emit) async {
       await event.when(
         getUser: () async {
+          emit(state.copyWith(state: States.loading));
+
           final user = await _manageUserUseCase(const NoParams());
 
           if (user.$2 != null) {
-            emit(state.copyWith(user: user.$2!));
+            emit(state.copyWith(user: user.$2!, state: States.loaded));
           }
         },
       );

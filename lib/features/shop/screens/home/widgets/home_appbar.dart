@@ -5,8 +5,10 @@ import 'package:go_router/go_router.dart';
 import 'package:mystore/common/domain/entities/user_entity.dart';
 import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
 import 'package:mystore/core/common_widgets/widgets/product/cart/cart_menu_icon.dart';
+import 'package:mystore/core/common_widgets/widgets/shimmer/shimmer.dart';
 
 import 'package:mystore/core/constants/colors.dart';
+import 'package:mystore/core/constants/enums.dart';
 import 'package:mystore/core/constants/text_strings.dart';
 import 'package:mystore/core/routing/go_routes.dart';
 import 'package:mystore/features/personalization/presentation/bloc/user/user_bloc.dart';
@@ -31,13 +33,15 @@ class HomeAppBar extends StatelessWidget {
                 .labelMedium!
                 .apply(color: MyColors.grey),
           ),
-          Text(
-            bloc.state.user.fullName,
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .apply(color: MyColors.white),
-          ),
+          bloc.state.state == States.loading
+              ? const MyShimmerEffect(width: 80, height: 15)
+              : Text(
+                  bloc.state.user.fullName,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .apply(color: MyColors.white),
+                ),
         ],
       ),
       actions: [
