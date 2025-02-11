@@ -94,7 +94,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           phoneNumber,
           username,
         ) async {
-          emit(const AuthenticationState.initial());
+          emit(const AuthenticationState.loading());
 
           /// Checks the internet connection status using `isConnectedUseCase`.
           /// If there is no internet connection, emits an error state with the
@@ -203,7 +203,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
           }
         },
         checkEmailVerification: () async {
-          emit(const AuthenticationState.loading());
+          emit(const AuthenticationState.initial());
 
           final userStatus =
               await checkUserStatusUseCase.call(const NoParams());

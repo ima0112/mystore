@@ -13,7 +13,7 @@ class CheckUserStatusUseCase implements UseCase<UserStatus, NoParams> {
 
   @override
   Future<(Failure?, UserStatus?)> call(NoParams params) async {
-    final user = await repository.getCurrentUser();
+    final user = await repository.checkCurrentUserStatus();
 
     if (user.$1 != null) {
       return (user.$1, null);

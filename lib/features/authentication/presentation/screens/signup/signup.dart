@@ -21,11 +21,12 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen>
     with WidgetsBindingObserver {
-      
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      context.read<AuthenticationBloc>().add(const AuthenticationEvent.restore());
+      context
+          .read<AuthenticationBloc>()
+          .add(const AuthenticationEvent.restore());
     }
   }
 
