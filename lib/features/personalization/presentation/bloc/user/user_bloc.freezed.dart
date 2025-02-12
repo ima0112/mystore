@@ -19,32 +19,38 @@ mixin _$UserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getUser,
+    required TResult Function(String firstName, String lastName) updateUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getUser,
+    TResult? Function(String firstName, String lastName)? updateUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUser,
+    TResult Function(String firstName, String lastName)? updateUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetUser value) getUser,
+    required TResult Function(_UpdateUser value) updateUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetUser value)? getUser,
+    TResult? Function(_UpdateUser value)? updateUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetUser value)? getUser,
+    TResult Function(_UpdateUser value)? updateUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$GetUserImpl implements _GetUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getUser,
+    required TResult Function(String firstName, String lastName) updateUser,
   }) {
     return getUser();
   }
@@ -114,6 +121,7 @@ class _$GetUserImpl implements _GetUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getUser,
+    TResult? Function(String firstName, String lastName)? updateUser,
   }) {
     return getUser?.call();
   }
@@ -122,6 +130,7 @@ class _$GetUserImpl implements _GetUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUser,
+    TResult Function(String firstName, String lastName)? updateUser,
     required TResult orElse(),
   }) {
     if (getUser != null) {
@@ -134,6 +143,7 @@ class _$GetUserImpl implements _GetUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetUser value) getUser,
+    required TResult Function(_UpdateUser value) updateUser,
   }) {
     return getUser(this);
   }
@@ -142,6 +152,7 @@ class _$GetUserImpl implements _GetUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetUser value)? getUser,
+    TResult? Function(_UpdateUser value)? updateUser,
   }) {
     return getUser?.call(this);
   }
@@ -150,6 +161,7 @@ class _$GetUserImpl implements _GetUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetUser value)? getUser,
+    TResult Function(_UpdateUser value)? updateUser,
     required TResult orElse(),
   }) {
     if (getUser != null) {
@@ -164,9 +176,155 @@ abstract class _GetUser implements UserEvent {
 }
 
 /// @nodoc
+abstract class _$$UpdateUserImplCopyWith<$Res> {
+  factory _$$UpdateUserImplCopyWith(
+          _$UpdateUserImpl value, $Res Function(_$UpdateUserImpl) then) =
+      __$$UpdateUserImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String firstName, String lastName});
+}
+
+/// @nodoc
+class __$$UpdateUserImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$UpdateUserImpl>
+    implements _$$UpdateUserImplCopyWith<$Res> {
+  __$$UpdateUserImplCopyWithImpl(
+      _$UpdateUserImpl _value, $Res Function(_$UpdateUserImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstName = null,
+    Object? lastName = null,
+  }) {
+    return _then(_$UpdateUserImpl(
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateUserImpl implements _UpdateUser {
+  const _$UpdateUserImpl({required this.firstName, required this.lastName});
+
+  @override
+  final String firstName;
+  @override
+  final String lastName;
+
+  @override
+  String toString() {
+    return 'UserEvent.updateUser(firstName: $firstName, lastName: $lastName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateUserImpl &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, firstName, lastName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateUserImplCopyWith<_$UpdateUserImpl> get copyWith =>
+      __$$UpdateUserImplCopyWithImpl<_$UpdateUserImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getUser,
+    required TResult Function(String firstName, String lastName) updateUser,
+  }) {
+    return updateUser(firstName, lastName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getUser,
+    TResult? Function(String firstName, String lastName)? updateUser,
+  }) {
+    return updateUser?.call(firstName, lastName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getUser,
+    TResult Function(String firstName, String lastName)? updateUser,
+    required TResult orElse(),
+  }) {
+    if (updateUser != null) {
+      return updateUser(firstName, lastName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetUser value) getUser,
+    required TResult Function(_UpdateUser value) updateUser,
+  }) {
+    return updateUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetUser value)? getUser,
+    TResult? Function(_UpdateUser value)? updateUser,
+  }) {
+    return updateUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetUser value)? getUser,
+    TResult Function(_UpdateUser value)? updateUser,
+    required TResult orElse(),
+  }) {
+    if (updateUser != null) {
+      return updateUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateUser implements UserEvent {
+  const factory _UpdateUser(
+      {required final String firstName,
+      required final String lastName}) = _$UpdateUserImpl;
+
+  String get firstName;
+  String get lastName;
+  @JsonKey(ignore: true)
+  _$$UpdateUserImplCopyWith<_$UpdateUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$UserState {
   UserEntity get user => throw _privateConstructorUsedError;
-  States? get state => throw _privateConstructorUsedError;
+  Status? get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserStateCopyWith<UserState> get copyWith =>
@@ -178,7 +336,7 @@ abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
-  $Res call({UserEntity user, States? state});
+  $Res call({UserEntity user, Status? status});
 }
 
 /// @nodoc
@@ -195,17 +353,17 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   @override
   $Res call({
     Object? user = null,
-    Object? state = freezed,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserEntity,
-      state: freezed == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as States?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status?,
     ) as $Val);
   }
 }
@@ -218,7 +376,7 @@ abstract class _$$UserStateImplCopyWith<$Res>
       __$$UserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserEntity user, States? state});
+  $Res call({UserEntity user, Status? status});
 }
 
 /// @nodoc
@@ -233,17 +391,17 @@ class __$$UserStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = null,
-    Object? state = freezed,
+    Object? status = freezed,
   }) {
     return _then(_$UserStateImpl(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserEntity,
-      state: freezed == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as States?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status?,
     ));
   }
 }
@@ -252,18 +410,18 @@ class __$$UserStateImplCopyWithImpl<$Res>
 
 class _$UserStateImpl implements _UserState {
   const _$UserStateImpl(
-      {this.user = UserEntity.empty, this.state = States.initial});
+      {this.user = UserEntity.empty, this.status = Status.initial});
 
   @override
   @JsonKey()
   final UserEntity user;
   @override
   @JsonKey()
-  final States? state;
+  final Status? status;
 
   @override
   String toString() {
-    return 'UserState(user: $user, state: $state)';
+    return 'UserState(user: $user, status: $status)';
   }
 
   @override
@@ -272,11 +430,11 @@ class _$UserStateImpl implements _UserState {
         (other.runtimeType == runtimeType &&
             other is _$UserStateImpl &&
             (identical(other.user, user) || other.user == user) &&
-            (identical(other.state, state) || other.state == state));
+            (identical(other.status, status) || other.status == status));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, state);
+  int get hashCode => Object.hash(runtimeType, user, status);
 
   @JsonKey(ignore: true)
   @override
@@ -286,13 +444,13 @@ class _$UserStateImpl implements _UserState {
 }
 
 abstract class _UserState implements UserState {
-  const factory _UserState({final UserEntity user, final States? state}) =
+  const factory _UserState({final UserEntity user, final Status? status}) =
       _$UserStateImpl;
 
   @override
   UserEntity get user;
   @override
-  States? get state;
+  Status? get status;
   @override
   @JsonKey(ignore: true)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
