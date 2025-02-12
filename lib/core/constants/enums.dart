@@ -1,7 +1,15 @@
-enum TextSizes {small, medium, large}
+enum TextSizes { small, medium, large }
 
-enum OrderStatus {processing, shipped, delivered}
+enum OrderStatus { processing, shipped, delivered }
 
-enum PaymentMethod {paypal, googlePay, applePay, visa, masterCard, creditCard, stripe}
+enum PaymentMethod {
+  paypal,
+  googlePay,
+  applePay,
+  visa,
+  masterCard,
+  creditCard,
+  stripe
+}
 
-enum States {loading, loaded, error, initial}
+enum Status { loading, loaded, error, initial }
