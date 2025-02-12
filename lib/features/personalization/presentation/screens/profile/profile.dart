@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:iconsax/iconsax.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mystore/common/domain/entities/user_entity.dart';
 import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
 import 'package:mystore/core/common_widgets/widgets/images/circular_image.dart';
 import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
+import 'package:mystore/core/routing/go_routes.dart';
 import 'package:mystore/features/personalization/presentation/bloc/user/user_bloc.dart';
 
 import 'package:mystore/features/personalization/presentation/screens/profile/widgets/profile_menu.dart';
@@ -59,7 +59,9 @@ class ProfileScreen extends StatelessWidget {
               ProfileMenu(
                 title: 'Name',
                 value: bloc.state.user.fullName,
-                onPressed: () {},
+                onPressed: () {
+                  context.goNamed(MyRoutes.changeName.name);
+                },
               ),
               ProfileMenu(
                 title: 'Username',

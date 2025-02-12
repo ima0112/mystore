@@ -14,6 +14,7 @@ import 'package:mystore/features/authentication/presentation/screens/signup/veri
 import 'package:mystore/features/personalization/presentation/screens/address/address.dart';
 import 'package:mystore/features/personalization/presentation/screens/address/widgets/add_new_address.dart';
 import 'package:mystore/features/personalization/presentation/screens/profile/profile.dart';
+import 'package:mystore/features/personalization/presentation/screens/profile/widgets/change_name.dart';
 import 'package:mystore/features/personalization/presentation/screens/settings/settings.dart';
 import 'package:mystore/features/shop/screens/all_products/all_products.dart';
 import 'package:mystore/features/shop/screens/brand/all_brand.dart';
@@ -43,6 +44,7 @@ enum MyRoutes {
   wishlist,
   settings,
   profile,
+  changeName,
   productDetail,
   productReviews,
   address,
@@ -79,6 +81,7 @@ class AppRoute {
   static const String _wishlist = '/wishlist';
   static const String _settings = '/settings';
   static const String _profile = 'profile';
+  static const String _changeName = 'change_name';
   static const String _productDetail = 'product_detail';
   static const String _productReviews = 'product_reviews';
   static const String _address = 'address';
@@ -271,6 +274,13 @@ class AppRoute {
                 path: _profile,
                 name: MyRoutes.profile.name,
                 builder: (context, state) => const ProfileScreen(),
+                routes: [
+                  GoRoute(
+                    path: _changeName,
+                    name: MyRoutes.changeName.name,
+                    builder: (context, state) => const ChangeName(),
+                  ),
+                ],
               ),
               GoRoute(
                 path: _orders,
