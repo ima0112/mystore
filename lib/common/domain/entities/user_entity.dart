@@ -5,6 +5,7 @@ class UserEntity {
   final String username;
   final String phoneNumber;
   final String? photo;
+  final String? id;
 
   const UserEntity({
     required this.firstName,
@@ -13,6 +14,7 @@ class UserEntity {
     required this.phoneNumber,
     required this.email,
     this.photo,
+    this.id,
   });
 
   static const UserEntity empty = UserEntity(
@@ -21,12 +23,33 @@ class UserEntity {
     lastName: '',
     username: '',
     phoneNumber: '',
-    photo: null,
+    photo: null, 
+    id: null,
   );
 }
 
 extension UserEntityX on UserEntity {
   String get fullName => '$firstName $lastName';
+
+  UserEntity copyWith({
+    String? firstName,
+    String? lastName,
+    String? username,
+    String? phoneNumber,
+    String? email,
+    String? photo,
+    String? id,
+  }) {
+    return UserEntity(
+      id: id ?? this.id,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      username: username ?? this.username,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      email: email ?? this.email,
+      photo: photo ?? this.photo,
+    );
+  }
 }
 
 class UserAuthCredentials {
