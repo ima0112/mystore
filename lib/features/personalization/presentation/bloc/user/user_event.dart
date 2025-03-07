@@ -7,4 +7,7 @@ class UserEvent with _$UserEvent {
     required String firstName,
     required String lastName,
   }) = _UpdateUser;
+  const factory UserEvent.updateProfileImage({
+    required XFile image,
+  }) = _UpdateProfileImage;
 }
