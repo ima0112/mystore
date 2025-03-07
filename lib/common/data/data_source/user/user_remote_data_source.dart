@@ -11,6 +11,7 @@ abstract class UserRemoteDataSource {
   Future<void> updateUser(UserModel user);
   Future<UserModel> createAndSaveUser(UserCredential? userCredential);
   Future<User?> checkCurrentUserStatus();
+  Future<UserModel> updateSingleField(Map<String, dynamic> data);
   User? get currentUser;
 }
 
@@ -93,7 +94,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
         );
 
         await _firestore
-            .collection('users')
+            .collection(collectionName)
             .doc(userCredential.user!.uid)
             .set(user.toJson());
 
@@ -122,6 +123,26 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
       _currentUser = _firebaseAuth.currentUser;
     } catch (e) {
       throw ServerException('Error initializing current user: $e');
+    }
+  }
+
+  @override
+  Future<UserModel> updateSingleField(Map<String, dynamic> data) async {
+    try {
+      await _firestore
+          .collection(collectionName)
+          .doc(currentUser?.uid)
+          .update(data);
+
+      await _firebaseAuth.currentUser?.reload();
+      final userDoc = await _firestore
+          .collection(collectionName)
+          .doc(currentUser?.uid)
+          .get();
+
+      return UserModel.fromJson(userDoc.data()!).copyWithId(userDoc.id);
+    } catch (e) {
+      throw ServerException(e.toString());
     }
   }
 }
