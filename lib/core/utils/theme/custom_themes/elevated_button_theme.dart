@@ -6,9 +6,8 @@ class MyELevatedButtonTheme {
       elevation: 0,
       foregroundColor: Colors.white,
       backgroundColor: Colors.deepPurple,
-      disabledForegroundColor: Colors.grey,
-      disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: Colors.deepPurple),
+      disabledForegroundColor: Colors.black54,
+      disabledBackgroundColor: Colors.grey.shade300,
       padding: const EdgeInsets.symmetric(vertical: 18),
       textStyle: const TextStyle(
           fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
@@ -23,9 +22,8 @@ class MyELevatedButtonTheme {
       elevation: 0,
       foregroundColor: Colors.white,
       backgroundColor: Colors.deepPurple,
-      disabledForegroundColor: Colors.grey,
-      disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: Colors.deepPurple),
+      disabledForegroundColor: Colors.white70,
+      disabledBackgroundColor: Colors.grey.shade800,
       padding: const EdgeInsets.symmetric(vertical: 18),
       textStyle: const TextStyle(
           fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
