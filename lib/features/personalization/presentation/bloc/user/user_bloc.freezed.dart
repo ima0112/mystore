@@ -20,18 +20,21 @@ mixin _$UserEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getUser,
     required TResult Function(String firstName, String lastName) updateUser,
+    required TResult Function(XFile image) updateProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getUser,
     TResult? Function(String firstName, String lastName)? updateUser,
+    TResult? Function(XFile image)? updateProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUser,
     TResult Function(String firstName, String lastName)? updateUser,
+    TResult Function(XFile image)? updateProfileImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$UserEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetUser value) getUser,
     required TResult Function(_UpdateUser value) updateUser,
+    required TResult Function(_UpdateProfileImage value) updateProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetUser value)? getUser,
     TResult? Function(_UpdateUser value)? updateUser,
+    TResult? Function(_UpdateProfileImage value)? updateProfileImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetUser value)? getUser,
     TResult Function(_UpdateUser value)? updateUser,
+    TResult Function(_UpdateProfileImage value)? updateProfileImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$GetUserImpl implements _GetUser {
   TResult when<TResult extends Object?>({
     required TResult Function() getUser,
     required TResult Function(String firstName, String lastName) updateUser,
+    required TResult Function(XFile image) updateProfileImage,
   }) {
     return getUser();
   }
@@ -122,6 +129,7 @@ class _$GetUserImpl implements _GetUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getUser,
     TResult? Function(String firstName, String lastName)? updateUser,
+    TResult? Function(XFile image)? updateProfileImage,
   }) {
     return getUser?.call();
   }
@@ -131,6 +139,7 @@ class _$GetUserImpl implements _GetUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUser,
     TResult Function(String firstName, String lastName)? updateUser,
+    TResult Function(XFile image)? updateProfileImage,
     required TResult orElse(),
   }) {
     if (getUser != null) {
@@ -144,6 +153,7 @@ class _$GetUserImpl implements _GetUser {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetUser value) getUser,
     required TResult Function(_UpdateUser value) updateUser,
+    required TResult Function(_UpdateProfileImage value) updateProfileImage,
   }) {
     return getUser(this);
   }
@@ -153,6 +163,7 @@ class _$GetUserImpl implements _GetUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetUser value)? getUser,
     TResult? Function(_UpdateUser value)? updateUser,
+    TResult? Function(_UpdateProfileImage value)? updateProfileImage,
   }) {
     return getUser?.call(this);
   }
@@ -162,6 +173,7 @@ class _$GetUserImpl implements _GetUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetUser value)? getUser,
     TResult Function(_UpdateUser value)? updateUser,
+    TResult Function(_UpdateProfileImage value)? updateProfileImage,
     required TResult orElse(),
   }) {
     if (getUser != null) {
@@ -251,6 +263,7 @@ class _$UpdateUserImpl implements _UpdateUser {
   TResult when<TResult extends Object?>({
     required TResult Function() getUser,
     required TResult Function(String firstName, String lastName) updateUser,
+    required TResult Function(XFile image) updateProfileImage,
   }) {
     return updateUser(firstName, lastName);
   }
@@ -260,6 +273,7 @@ class _$UpdateUserImpl implements _UpdateUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getUser,
     TResult? Function(String firstName, String lastName)? updateUser,
+    TResult? Function(XFile image)? updateProfileImage,
   }) {
     return updateUser?.call(firstName, lastName);
   }
@@ -269,6 +283,7 @@ class _$UpdateUserImpl implements _UpdateUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getUser,
     TResult Function(String firstName, String lastName)? updateUser,
+    TResult Function(XFile image)? updateProfileImage,
     required TResult orElse(),
   }) {
     if (updateUser != null) {
@@ -282,6 +297,7 @@ class _$UpdateUserImpl implements _UpdateUser {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetUser value) getUser,
     required TResult Function(_UpdateUser value) updateUser,
+    required TResult Function(_UpdateProfileImage value) updateProfileImage,
   }) {
     return updateUser(this);
   }
@@ -291,6 +307,7 @@ class _$UpdateUserImpl implements _UpdateUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetUser value)? getUser,
     TResult? Function(_UpdateUser value)? updateUser,
+    TResult? Function(_UpdateProfileImage value)? updateProfileImage,
   }) {
     return updateUser?.call(this);
   }
@@ -300,6 +317,7 @@ class _$UpdateUserImpl implements _UpdateUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetUser value)? getUser,
     TResult Function(_UpdateUser value)? updateUser,
+    TResult Function(_UpdateProfileImage value)? updateProfileImage,
     required TResult orElse(),
   }) {
     if (updateUser != null) {
@@ -318,6 +336,147 @@ abstract class _UpdateUser implements UserEvent {
   String get lastName;
   @JsonKey(ignore: true)
   _$$UpdateUserImplCopyWith<_$UpdateUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateProfileImageImplCopyWith<$Res> {
+  factory _$$UpdateProfileImageImplCopyWith(_$UpdateProfileImageImpl value,
+          $Res Function(_$UpdateProfileImageImpl) then) =
+      __$$UpdateProfileImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({XFile image});
+}
+
+/// @nodoc
+class __$$UpdateProfileImageImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$UpdateProfileImageImpl>
+    implements _$$UpdateProfileImageImplCopyWith<$Res> {
+  __$$UpdateProfileImageImplCopyWithImpl(_$UpdateProfileImageImpl _value,
+      $Res Function(_$UpdateProfileImageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = null,
+  }) {
+    return _then(_$UpdateProfileImageImpl(
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as XFile,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateProfileImageImpl implements _UpdateProfileImage {
+  const _$UpdateProfileImageImpl({required this.image});
+
+  @override
+  final XFile image;
+
+  @override
+  String toString() {
+    return 'UserEvent.updateProfileImage(image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProfileImageImpl &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateProfileImageImplCopyWith<_$UpdateProfileImageImpl> get copyWith =>
+      __$$UpdateProfileImageImplCopyWithImpl<_$UpdateProfileImageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getUser,
+    required TResult Function(String firstName, String lastName) updateUser,
+    required TResult Function(XFile image) updateProfileImage,
+  }) {
+    return updateProfileImage(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getUser,
+    TResult? Function(String firstName, String lastName)? updateUser,
+    TResult? Function(XFile image)? updateProfileImage,
+  }) {
+    return updateProfileImage?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getUser,
+    TResult Function(String firstName, String lastName)? updateUser,
+    TResult Function(XFile image)? updateProfileImage,
+    required TResult orElse(),
+  }) {
+    if (updateProfileImage != null) {
+      return updateProfileImage(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetUser value) getUser,
+    required TResult Function(_UpdateUser value) updateUser,
+    required TResult Function(_UpdateProfileImage value) updateProfileImage,
+  }) {
+    return updateProfileImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetUser value)? getUser,
+    TResult? Function(_UpdateUser value)? updateUser,
+    TResult? Function(_UpdateProfileImage value)? updateProfileImage,
+  }) {
+    return updateProfileImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetUser value)? getUser,
+    TResult Function(_UpdateUser value)? updateUser,
+    TResult Function(_UpdateProfileImage value)? updateProfileImage,
+    required TResult orElse(),
+  }) {
+    if (updateProfileImage != null) {
+      return updateProfileImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateProfileImage implements UserEvent {
+  const factory _UpdateProfileImage({required final XFile image}) =
+      _$UpdateProfileImageImpl;
+
+  XFile get image;
+  @JsonKey(ignore: true)
+  _$$UpdateProfileImageImplCopyWith<_$UpdateProfileImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
