@@ -86,4 +86,17 @@ class UserRepositoryImpl implements UserRepository {
       return (ServerFailure(e.message), null);
     }
   }
+
+  @override
+  Future<(Failure?, UserEntity?)> updateSingleField(
+      Map<String, dynamic> data) async {
+    try {
+      final user = await _userRemoteDataSource.updateSingleField(data);
+      await _userLocalDataSource.cacheUser(user.toIsarUserModel());
+
+      return (null, user);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    }
+  }
 }

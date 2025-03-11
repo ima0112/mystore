@@ -10,4 +10,5 @@ abstract class UserRepository {
   Future<(Failure?, UserEntity?)> updateUser(UserEntity user);
   Future<(Failure?, User?)> getCurrentUser();
   Future<(Failure?, User?)> checkCurrentUserStatus();
+  Future<(Failure?, UserEntity?)> updateSingleField(Map<String, dynamic> data);
 }
