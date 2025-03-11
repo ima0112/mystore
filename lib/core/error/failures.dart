@@ -100,3 +100,12 @@ class UnexpectedFailure extends Failure {
 class InvalidFormFailure extends Failure {
   InvalidFormFailure(super.message, {super.code});
 }
+
+/// A class representing a failure that occurs during storage operations.
+/// 
+/// This class extends from the [Failure] class and is used to handle
+/// errors specifically related to storage operations, such as saving
+/// or retrieving data from a storage medium.
+class StorageFailure extends Failure {
+  StorageFailure(super.message, {super.code});
+}
