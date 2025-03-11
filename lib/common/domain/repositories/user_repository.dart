@@ -9,4 +9,5 @@ abstract class UserRepository {
   Future<(Failure?, UserEntity?)> getUser();
   Future<(Failure?, void)> updateUser(UserEntity user);
   Future<(Failure?, User?)> getCurrentUser();
+  Future<(Failure?, User?)> checkCurrentUserStatus();
 }

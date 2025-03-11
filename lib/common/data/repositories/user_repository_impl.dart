@@ -75,4 +75,15 @@ class UserRepositoryImpl implements UserRepository {
       return (ServerFailure(e.message), null);
     }
   }
+
+  @override
+  Future<(Failure?, User?)> checkCurrentUserStatus() async {
+    try {
+      final user = await _userRemoteDataSource.checkCurrentUserStatus();
+
+      return (null, user);
+    } on ServerException catch (e) {
+      return (ServerFailure(e.message), null);
+    }
+  }
 }

@@ -10,6 +10,7 @@ abstract class UserRemoteDataSource {
   Future<UserModel?> getUser();
   Future<void> updateUser(UserModel user);
   Future<UserModel> createAndSaveUser(UserCredential? userCredential);
+  Future<User?> checkCurrentUserStatus();
   User? get currentUser;
 }
 
@@ -100,6 +101,16 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
       } else {
         throw ServerException('UserCredential is null');
       }
+    } catch (e) {
+      throw ServerException(e.toString());
+    }
+  }
+
+  @override
+  Future<User?> checkCurrentUserStatus() async {
+    try {
+      await _firebaseAuth.currentUser?.reload();
+      return _firebaseAuth.currentUser;
     } catch (e) {
       throw ServerException(e.toString());
     }
