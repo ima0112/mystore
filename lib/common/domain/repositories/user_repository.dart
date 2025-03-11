@@ -6,8 +6,8 @@ abstract class UserRepository {
   Future<(Failure?, UserEntity?)> createAndSaveUser(
       UserCredential? userCredential);
   Future<(Failure?, UserEntity?)> saveUser(UserEntity user);
-  Future<(Failure?, UserEntity?)> getUser();
-  Future<(Failure?, void)> updateUser(UserEntity user);
+  (Failure?, UserEntity?) getUser();
+  Future<(Failure?, UserEntity?)> updateUser(UserEntity user);
   Future<(Failure?, User?)> getCurrentUser();
   Future<(Failure?, User?)> checkCurrentUserStatus();
 }

@@ -28,7 +28,7 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<(Failure?, UserEntity?)> getUser() async {
+  (Failure?, UserEntity?) getUser() {
     try {
       final user = _userLocalDataSource.getUser();
       return (null, user);
@@ -52,14 +52,14 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<(Failure?, void)> updateUser(UserEntity user) async {
+  Future<(Failure?, UserEntity?)> updateUser(UserEntity user) async {
     try {
       final model = UserModel.fromEntity(user);
 
-      await _userRemoteDataSource.updateUser(UserModel.fromEntity(model));
-      _userLocalDataSource.cacheUser(model.toIsarUserModel());
+      await _userRemoteDataSource.updateUser(model);
+      await _userLocalDataSource.cacheUser(model.toIsarUserModel());
 
-      return (null, null);
+      return (null, model);
     } on ServerException catch (e) {
       return (ServerFailure(e.message), null);
     }

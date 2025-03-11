@@ -12,6 +12,12 @@ class ManageUserUseCase implements UseCase<UserEntity, NoParams> {
 
   @override
   Future<(Failure?, UserEntity?)> call(NoParams params) async {
-    return await _userRepository.getUser();
+    throw UnimplementedError();
+  }
+
+  (Failure?, UserEntity?) getUser() => _userRepository.getUser();
+
+  Future<(Failure?, UserEntity?)> updateUser(UserEntity user) async {
+    return await _userRepository.updateUser(user);
   }
 }
