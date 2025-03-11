@@ -166,6 +166,7 @@ abstract class _GetUser implements UserEvent {
 /// @nodoc
 mixin _$UserState {
   UserEntity get user => throw _privateConstructorUsedError;
+  States? get state => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserStateCopyWith<UserState> get copyWith =>
@@ -177,7 +178,7 @@ abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
-  $Res call({UserEntity user});
+  $Res call({UserEntity user, States? state});
 }
 
 /// @nodoc
@@ -194,12 +195,17 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   @override
   $Res call({
     Object? user = null,
+    Object? state = freezed,
   }) {
     return _then(_value.copyWith(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserEntity,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as States?,
     ) as $Val);
   }
 }
@@ -212,7 +218,7 @@ abstract class _$$UserStateImplCopyWith<$Res>
       __$$UserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserEntity user});
+  $Res call({UserEntity user, States? state});
 }
 
 /// @nodoc
@@ -227,12 +233,17 @@ class __$$UserStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = null,
+    Object? state = freezed,
   }) {
     return _then(_$UserStateImpl(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserEntity,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as States?,
     ));
   }
 }
@@ -240,15 +251,19 @@ class __$$UserStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UserStateImpl implements _UserState {
-  const _$UserStateImpl({this.user = UserEntity.empty});
+  const _$UserStateImpl(
+      {this.user = UserEntity.empty, this.state = States.initial});
 
   @override
   @JsonKey()
   final UserEntity user;
+  @override
+  @JsonKey()
+  final States? state;
 
   @override
   String toString() {
-    return 'UserState(user: $user)';
+    return 'UserState(user: $user, state: $state)';
   }
 
   @override
@@ -256,11 +271,12 @@ class _$UserStateImpl implements _UserState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserStateImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.state, state) || other.state == state));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, user, state);
 
   @JsonKey(ignore: true)
   @override
@@ -270,10 +286,13 @@ class _$UserStateImpl implements _UserState {
 }
 
 abstract class _UserState implements UserState {
-  const factory _UserState({final UserEntity user}) = _$UserStateImpl;
+  const factory _UserState({final UserEntity user, final States? state}) =
+      _$UserStateImpl;
 
   @override
   UserEntity get user;
+  @override
+  States? get state;
   @override
   @JsonKey(ignore: true)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>

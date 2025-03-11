@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:iconsax/iconsax.dart';
+import 'package:mystore/common/domain/entities/user_entity.dart';
 import 'package:mystore/core/common_widgets/widgets/appbar/appbar.dart';
 import 'package:mystore/core/common_widgets/widgets/images/circular_image.dart';
 import 'package:mystore/core/common_widgets/widgets/texts/section_heading.dart';
+import 'package:mystore/features/personalization/presentation/bloc/user/user_bloc.dart';
 
 import 'package:mystore/features/personalization/presentation/screens/profile/widgets/profile_menu.dart';
 import 'package:mystore/core/constants/image_strings.dart';
@@ -14,6 +17,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.watch<UserBloc>();
+
     return Scaffold(
       appBar: const MyAppBar(
         showBackArrow: true,
@@ -53,12 +58,12 @@ class ProfileScreen extends StatelessWidget {
 
               ProfileMenu(
                 title: 'Name',
-                value: 'Jane Smith',
+                value: bloc.state.user.fullName,
                 onPressed: () {},
               ),
               ProfileMenu(
                 title: 'Username',
-                value: 'jane_smith',
+                value: bloc.state.user.username,
                 onPressed: () {},
               ),
 
@@ -74,19 +79,13 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: MySizes.spaceBtwItems),
 
               ProfileMenu(
-                title: 'User ID',
-                value: '45689',
-                icon: Iconsax.copy,
-                onPressed: () {},
-              ),
-              ProfileMenu(
                 title: 'E-mail',
-                value: 'janesmith@mail.com',
+                value: bloc.state.user.email,
                 onPressed: () {},
               ),
               ProfileMenu(
                 title: 'Phone Number',
-                value: '+1-234-567-8990',
+                value: bloc.state.user.phoneNumber,
                 onPressed: () {},
               ),
               ProfileMenu(
