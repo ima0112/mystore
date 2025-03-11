@@ -1,4 +1,12 @@
 class MyValidations {
+  static String? validateEmptyText(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field is required';
+    }
+
+    return null;
+  }
+
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email is required';

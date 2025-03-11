@@ -33,7 +33,7 @@ class HomeAppBar extends StatelessWidget {
                 .labelMedium!
                 .apply(color: MyColors.grey),
           ),
-          bloc.state.state == States.loading
+          bloc.state.status == Status.loading
               ? const MyShimmerEffect(width: 80, height: 15)
               : Text(
                   bloc.state.user.fullName,

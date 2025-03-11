@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mystore/core/common_widgets/widgets/loaders/animation_loader.dart';
 import 'package:mystore/core/constants/colors.dart';
 import 'package:mystore/core/utils/helpers/helper_functions.dart';
@@ -64,6 +65,6 @@ class MyFullScreenLoader {
   }
 
   static stopLoadingDialog(BuildContext context) {
-    Navigator.of(context).pop();
+    context.pop();
   }
 }
