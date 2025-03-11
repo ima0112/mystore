@@ -14,6 +14,7 @@ class IsarUserModel extends UserEntity {
 
   IsarUserModel({
     this.id,
+    super.photo,
     required super.firstName,
     required super.lastName,
     required super.email,
@@ -54,10 +55,11 @@ extension UserModelX on UserModel {
   IsarUserModel toIsarUserModel() {
     return IsarUserModel(
       id: id,
-      firstName: firstName,
-      lastName: lastName,
+      photo: photo,
       email: email,
+      lastName: lastName,
       username: username,
+      firstName: firstName,
       phoneNumber: phoneNumber,
     );
   }
@@ -65,12 +67,12 @@ extension UserModelX on UserModel {
   UserModel copyWithId(String id) {
     return UserModel(
       id: id,
-      firstName: firstName,
-      lastName: lastName,
       email: email,
-      username: username,
-      phoneNumber: phoneNumber,
       photo: photo,
+      username: username,
+      lastName: lastName,
+      firstName: firstName,
+      phoneNumber: phoneNumber,
     );
   }
 }
@@ -79,12 +81,12 @@ extension IsarUserModelX on IsarUserModel {
   UserModel toUserModel() {
     return UserModel(
       id: id,
-      firstName: firstName,
-      lastName: lastName,
+      photo: photo,
       email: email,
       username: username,
+      lastName: lastName,
+      firstName: firstName,
       phoneNumber: phoneNumber,
-      photo: photo,
     );
   }
 }
