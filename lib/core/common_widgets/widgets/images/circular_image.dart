@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mystore/core/common_widgets/widgets/shimmer/shimmer.dart';
 import 'package:mystore/core/constants/colors.dart';
 import 'package:mystore/core/constants/sizes.dart';
 
@@ -26,22 +28,14 @@ class MyCircularImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = MyHelperFunctions.isDarkMode(context);
-    return Container(
-      width: width,
-      height: height,
-      padding: EdgeInsets.all(padding),
-      decoration: BoxDecoration(
-        color: backgroundColor ?? (dark ? MyColors.black : MyColors.white),
-        borderRadius: BorderRadius.circular(100),
-      ),
-      child: Image(
-        fit: fit,
-        color: overlayColor,
-        image: isNetworkImage
-            ? NetworkImage(image)
-            : AssetImage(image) as ImageProvider,
-      ),
+    return CircleAvatar(
+      maxRadius: 40,
+      foregroundImage: isNetworkImage
+          ? CachedNetworkImageProvider(
+              image,
+            )
+          : AssetImage(image),
+      child: const MyShimmerEffect(width: 80, height: 80, radius: 80),
     );
   }
 }
