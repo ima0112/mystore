@@ -39,6 +39,7 @@ class UserModel extends UserEntity with _$UserModel {
 
   factory UserModel.fromEntity(UserEntity user) {
     return UserModel(
+      id: user.id,
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
